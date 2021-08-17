@@ -5,9 +5,17 @@
     <ul>
     {% for recipe in recipes %}
         <li>
-        {{ recipe.name }}
-        </li><li>
-        {{ recipe.descr  }}
+        {{ recipe.name }}  &nbsp; {{ recipe.descr }} 
+        </li>
+        <li>
+            {% for ingredient in recipe.ingredients %}
+                {{ ingredient }}
+            {% endfor%}
+        </li>
+        <li>
+            {% for method in recipe.method %}
+                {{ method.step }} : {{ method.descr }}
+            {% endfor%}
         </li>
     {% endfor %}
     </ul>
