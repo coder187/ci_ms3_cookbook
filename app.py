@@ -58,7 +58,7 @@ def login():
                     my_recipes = list(mongo.db.recipes.find())
                     my_pinned = list(mongo.db.recipes.find())
                     # end try
-                    return render_template("mycookbook.html",username=session["user"],my_recipes=my_recipes)
+                    return render_template("mycookbook.html",username=session["user"],my_recipes=my_recipes, my_pinned = my_pinned)
             else:
                 flash("Username and/or Password Incorrect")
         else:

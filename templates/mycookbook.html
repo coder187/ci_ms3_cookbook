@@ -6,5 +6,11 @@
         <p>{{ recipe.name }}</p>
         <p>{{ recipe.descr }} </p>
     {% endfor %}
+
+    {% for recipe in my_pinned %}
+    <p>{{ recipe.name }}</p>
+    <p>{{ recipe.descr }} </p>
+{% endfor %}
+
     
 {% endblock%}
