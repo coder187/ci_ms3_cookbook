@@ -20,7 +20,8 @@
             <li> {{ method.step }} : {{ method.descr }}</li>
             {% endfor%}
         </ul>
-        <img src="{{ recipe.image_url }}" alt="Girl in a jacket" width="200" height="200">
+        <img src="{{ recipe.image_url }}" alt="recipe image" width="200" height="200">
+        <h6>Added By: {{ recipe.added_by }}, {{ recipe.added }} </h6>   
     {% endfor %}
     </ul>
     
