@@ -39,7 +39,7 @@ def login():
                 existing_user["password"],request.form.get("password")):
                     flash("Welcome, {}".format(request.form.get("username")))
                     session["user"] = request.form.get("username").lower()
-                    return render_template("profile.html",username=session["user"])
+                    return render_template("mycookbook.html",username=session["user"])
             else:
                 flash("Username and/or Password Incorrect")
         else:
@@ -47,6 +47,12 @@ def login():
 
     return render_template("login.html")
 
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 @app.route("/register.html", methods=['POST', 'GET'])
 def register():
