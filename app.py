@@ -27,6 +27,51 @@ def get_recipes():
 
     return render_template("get_recipes.html", recipes=recipes)
 
+
+@app.route("/login.html", methods=['POST', 'GET'])
+def login():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"],request.form.get("password")):
+                    flash("Welcome, {}".format(request.form.get("username")))
+                    session["user"] = request.form.get("username").lower()
+                    return render_template("profile.html",username=session["user"])
+            else:
+                flash("Username and/or Password Incorrect")
+        else:
+            flash("Username and/or Password Incorrect")
+
+    return render_template("login.html")
+
+
+@app.route("/register.html", methods=['POST', 'GET'])
+def register():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        
+        if existing_user:
+            flash("Username already exists!")
+            return redirect(url_for("register"))
+        
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "email": request.form.get("email").lower()
+            }
+        mongo.db.users.insert_one(register)
+
+        session["user"] = request.form.get("username").lower()
+        flash("Reistration Successful")
+        return render_template("mycookbook.html",username=session["user"])
+    
+    return render_template("register.html")
+
+
 # set host and ip from env.py
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

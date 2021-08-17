@@ -190,6 +190,10 @@ To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the 
   * [Stackoverflow](https://stackoverflow.com/) for help with debugging css and javascript.
   * 404 redirect functionality from [Slack post](https://app.slack.com/client/T0L30B202/C7J2ZAVHB/thread/C7J2ZAVHB-1598280091.096500)
 
+    password validation:
+    http://jsfiddle.net/SirusDoma/ayf832td/
+
+    
 ### Content
 The website 
 

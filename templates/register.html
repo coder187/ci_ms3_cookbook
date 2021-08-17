@@ -1,0 +1,54 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="row">
+    <h3 class="center-align">Register</h3>
+
+    <form class="col s8 offset-m2" action="register.html" method="POST">
+      <div class="card-panel">
+          <!-- Username-->
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <input id="username" name="username" type="text" pattern="^[a-zA-Z0-9]{5,15}$" 
+                  minlength="5" maxlength="15" class="validate tooltipped" required
+                  data-position="bottom" data-tooltip="min 5, max 15 chars. a-z,0-9">
+                <label for="username">Username</label>
+              </div>
+          </div>
+          <!-- Email-->
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-envelope-square prefix light-blue-text text-darken-4"></i>
+                <input id="email" name="email" type="email" class="validate" required>
+                <label for="email">Email</label>
+              </div>
+          </div>
+          <!-- Password -->
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                <input id="password" name="password" type="password" pattern="^[a-zA-Z0-9]{5,15}$" 
+                  minlength="5" maxlength="15" class="validate tooltipped" required
+                  data-position="bottom" data-tooltip="min 5, max 15 chars. a-z,0-9">
+                <label for="password">Password</label>
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                <input id="passconf" name="passconf" type="password" pattern="^[a-zA-Z0-9]{5,15}$" minlength="5" maxlength="15" class="validate" required>
+                <label for="passconf">Re-Type Password</label>
+            </div>
+          </div>
+          <!-- Register -->
+          <div class="row">
+            <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                Register <i class="fas fa-sign-in-alt"></i>
+            </button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
