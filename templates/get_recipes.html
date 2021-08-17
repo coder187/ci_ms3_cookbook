@@ -2,21 +2,26 @@
 
     <h3> Recipes List </h3> 
 {% block content %}
-    <ul>
+    
     {% for recipe in recipes %}
-        <li>
-        {{ recipe.name }}  &nbsp; {{ recipe.descr }} 
-        </li>
-        <li>
+        
+        <p>{{ recipe.name }}</p>
+        <p>{{ recipe.descr }} </p>
+        <ul>
+            
             {% for ingredient in recipe.ingredients %}
-                {{ ingredient }}
+            <li> {{ ingredient }} </li>
             {% endfor%}
-        </li>
-        <li>
+            
+        </ul>
+        <ul>
+        
             {% for method in recipe.method %}
-                {{ method.step }} : {{ method.descr }}
+            <li> {{ method.step }} : {{ method.descr }}</li>
             {% endfor%}
-        </li>
+        </ul>
+        <img src="{{ recipe.image_url }}" alt="Girl in a jacket" width="200" height="200">
     {% endfor %}
     </ul>
+    
 {% endblock %}
