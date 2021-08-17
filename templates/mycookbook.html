@@ -1,4 +1,10 @@
 {% extends "base.html"%}
 {% block content%}
-    <h3>Welcome, {{ session["user"] }}</h3>
+    <h3>Cookbook for: {{ username }}</h3>
+
+    {% for recipe in my_recipes %}
+        <p>{{ recipe.name }}</p>
+        <p>{{ recipe.descr }} </p>
+    {% endfor %}
+    
 {% endblock%}

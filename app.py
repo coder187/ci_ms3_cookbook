@@ -28,6 +28,18 @@ def get_recipes():
     return render_template("get_recipes.html", recipes=recipes)
 
 
+@app.route("/mycookbook/<username>", methods=['POST', 'GET'])
+def mycookbook(username):
+    
+    if session.get('user'):
+        my_recipes = list(mongo.db.recipes.find())
+        my_pinned = list(mongo.db.recipes.find())
+        return render_template("mycookbook.html",username=session["user"], my_recipes = my_recipes)
+    
+    # if not auhtenitcated redirect to login page
+    return redirect(url_for("login"))
+
+
 @app.route("/login.html", methods=['POST', 'GET'])
 def login():
     if request.method == "POST":
@@ -39,7 +51,14 @@ def login():
                 existing_user["password"],request.form.get("password")):
                     flash("Welcome, {}".format(request.form.get("username")))
                     session["user"] = request.form.get("username").lower()
-                    return render_template("mycookbook.html",username=session["user"])
+
+                    my_recipes = []
+                    my_pinned = []
+                    # try catch here
+                    my_recipes = list(mongo.db.recipes.find())
+                    my_pinned = list(mongo.db.recipes.find())
+                    # end try
+                    return render_template("mycookbook.html",username=session["user"],my_recipes=my_recipes)
             else:
                 flash("Username and/or Password Incorrect")
         else:
