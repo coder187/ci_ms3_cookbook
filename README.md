@@ -42,17 +42,17 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 ## Skeleton
 
 ### Wireframes
-  * Register Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/register.png)
+  * Register Mobile [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Register.png)
 
-  * Login Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Login.png)
+  * Login Mobile [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Login.png)
 
-  * Profile Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Profile%20(MyCookBook).png)
+  * Profile Mobile [View]https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Profile%20(MyCookBook).png)
 
-  * Add/Edit Recipe Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Mobile%20Add_Edit%20Recipe.png)
+  * Add/Edit Recipe Mobile [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Mobile%20Add_Edit%20Recipe.png)
 
-  * Mobile Recipe [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Mobile%20Recipe%20Page.png)
+  * Mobile Recipe [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Mobile%20Recipe%20Page.png)
   
-  * Mobile Home [View](  https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Mobile%20Home.png)
+  * Mobile Home [View]( https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Mobile%20Home.png)
 
 
     Home Page: Main Page with search function.
