@@ -42,16 +42,25 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 ## Skeleton
 
 ### Wireframes
-  * Home Page Mobile [View](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/wireframes/Home%20Page%20-%20Mobile.png)
-  * Home Page Desktop [View](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/wireframes/Home%20Page%20-%20Desktop.png)
+  * Register Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/register.png)
 
-  * Signup Mobile [View](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/wireframes/Sign%20Up%20-%20Mobile.png)
-  * Signup Desktop [View](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/wireframes/Sign%20Up%20Page%20-%20Desktop.png)
+  * Login Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Login.png)
+
+  * Profile Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Profile%20(MyCookBook).png)
+
+  * Add/Edit Recipe Mobile [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Mobile%20Add_Edit%20Recipe.png)
+
+  * Mobile Recipe [View](https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Mobile%20Recipe%20Page.png)
+  
+  * Mobile Home [View](  https://github.com/coder187/ci_ms3_cookbook/blob/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Mobile%20Home.png)
+
 
     Home Page: Main Page with search function.
-    Sign Up Page. 
+    Register. 
     Login Page.
     Profile Page (MyCookBook): List of the users recipes. List of Users pinned recipes.
+    Recipe Page: Show Recipe
+    Add/Edit Recipe:    
     Admin Page: Add Edit Allergens List / Add Edit Tags List. Delete Recipe. Delete User.
         
 
