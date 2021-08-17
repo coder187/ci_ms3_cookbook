@@ -46,7 +46,7 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 
   * Login Mobile [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Login.png)
 
-  * Profile Mobile [View]https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Profile%20(MyCookBook).png)
+  * Profile Mobile [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/Profile%20(MyCookBook).png)
 
   * Add/Edit Recipe Mobile [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Mobile%20Add_Edit%20Recipe.png)
 
