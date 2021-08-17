@@ -21,11 +21,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/recipes")
-def recipes():
+@app.route("/get_recipes.html")
+def get_recipes():
     recipes = list(mongo.db.recipes.find())
 
-    return render_template("recipes.html", recipes=recipes)
+    return render_template("get_recipes.html", recipes=recipes)
 
 # set host and ip from env.py
 if __name__ == "__main__":
