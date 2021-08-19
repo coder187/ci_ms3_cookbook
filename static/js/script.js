@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: 'right'});
     $('.tooltipped').tooltip();
+    $('select').formSelect();
+
     });
 
     $("#password").on("focusout", function (e) {

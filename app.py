@@ -20,6 +20,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def get_allergens():
+    """
+    return an ordered 
+    list of Allergens
+    from the database
+    """
+    return list(mongo.db.allergens.find().sort("allergen", 1))
+
+
 @app.route("/")
 @app.route("/get_recipes.html")
 def get_recipes():
@@ -27,7 +36,17 @@ def get_recipes():
 
     return render_template("get_recipes.html", recipes=recipes)
 
-
+@app.route("/add_recipe.html", methods=['POST', 'GET'])
+def add_recipe():
+    allergens = get_allergens()
+    print("add recipe")
+    for a in allergens:
+        print("in loop")
+        print(a)
+        # print (a.allergen)
+        print(a["allergen"])
+    return render_template("add_recipe.html",allergens=allergens)
+     
 @app.route("/mycookbook/<username>", methods=['POST', 'GET'])
 def mycookbook(username):
     
