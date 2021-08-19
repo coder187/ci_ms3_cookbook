@@ -1,10 +1,12 @@
 $(document).ready(function(){
     $('.sidenav').sidenav({edge: 'right'});
     $('.tooltipped').tooltip();
-    $('select').formSelect();
-
+    $('select').formSelect();   
     });
 
+
+
+// compare password and confirm password fields
     $("#password").on("focusout", function (e) {
         if ($(this).val() != $("#passconf").val()) {
             $("#passconf").removeClass("valid").addClass("invalid");

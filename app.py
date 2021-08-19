@@ -1,9 +1,10 @@
 import os
 from flask import (Flask, flash, render_template, redirect,
-                    request, session, url_for)
+                   request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date
 if os.path.exists("env.py"):
     import env
 
@@ -15,14 +16,13 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBANME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-# We need to setup an instance of PyMongo, 
-# and add the app into that using something called a constructor method, so type:
+
 mongo = PyMongo(app)
 
 
 def get_allergens():
     """
-    return an ordered 
+    return an ordered
     list of Allergens
     from the database
     """
@@ -36,17 +36,25 @@ def get_recipes():
 
     return render_template("get_recipes.html", recipes=recipes)
 
+
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
     allergens = get_allergens()
-    print("add recipe")
-    for a in allergens:
-        print("in loop")
-        print(a)
-        # print (a.allergen)
-        print(a["allergen"])
-    return render_template("add_recipe.html",allergens=allergens)
-     
+
+    if request.method == "POST":
+        recipe = {
+            "name": request.form.get("recipe_name"),
+            "descr": request.form.get("recipe_descr"),
+            "added_by": "jonathan",
+            "added": "",
+            "allergens": request.form.getlist("allergens")           
+        }
+
+        mongo.db.recipes.insert_one(recipe)
+
+    return render_template("add_recipe.html", allergens=allergens)
+
+
 @app.route("/mycookbook/<username>", methods=['POST', 'GET'])
 def mycookbook(username):
     
