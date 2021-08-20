@@ -40,11 +40,12 @@ def get_recipes():
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
     allergens = get_allergens()
-    ingredients = ["ingredient1","ingredient2","ingredient3","ingredient4"]
-
+    
     if request.method == "POST":
         method_steps = request.form.getlist("method[]")
- 
+        # ingredients = ["ingredient1","ingredient2","ingredient3","ingredient4"]
+        ingredients = request.form.getlist("ing[]")
+
         recipe = {
             "name": request.form.get("recipe_name"),
             "descr": request.form.get("recipe_descr"),

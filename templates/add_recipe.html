@@ -91,7 +91,7 @@ function GetLastStepNo(){
     for (var i=0; i < divChildren.length; i++) {
       let str = divChildren[i].id;
       if (typeof str !== 'undefined'){
-        if (str.includes("step_no")) {
+        if (str.includes("ing_")) {
           x++;
         } 
       }
@@ -103,6 +103,8 @@ function GetLastStepNo(){
         ingCont = document.getElementById('ingredients-container')
         // Create a break line element
         let br = document.createElement("br"); 
+        br.setAttribute("id","br_" + num);
+
         let no = document.createElement("input");
         no.setAttribute("type", "text");
         no.setAttribute("id", "ing_" + num);
@@ -117,16 +119,27 @@ function GetLastStepNo(){
         but.setAttribute("class","btn-floating btn-small waves-effect waves-light red")
         but.innerHTML= "<i class='far fa-minus-square'></i>"
 
+        let butAdd = document.createElement("button")
+        butAdd.setAttribute("type","button")
+        butAdd.setAttribute("id","but_add_" + num)
+        butAdd.setAttribute("name", "but_add_"+ num);
+        butAdd.setAttribute("onclick","addIngredient(GetLastStepNo()+1);")
+        butAdd.setAttribute("class","btn-floating btn-small waves-effect waves-light green")
+        butAdd.innerHTML= "<i class='far fa-plus-square'></i>"
+
         
         ingCont.appendChild(br);
         ingCont.appendChild(no);
         ingCont.appendChild(but);
+        ingCont.appendChild(butAdd);
         
     }
 
     function removeIngredient(stepno){
-        let b = document.getElementById("but_" + stepno).remove();
-        let t = document.getElementById("ing_" + stepno).remove();
+        document.getElementById("but_" + stepno).remove();
+        document.getElementById("ing_" + stepno).remove();
+        document.getElementById("but_add_" + stepno).remove();
+        document.getElementById("br_" + stepno).remove();
     }
 
 </script>    
