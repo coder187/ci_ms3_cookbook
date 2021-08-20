@@ -32,12 +32,23 @@
                 <select id="allergens" name="allergens" class="validate" multiple required>
                     <option value="" disabled selected>Choose allergens</option>
                     {% for allergen in allergens %}
-                    <option value="{{allergen.allergen}}">{{allergen.allergen}}</option>
+                        <option value="{{allergen.allergen}}">{{allergen.allergen}}</option>
                     {% endfor %}
                 </select>
                 <label for="category_name">Select Allergens</label>
             </div>
         </div>
+        <div class="row">
+            <div class="col s12">
+                <fieldset>
+                    <legend>Add Ingredients:</legend>
+                    <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo()+1);"><i class="far fa-plus-square"></i></button>
+                    <div id="ingredients-container">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
         <!-- METHOD ONE -->
         <div class="row">
             <div class="input-field col s12">
@@ -67,5 +78,56 @@
 
     </form>
 
-    
+<script>
+function GetLastStepNo(){
+  Cont = document.getElementById('ingredients-container')
+  divChildren = Cont.childNodes;
+  
+  let x = 0;
+  if (divChildren.length == 0) {
+    return 0;
+  }
+  else {
+    for (var i=0; i < divChildren.length; i++) {
+      let str = divChildren[i].id;
+      if (typeof str !== 'undefined'){
+        if (str.includes("step_no")) {
+          x++;
+        } 
+      }
+    }
+  }
+  return x;
+}
+    function addIngredient(num){
+        ingCont = document.getElementById('ingredients-container')
+        // Create a break line element
+        let br = document.createElement("br"); 
+        let no = document.createElement("input");
+        no.setAttribute("type", "text");
+        no.setAttribute("id", "ing_" + num);
+        no.setAttribute("name", "ing[]");
+        no.setAttribute("placeholder", "add your ingredient here");
+
+        let but = document.createElement("button")
+        but.setAttribute("type","button")
+        but.setAttribute("id","but_" + num)
+        but.setAttribute("name", "but_"+ num);
+        but.setAttribute("onclick","removeIngredient(" + num +");")
+        but.setAttribute("class","btn-floating btn-small waves-effect waves-light red")
+        but.innerHTML= "<i class='far fa-minus-square'></i>"
+
+        
+        ingCont.appendChild(br);
+        ingCont.appendChild(no);
+        ingCont.appendChild(but);
+        
+    }
+
+    function removeIngredient(stepno){
+        let b = document.getElementById("but_" + stepno).remove();
+        let t = document.getElementById("ing_" + stepno).remove();
+    }
+
+</script>    
 {% endblock%}
