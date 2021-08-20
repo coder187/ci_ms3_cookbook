@@ -17,7 +17,7 @@
         <ul>
         
             {% for method in recipe.method %}
-            <li> {{ method.step }} : {{ method.descr }}</li>
+            <li> Step {{ loop.index }} : {{ method }}</li>
             {% endfor%}
         </ul>
         <img src="{{ recipe.image_url }}" alt="recipe image" width="200" height="200">
