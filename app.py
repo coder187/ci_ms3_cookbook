@@ -40,17 +40,29 @@ def get_recipes():
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
     allergens = get_allergens()
+    ingredients = ["ingredient1","ingredient2","ingredient3","ingredient4"]
 
     if request.method == "POST":
+        method = request.form.getlist("method[]")
+        for m in method:
+            print(m)
+
         recipe = {
             "name": request.form.get("recipe_name"),
             "descr": request.form.get("recipe_descr"),
             "added_by": "jonathan",
             "added": "",
-            "allergens": request.form.getlist("allergens")           
+            "allergens": request.form.getlist("allergens"),
+            "image_url" : url_for("static", filename="images/noimage.png"),
+            "ingredients": ingredients,
+            "method": [
+                {"step":1,"descr":"this step 1"},
+                {"step":2,"descr":"this step 2"},
+                {"step":3,"descr":"this step 3"}
+            ]      
         }
 
-        mongo.db.recipes.insert_one(recipe)
+        # mongo.db.recipes.insert_one(recipe)
 
     return render_template("add_recipe.html", allergens=allergens)
 

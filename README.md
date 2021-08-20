@@ -181,6 +181,14 @@ To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the 
 
 ## Known Bugs
 *
+note: method order
+https://www.w3.org/TR/html401/interact/forms.html#form-data-set
+states that name value pairs will be read as they appear in the docunent
+
+Python arrays persist their order
+
+MongoDB Persists the order of Array type fields
+https://docs.mongodb.com/manual/core/document/#document-field-order
 
 ## Credits
 ### Code
@@ -189,10 +197,11 @@ To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the 
   
   * [Stackoverflow](https://stackoverflow.com/) for help with debugging css and javascript.
   * 404 redirect functionality from [Slack post](https://app.slack.com/client/T0L30B202/C7J2ZAVHB/thread/C7J2ZAVHB-1598280091.096500)
+  * no inmage place holder from iStockPhoto.com
 
     password validation:
     http://jsfiddle.net/SirusDoma/ayf832td/
-
+    
     
 ### Content
 The website 
