@@ -42,8 +42,7 @@ def add_recipe():
     allergens = get_allergens()
     
     if request.method == "POST":
-        method_steps = request.form.getlist("method[]")
-        # ingredients = ["ingredient1","ingredient2","ingredient3","ingredient4"]
+        method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
 
         recipe = {

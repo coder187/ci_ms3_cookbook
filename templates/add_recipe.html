@@ -38,12 +38,24 @@
                 <label for="category_name">Select Allergens</label>
             </div>
         </div>
+        <!-- Ingredients -->
         <div class="row">
             <div class="col s12">
                 <fieldset>
                     <legend>Add Ingredients:</legend>
-                    <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo()+1);"><i class="far fa-plus-square"></i></button>
+                    <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo('ingredients-container')+1,'ingredients-container');"><i class="far fa-plus-square"></i></button>
                     <div id="ingredients-container">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <!-- Method -->
+        <div class="row">
+            <div class="col s12">
+                <fieldset>
+                    <legend>Method:</legend>
+                    <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo('method-container')+1,'method-container');"><i class="far fa-plus-square"></i></button>
+                    <div id="method-container">
                     </div>
                 </fieldset>
             </div>
@@ -57,32 +69,24 @@
                     required>
                 <label for="method[]">1st</label>
             </div>
-        </div><!-- METHOD TWO -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="method[]" type="text" name="method[]" minlength="5" maxlength="50" class="validate"
-                    required>
-                <label for="method[]">"2nd"</label>
-            </div>
-        </div><!-- METHOD THREE -->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="method[]" type="text" name="method[]" minlength="5" maxlength="50" class="validate"
-                    required>
-                <label for="method[]">3rd</label>
-            </div>
-        </div>
+        
         <button type="submit">Add</button>
 
     </form>
 
 <script>
-function GetLastStepNo(){
-  Cont = document.getElementById('ingredients-container')
+function GetLastStepNo(container){
+    searchstr = "ing_";
+    if (container != "ingredients-container" )
+        {
+            searchstr = "meth_";
+        }
+
+  Cont = document.getElementById(container)
+
   divChildren = Cont.childNodes;
-  
+
+
   let x = 0;
   if (divChildren.length == 0) {
     return 0;
@@ -91,7 +95,7 @@ function GetLastStepNo(){
     for (var i=0; i < divChildren.length; i++) {
       let str = divChildren[i].id;
       if (typeof str !== 'undefined'){
-        if (str.includes("ing_")) {
+        if (str.includes(searchstr)) {
           x++;
         } 
       }
@@ -99,31 +103,46 @@ function GetLastStepNo(){
   }
   return x;
 }
-    function addIngredient(num){
-        ingCont = document.getElementById('ingredients-container')
+    function addIngredient(num,container){
+        //use this function to add form control for both
+        //ingredients and method steps
+        let arr= 'ing';
+        let button_delete = 'but_';
+        let button_add ='but_add_';
+        let br_element = "br_";
+        let placeholder_text = "add your ingredient here";
+        if (container != 'ingredients-container'){
+            arr = 'meth';
+            button_delete = 'mbut_';
+            button_add = 'mbut_add_';
+            br_element = "mbr_";
+            placeholder_text = "add your method step here";
+        }
+
+        ingCont = document.getElementById(container)
         // Create a break line element
         let br = document.createElement("br"); 
-        br.setAttribute("id","br_" + num);
+        br.setAttribute("id",br_element + num);
 
         let no = document.createElement("input");
         no.setAttribute("type", "text");
-        no.setAttribute("id", "ing_" + num);
-        no.setAttribute("name", "ing[]");
-        no.setAttribute("placeholder", "add your ingredient here");
+        no.setAttribute("id", arr + "_" + num);
+        no.setAttribute("name", arr +"[]");
+        no.setAttribute("placeholder", placeholder_text);
 
         let but = document.createElement("button")
         but.setAttribute("type","button")
-        but.setAttribute("id","but_" + num)
-        but.setAttribute("name", "but_"+ num);
-        but.setAttribute("onclick","removeIngredient(" + num +");")
+        but.setAttribute("id",button_delete + num)
+        but.setAttribute("name", button_delete + num);
+        but.setAttribute("onclick","removeIngredient(" + num +",'" + container +"');")
         but.setAttribute("class","btn-floating btn-small waves-effect waves-light red")
         but.innerHTML= "<i class='far fa-minus-square'></i>"
 
         let butAdd = document.createElement("button")
         butAdd.setAttribute("type","button")
-        butAdd.setAttribute("id","but_add_" + num)
-        butAdd.setAttribute("name", "but_add_"+ num);
-        butAdd.setAttribute("onclick","addIngredient(GetLastStepNo()+1);")
+        butAdd.setAttribute("id",button_add + num)
+        butAdd.setAttribute("name", button_add + num);
+        butAdd.setAttribute("onclick","addIngredient(GetLastStepNo('" + container +"')+1,'" + container +"');")
         butAdd.setAttribute("class","btn-floating btn-small waves-effect waves-light green")
         butAdd.innerHTML= "<i class='far fa-plus-square'></i>"
 
@@ -135,11 +154,23 @@ function GetLastStepNo(){
         
     }
 
-    function removeIngredient(stepno){
-        document.getElementById("but_" + stepno).remove();
-        document.getElementById("ing_" + stepno).remove();
-        document.getElementById("but_add_" + stepno).remove();
-        document.getElementById("br_" + stepno).remove();
+    function removeIngredient(stepno,container){
+        let arr= 'ing_';
+        let button_delete = 'but_';
+        let button_add ='but_add_';
+        let bre = "br_";
+
+        
+        if (container != "ingredients-container"){
+            arr= 'meth_';
+            button_delete = 'mbut_';
+            button_add ='mbut_add_';
+            bre = "mbr_";
+        }
+        document.getElementById(arr + stepno).remove();
+        document.getElementById(button_delete + stepno).remove();
+        document.getElementById(button_add + stepno).remove();
+        document.getElementById(bre + stepno).remove();
     }
 
 </script>    
