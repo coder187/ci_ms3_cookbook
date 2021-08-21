@@ -40,7 +40,7 @@ def get_recipes():
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
     allergens = get_allergens()
-    
+
     if request.method == "POST":
         method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
@@ -51,6 +51,8 @@ def add_recipe():
             "added_by": "jonathan",
             "added": "",
             "allergens": request.form.getlist("allergens"),
+            "difficulty": request.form.get("difficulty"),
+            "serves": request.form.get("serves"),
             "image_url" : url_for("static", filename="images/noimage.png"),
             "ingredients": ingredients,
             "method": method_steps
