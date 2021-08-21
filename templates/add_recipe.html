@@ -38,9 +38,10 @@
                 <label for="category_name">Select Allergens</label>
             </div>
         </div>
+
         <!-- Select Serves -->
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col l3">
                 <i class="fas fa-cookie-bite prefix light-blue-text text-darken-4"></i>
                 <select id="serves" name="serves" class="validate" required>
                     <option value="" disabled selected>Serves</option>
@@ -50,10 +51,9 @@
                 </select>
                 <label for="serves">Serves</label>
             </div>
-        </div>
-        <!-- Select Difficulty -->
-        <div class="row">
-            <div class="input-field col s12">
+
+            <!-- Select Difficulty -->
+            <div class="input-field col l3">
                 <i class="fas fa-cookie prefix light-blue-text text-darken-4"></i>
                 <select id="difficulty" name="difficulty" class="validate" required>
                     <option value="" disabled selected>Choose Difficulty</option>
@@ -61,9 +61,22 @@
                         <option value="Mediun">Mediun</option>
                         <option value="Hard">Hard</option>
                 </select>
-                <label for="difficulty">Select Allergens</label>
+                <label for="difficulty">Select Difficulty</label>
+            </div>
+            <!-- Prep Time -->
+            <div class="input-field col l3">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="prep_time" type="text" name="prep_time" minlength="5" maxlength="10" class="validate">
+                <label for="prep_time">Prep Time</label>
+            </div>
+            <!-- Cook Time -->
+            <div class="input-field col l3">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="cook_time" type="text" name="cook_time" minlength="5" maxlength="50" class="validate">
+                <label for="cook_time">Cook Time</label>
             </div>
         </div>
+        
         <!-- Ingredients -->
         <div class="row">
             <div class="col s12">
@@ -80,22 +93,25 @@
             <div class="col s12">
                 <fieldset>
                     <legend>Method:</legend>
-                    <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo('method-container')+1,'method-container');"><i class="far fa-plus-square"></i></button>
+                    <button type="button" class="btn-floating btn-large waves-effect waves-light blue"
+                        onclick="addIngredient(GetLastStepNo('method-container')+1,'method-container');"><i
+                            class="far fa-plus-square"></i></button>
                     <div id="method-container">
                     </div>
                 </fieldset>
             </div>
         </div>
 
-        <!-- METHOD ONE -->
+        <!-- Image URL -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="method[]" type="text" name="method[]" minlength="5" maxlength="50" class="validate"
-                    required>
-                <label for="method[]">1st</label>
+                <i class="fas fa-image prefix light-blue-text text-darken-4"></i>
+                <input id="image_url" type="text" name="image_url" minlength="5" maxlength="200" class="validate"
+                placeholder="Please paste the url for your image here.">
+                <label for="image_url">Image URL</label>
             </div>
-        
+        </div>
+
         <button type="submit">Add</button>
 
     </form>

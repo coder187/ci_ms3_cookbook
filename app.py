@@ -44,6 +44,10 @@ def add_recipe():
     if request.method == "POST":
         method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
+        image_url = url_for("static", filename="images/noimage.png")
+        prep_time = "n/a"
+        if request.form.get("image_url"):
+            image_url = request.form.get("image_url")
 
         recipe = {
             "name": request.form.get("recipe_name"),
@@ -53,9 +57,11 @@ def add_recipe():
             "allergens": request.form.getlist("allergens"),
             "difficulty": request.form.get("difficulty"),
             "serves": request.form.get("serves"),
-            "image_url" : url_for("static", filename="images/noimage.png"),
+            "image_url": image_url,
             "ingredients": ingredients,
-            "method": method_steps
+            "method": method_steps,
+            "preptime": request.form.get("prep_time"),
+            "cooktime": request.form.get("cook_time"),
             }
 
         mongo.db.recipes.insert_one(recipe)
