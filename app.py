@@ -4,7 +4,7 @@ from flask import (Flask, flash, render_template, redirect,
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import date
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -25,7 +25,7 @@ def delete_recipes(recipe_id, user_name):
     """
     try:
         if user_name:
-            mongo.db.recipes.remove({"created_by": user_name})
+            mongo.db.recipes.remove({"added_by": user_name})
         else:
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     except:
@@ -52,21 +52,25 @@ def get_recipes():
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
-    allergens = get_allergens()
+    # check that the user is logged in
+
+    if not session.get("user"):
+        return redirect(url_for("login"))
 
     if request.method == "POST":
         method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
         image_url = url_for("static", filename="images/noimage.png")
-        prep_time = "n/a"
+
+        now = datetime.now()
         if request.form.get("image_url"):
             image_url = request.form.get("image_url")
 
         recipe = {
             "name": request.form.get("recipe_name"),
             "descr": request.form.get("recipe_descr"),
-            "added_by": "jonathan",
-            "added": "",
+            "added_by": session["user"],
+            "added": now.strftime("%d %B, %Y %H:%M:%S"),
             "allergens": request.form.getlist("allergens"),
             "difficulty": request.form.get("difficulty"),
             "serves": request.form.get("serves"),
@@ -79,6 +83,8 @@ def add_recipe():
 
         mongo.db.recipes.insert_one(recipe)
 
+    # get allergens list from db
+    allergens = get_allergens()
     return render_template("add_recipe.html", allergens=allergens)
 
 
@@ -86,8 +92,8 @@ def add_recipe():
 def mycookbook(username):
     
     if session.get('user'):
-        my_recipes = list(mongo.db.recipes.find())
-        my_pinned = list(mongo.db.recipes.find())
+        my_recipes = list(mongo.db.recipes.find({"added_by": session["user"]}))
+        # my_pinned = list(mongo.db.recipes.find({"created_by": session["user"]}))
         return render_template("mycookbook.html",username=session["user"], my_recipes = my_recipes)
     
     # if not auhtenitcated redirect to login page
@@ -105,7 +111,7 @@ def delete_recipe(recipe_id):
         flash("Recipe Deleted Successfully")
     else:
         flash("Recipe Delete Failed")
-        
+
     return redirect(url_for("mycookbook",username=session["user"]))
 
 @app.route("/login.html", methods=['POST', 'GET'])
