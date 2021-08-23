@@ -1,16 +1,6 @@
 {% extends "base.html"%}
 {% block content%}
 
-{% if not difficulty %}
-    nothing
-{% else %}
-    something
-{% endif %}
-{% for diff in difficulty %}
-{{ loop.index }}
-{% endfor %}   
-
-
 <h3 class="light-blue-text text-darken-4 center-align">Edit Recipe</h3>
 
 <div class="row card-panel grey lighten-5">
@@ -154,8 +144,15 @@
                 <label for="image_url">Image URL</label>
             </div>
         </div>
+
+        <!-- Submit Button-->
         <div class="row">
-            <button type="submit" class="btn-large light-blue darken-1 text-shadow">Save Recipe</button>
+            <a href="{{ url_for('mycookbook',username=session['user']) }}" class="btn-large red text-shadow">
+                Cancel <i class="fas fa times cirlce right"></i>
+            </a>
+            <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                Save Recipe <i class="fas fa-edit"></i>
+            </button>
         </div>
     </form>
 
