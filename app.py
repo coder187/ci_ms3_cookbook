@@ -133,13 +133,18 @@ def edit_recipe(recipe_id):
             flash("Recipe Udated Successfully.")
             return redirect(url_for('mycookbook', username=session["user"]))
 
-
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    allergens = get_allergens()
+    
     difficulty = ["Easy", "Medium", "Hard"]
+ 
+    selected_allergens = recipe["allergens"]    # allergens in this recipe
+    not_selected = []                           # allergens not in this recipe
+    allergens = get_allergens()                 # all allergens
+    for allergen in allergens:
+        if not allergen["allergen"] in selected_allergens:
+            not_selected.append(allergen["allergen"])
 
-    return render_template("edit_recipe.html", recipe=recipe, allergens=allergens, difficulty=difficulty)
-
+    return render_template("edit_recipe.html", recipe=recipe, selected_allergens=selected_allergens, not_selected=not_selected,difficulty=difficulty)
 
 
 @app.route("/delete_recipe/<recipe_id>")

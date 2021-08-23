@@ -1,5 +1,14 @@
 {% extends "base.html"%}
 {% block content%}
+ 
+{% for allergen in not_selected %}
+        {{ allergen }}  
+{% endfor %}
+<p></p>
+{% for allergen in selected_allergens %}
+        {{ allergen }}  
+{% endfor %}
+
 
 <h3 class="light-blue-text text-darken-4 center-align">Edit Recipe</h3>
 
@@ -34,13 +43,14 @@
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
                 <select id="allergens" name="allergens" class="validate" multiple required>
                     <option value="" disabled selected>Choose allergens</option>
-                        {% for allergen in allergens %}
-                            {% if recipe.allergen == allergen.allergen %}
-                                <option value="{{allergen.allergen}}" selected> {{allergen.allergen}} </option>
-                            {% else %}
-                                <option value="{{allergen.allergen}}">{{allergen.allergen}} </option>
-                            {% endif %}
-                        {% endfor %}
+                    {% for allergen in selected_allergens %}
+                        <option value="{{allergen}}" selected> {{allergen}} </option>
+                    {% endfor %}
+
+                    {% for allergen in not_selected %}
+                        <option value="{{allergen}}"> {{allergen}} </option>
+                    {% endfor %}
+
                 </select>
                 <label for="allergens">Select Allergens</label>
             </div>
