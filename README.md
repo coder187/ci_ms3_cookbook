@@ -140,7 +140,22 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 [Link to Testing.md file]()
                           
 ## Deployment
-
+###
+1. Add requrirements.txt file to project with "pip3 freeze > requiremnets.txt"
+1. Add Procfile to project.
+1. Push changes to github
+1. On HEROKU.com, navigate to the site's repository @ [https://github.com/coder187/covidtracker](https://
+1. New App
+1. Name must be unique.
+1. Select Region
+1. Deploy - GitHub Connect
+1. Select  [https://github.com/coder187/ci-ms3-cookbook](https://github.com/coder187/ci_ms3_cookbook)
+1. Connect App
+1. Build App.
+1. Settings / Reveal Config Vars
+1. Add Env.py config variables
+1. Select Open App button from Heroku dashboard.
+  
 ### GitHub Pages
 1. On GitHub, navigate to the site's repository @ [https://github.com/coder187/covidtracker](https://github.com/coder187/covidtracker)
 1. Under your repository name, click **Settings**.

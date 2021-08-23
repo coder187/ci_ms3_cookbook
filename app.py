@@ -19,6 +19,19 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def delete_recipes(recipe_id, user_name):
+    """
+    delete recipe from database
+    """
+    try:
+        if user_name:
+            mongo.db.recipes.remove({"created_by": user_name})
+        else:
+            mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    except:
+        return 0
+    else:
+        return 1
 
 def get_allergens():
     """
@@ -80,6 +93,20 @@ def mycookbook(username):
     # if not auhtenitcated redirect to login page
     return redirect(url_for("login"))
 
+@app.route("/edit_recipe/<recipe_id>", methods=['POST', 'GET'])
+def edit_recipe(task_id):
+    return render_template("mycookbook.html",username=session["user"], my_recipes= my_recipes)
+
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    res = delete_recipes(recipe_id, "")
+    if res == 1:
+        flash("Recipe Deleted Successfully")
+    else:
+        flash("Recipe Delete Failed")
+        
+    return redirect(url_for("mycookbook",username=session["user"]))
 
 @app.route("/login.html", methods=['POST', 'GET'])
 def login():
