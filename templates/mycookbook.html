@@ -13,7 +13,6 @@
             <a href="{{ url_for('add_recipe')}}" class="btn-large light-blue darken-1 text-shadow">
                 Add Recipe
             </a>
-
         </div>
     </div>
     <div class="row">
@@ -31,5 +30,12 @@
             </div>
         {% endfor %}
     </div>
-    
+    {% if not my_recipes %}
+    <p>
+        It looks like you have not added a recipe yet. Click 
+        <a href="{{ url_for('add_recipe')}}" class="">
+            here
+        </a> to get started.
+    </p>
+    {% endif%}
 {% endblock%}

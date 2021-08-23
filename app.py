@@ -90,7 +90,7 @@ def add_recipe():
 
 @app.route("/mycookbook/<username>", methods=['POST', 'GET'])
 def mycookbook(username):
-    
+    print ("my cook book function called")
     if session.get('user'):
         my_recipes = list(mongo.db.recipes.find({"added_by": session["user"]}))
         # my_pinned = list(mongo.db.recipes.find({"created_by": session["user"]}))
@@ -126,13 +126,12 @@ def login():
                     flash("Welcome, {}".format(request.form.get("username")))
                     session["user"] = request.form.get("username").lower()
 
-                    my_recipes = []
-                    my_pinned = []
                     # try catch here
-                    my_recipes = list(mongo.db.recipes.find())
-                    my_pinned = list(mongo.db.recipes.find())
+                    # my_recipes = list(mongo.db.recipes.find())
+                    # my_pinned = list(mongo.db.recipes.find())
                     # end try
-                    return render_template("mycookbook.html",username=session["user"],my_recipes=my_recipes, my_pinned = my_pinned)
+                    return redirect(url_for("mycookbook",username=session["user"]))
+                    
             else:
                 flash("Username and/or Password Incorrect")
         else:

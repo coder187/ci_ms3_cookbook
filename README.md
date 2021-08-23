@@ -205,6 +205,9 @@ Python arrays persist their order
 MongoDB Persists the order of Array type fields
 https://docs.mongodb.com/manual/core/document/#document-field-order
 
+testing -- check that a user is logged in before showing the add recipe page.
+
+
 ## Credits
 ### Code
   * Jonathan Kelly for Code Institute Milestone Project Two.
