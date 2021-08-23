@@ -111,9 +111,9 @@
                 <label for="image_url">Image URL</label>
             </div>
         </div>
-
-        <button type="submit">Add</button>
-
+        <div class="row">
+            <button type="submit" class="btn-large light-blue darken-1 text-shadow">Save Recipe</button>
+        </div>
     </form>
 
 <script>
@@ -172,7 +172,7 @@ function GetLastStepNo(container){
         no.setAttribute("name", arr +"[]");
         no.setAttribute("placeholder", placeholder_text);
         no.setAttribute("minlength","5");
-        no.setAttribute("maxlength","50");
+        no.setAttribute("maxlength","200");
         no.setAttribute("class","validate required");
         
 

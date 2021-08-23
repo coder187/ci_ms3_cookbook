@@ -126,10 +126,6 @@ def login():
                     flash("Welcome, {}".format(request.form.get("username")))
                     session["user"] = request.form.get("username").lower()
 
-                    # try catch here
-                    # my_recipes = list(mongo.db.recipes.find())
-                    # my_pinned = list(mongo.db.recipes.find())
-                    # end try
                     return redirect(url_for("mycookbook",username=session["user"]))
                     
             else:
