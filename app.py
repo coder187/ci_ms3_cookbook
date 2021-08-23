@@ -61,6 +61,7 @@ def add_recipe():
         method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
         image_url = url_for("static", filename="images/noimage.png")
+        ratings = []
 
         now = datetime.now()
         if request.form.get("image_url"):
@@ -79,12 +80,14 @@ def add_recipe():
             "method": method_steps,
             "preptime": request.form.get("prep_time"),
             "cooktime": request.form.get("cook_time"),
+            "ratings": ratings
             }
 
         mongo.db.recipes.insert_one(recipe)
 
     # get allergens list from db
     allergens = get_allergens()
+    
     return render_template("add_recipe.html", allergens=allergens)
 
 
@@ -99,9 +102,15 @@ def mycookbook(username):
     # if not auhtenitcated redirect to login page
     return redirect(url_for("login"))
 
+
 @app.route("/edit_recipe/<recipe_id>", methods=['POST', 'GET'])
-def edit_recipe(task_id):
-    return render_template("mycookbook.html",username=session["user"], my_recipes= my_recipes)
+def edit_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    allergens = get_allergens()
+    difficulty = ["Easy", "Medium", "Hard"]
+    # categories = mongo.db.categories.find().sort("category_name",1)
+    return render_template("edit_recipe.html", recipe=recipe,allergens=allergens,difficulty=difficulty)
+
 
 
 @app.route("/delete_recipe/<recipe_id>")

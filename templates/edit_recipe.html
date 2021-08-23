@@ -1,16 +1,27 @@
 {% extends "base.html"%}
 {% block content%}
-<h3 class="light-blue-text text-darken-4 center-align">Add Recipe</h3>
+
+{% if not difficulty %}
+    nothing
+{% else %}
+    something
+{% endif %}
+{% for diff in difficulty %}
+{{ loop.index }}
+{% endfor %}   
+
+
+<h3 class="light-blue-text text-darken-4 center-align">Edit Recipe</h3>
 
 <div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe',recipe_id=recipe._id) }}">
 
         <!-- Recipe Name -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                 <input id="recipe_name" type="text" name="recipe_name" minlength="5" maxlength="50" class="validate"
-                    required>
+                    required value="{{ recipe.name }}">
                 <label for="recipe_name">recipe_name</label>
             </div>
         </div>
@@ -20,7 +31,9 @@
             <div class="input-field col s12">
                 <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
                 <textarea id="recipe_descr" name="recipe_descr" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>
+                    {{- recipe.descr -}}
+                </textarea>
                 <label for="recipe_descr">Recipe Description</label>
             </div>
         </div>
@@ -31,9 +44,13 @@
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
                 <select id="allergens" name="allergens" class="validate" multiple required>
                     <option value="" disabled selected>Choose allergens</option>
-                    {% for allergen in allergens %}
-                        <option value="{{allergen.allergen}}">{{allergen.allergen}}</option>
-                    {% endfor %}
+                        {% for allergen in allergens %}
+                            {% if recipe.allergen == allergen.allergen %}
+                                <option value="{{allergen.allergen}}" selected> {{allergen.allergen}} </option>
+                            {% else %}
+                                <option value="{{allergen.allergen}}">{{allergen.allergen}} </option>
+                            {% endif %}
+                        {% endfor %}
                 </select>
                 <label for="allergens">Select Allergens</label>
             </div>
@@ -46,20 +63,29 @@
                 <select id="serves" name="serves" class="validate" required>
                     <option value="" disabled selected>Serves</option>
                     {%- for index in range(0, 10) -%}
-                        <option value="{{loop.index}}">{{loop.index}}</option>
+                        {% if recipe.serves|int == index %}
+                            <option value="{{ index }}" selected> {{ index }} </option>
+                        {% else %}
+                            <option value="{{ index }}">{{ index }} </option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label for="serves">Serves</label>
             </div>
-
+   
             <!-- Select Difficulty -->
             <div class="input-field col l3">
                 <i class="fas fa-cookie prefix light-blue-text text-darken-4"></i>
                 <select id="difficulty" name="difficulty" class="validate" required>
                     <option value="" disabled selected>Choose Difficulty</option>
-                        <option value="Easy">Easy</option>
-                        <option value="Mediun">Mediun</option>
-                        <option value="Hard">Hard</option>
+                        {% for diff in difficulty %}
+                            {{ loop.index }}
+                            {% if recipe.difficulty == diff %}
+                                <option value="{{recipe.difficulty}}" selected> {{recipe.difficulty}} </option>
+                            {% else %}
+                                <option value="{{recipe.difficulty}}">{{recipe.difficulty}} </option>
+                            {% endif %}
+                        {% endfor %}
                 </select>
                 <label for="difficulty">Select Difficulty</label>
             </div>
@@ -67,14 +93,16 @@
             <!-- Prep Time -->
             <div class="input-field col l3">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="prep_time" type="text" name="prep_time" minlength="5" maxlength="10" class="validate">
+                <input id="prep_time" type="text" name="prep_time" minlength="5" maxlength="10" 
+                class="validate" value="{{ recipe.preptime }}">
                 <label for="prep_time">Prep Time</label>
             </div>
 
             <!-- Cook Time -->
             <div class="input-field col l3">
                 <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                <input id="cook_time" type="text" name="cook_time" minlength="5" maxlength="50" class="validate">
+                <input id="cook_time" type="text" name="cook_time" minlength="5" maxlength="50" 
+                class="validate" value="{{ recipe.cooktime }}">>
                 <label for="cook_time">Cook Time</label>
             </div>
         </div>
@@ -121,7 +149,8 @@
             <div class="input-field col s12">
                 <i class="fas fa-image prefix light-blue-text text-darken-4"></i>
                 <input id="image_url" type="text" name="image_url" minlength="5" maxlength="200" class="validate"
-                placeholder="Please paste the url for your image here.">
+                placeholder="Please paste the url for your image here."
+                value="{{ recipe.image_url }}">>
                 <label for="image_url">Image URL</label>
             </div>
         </div>
@@ -130,108 +159,5 @@
         </div>
     </form>
 
-<script>
-function GetLastStepNo(container){
-    searchstr = "ing_";
-    if (container != "ingredients-container" )
-        {
-            searchstr = "meth_";
-        }
 
-  Cont = document.getElementById(container)
-
-  divChildren = Cont.childNodes;
-
-
-  let x = 0;
-  if (divChildren.length == 0) {
-    return 0;
-  }
-  else {
-    for (var i=0; i < divChildren.length; i++) {
-      let str = divChildren[i].id;
-      if (typeof str !== 'undefined'){
-        if (str.includes(searchstr)) {
-          x++;
-        } 
-      }
-    }
-  }
-  return x;
-}
-    function addIngredient(num,container){
-        //use this function to add form control for both
-        //ingredients and method steps
-        let arr= 'ing';
-        let button_delete = 'but_';
-        let button_add ='but_add_';
-        let br_element = "br_";
-        let placeholder_text = "add your ingredient here";
-        if (container != 'ingredients-container'){
-            arr = 'meth';
-            button_delete = 'mbut_';
-            button_add = 'mbut_add_';
-            br_element = "mbr_";
-            placeholder_text = "add your method step here";
-        }
-
-        ingCont = document.getElementById(container)
-        // Create a break line element
-        let br = document.createElement("br"); 
-        br.setAttribute("id",br_element + num);
-
-        let no = document.createElement("input");
-        no.setAttribute("type", "text");
-        no.setAttribute("id", arr + "_" + num);
-        no.setAttribute("name", arr +"[]");
-        no.setAttribute("placeholder", placeholder_text);
-        no.setAttribute("minlength","5");
-        no.setAttribute("maxlength","200");
-        no.setAttribute("class","validate required");
-        
-
-        let but = document.createElement("button")
-        but.setAttribute("type","button")
-        but.setAttribute("id",button_delete + num)
-        but.setAttribute("name", button_delete + num);
-        but.setAttribute("onclick","removeIngredient(" + num +",'" + container +"');")
-        but.setAttribute("class","btn-floating btn-small waves-effect waves-light red")
-        but.innerHTML= "<i class='far fa-minus-square'></i>"
-
-        let butAdd = document.createElement("button")
-        butAdd.setAttribute("type","button")
-        butAdd.setAttribute("id",button_add + num)
-        butAdd.setAttribute("name", button_add + num);
-        butAdd.setAttribute("onclick","addIngredient(GetLastStepNo('" + container +"')+1,'" + container +"');")
-        butAdd.setAttribute("class","btn-floating btn-small waves-effect waves-light green")
-        butAdd.innerHTML= "<i class='far fa-plus-square'></i>"
-
-        
-        ingCont.appendChild(br);
-        ingCont.appendChild(no);
-        ingCont.appendChild(but);
-        ingCont.appendChild(butAdd);
-        
-    }
-
-    function removeIngredient(stepno,container){
-        let arr= 'ing_';
-        let button_delete = 'but_';
-        let button_add ='but_add_';
-        let bre = "br_";
-
-        
-        if (container != "ingredients-container"){
-            arr= 'meth_';
-            button_delete = 'mbut_';
-            button_add ='mbut_add_';
-            bre = "mbr_";
-        }
-        document.getElementById(arr + stepno).remove();
-        document.getElementById(button_delete + stepno).remove();
-        document.getElementById(button_add + stepno).remove();
-        document.getElementById(bre + stepno).remove();
-    }
-
-</script>    
 {% endblock%}

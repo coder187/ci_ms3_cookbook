@@ -3,6 +3,7 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
     $('select').formSelect();   
     $('.fixed-action-btn').floatingActionButton();
+    $('.chips').chips();
     });
 
 
