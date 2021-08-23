@@ -28,7 +28,8 @@ def delete_recipes(recipe_id, user_name):
             mongo.db.recipes.remove({"added_by": user_name})
         else:
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    except:
+    except Exception as ex:
+        # log ex
         return 0
     else:
         return 1
@@ -93,7 +94,7 @@ def add_recipe():
 
 @app.route("/mycookbook/<username>", methods=['POST', 'GET'])
 def mycookbook(username):
-    print ("my cook book function called")
+
     if session.get('user'):
         my_recipes = list(mongo.db.recipes.find({"added_by": session["user"]}))
         # my_pinned = list(mongo.db.recipes.find({"created_by": session["user"]}))
@@ -105,11 +106,39 @@ def mycookbook(username):
 
 @app.route("/edit_recipe/<recipe_id>", methods=['POST', 'GET'])
 def edit_recipe(recipe_id):
+    
+    if request.method == "POST":
+
+        now = datetime.now()
+
+        submit = {
+            "name": request.form.get("recipe_name"),
+            "descr": request.form.get("recipe_descr"),
+            "added_by": session["user"],
+            "added": now.strftime("%d %B, %Y %H:%M:%S"),
+            "allergens": request.form.getlist("allergens"),
+            "difficulty": request.form.get("difficulty"),
+            "serves": request.form.get("serves"),
+            "image_url": request.form.get("image_url"),
+            "preptime": request.form.get("prep_time"),
+            "cooktime": request.form.get("cook_time")
+        }
+
+        try:
+            mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        except Exception as ex:
+            flash("Could Not Reach The Database-Please Try Again Later.")
+            # log(ex)
+        else:
+            flash("Recipe Udated Successfully.")
+            return redirect(url_for('mycookbook', username=session["user"]))
+
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     allergens = get_allergens()
     difficulty = ["Easy", "Medium", "Hard"]
-    # categories = mongo.db.categories.find().sort("category_name",1)
-    return render_template("edit_recipe.html", recipe=recipe,allergens=allergens,difficulty=difficulty)
+
+    return render_template("edit_recipe.html", recipe=recipe, allergens=allergens, difficulty=difficulty)
 
 
 
