@@ -105,8 +105,12 @@
                     <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo('ingredients-container')+1,'ingredients-container');"><i class="far fa-plus-square"></i></button>
                     <div id="ingredients-container">
                         {% for ing in recipe.ingredients %}
-                        <input id="ing[]" type="text" name="ing[]" minlength="5" maxlength="200" 
+                        <input id="ing_{{loop.index}}" type="text" name="ing[]" minlength="5" maxlength="200" 
                             value="{{ ing }}">
+                        <button type="button" id="but_{{loop.index}}" name="but_{{loop.index}}" 
+                            onclick="removeIngredient({{loop.index}},'ingredients-container');" 
+                            class="btn-floating btn-small waves-effect waves-light red">
+                            <i class="far fa-minus-square"></i></button>
                         {% endfor %}
                     </div>
                 </fieldset>
@@ -124,8 +128,13 @@
                     <div id="method-container">
                         {% for meth in recipe.method %}
                             <label for="meth[]">{{ loop.index }}</label>
-                            <input id="meth[]" type="text" name="meth[]" minlength="5" maxlength="200" 
+                            <input id="meth_{{loop.index}}" type="text" name="meth[]" minlength="5" maxlength="200"  
                                 value="{{ meth }}">
+               
+                            <button type="button" id="mbut_{{loop.index}}" name="mbut_{{loop.index}}" 
+                                onclick="removeIngredient({{loop.index}},'method-container');" 
+                                class="btn-floating btn-small waves-effect waves-light red">
+                                <i class="far fa-minus-square"></i></button>
                         {% endfor %}
                     </div>
                 </fieldset>
