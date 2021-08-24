@@ -110,7 +110,9 @@ def edit_recipe(recipe_id):
     if request.method == "POST":
 
         now = datetime.now()
-
+        method_steps = request.form.getlist("meth[]")
+        ingredients = request.form.getlist("ing[]")
+        # ratings = request.form.get("ing[]")
         submit = {
             "name": request.form.get("recipe_name"),
             "descr": request.form.get("recipe_descr"),
@@ -120,6 +122,8 @@ def edit_recipe(recipe_id):
             "difficulty": request.form.get("difficulty"),
             "serves": request.form.get("serves"),
             "image_url": request.form.get("image_url"),
+            "ingredients": ingredients,
+            "method": method_steps,
             "preptime": request.form.get("prep_time"),
             "cooktime": request.form.get("cook_time")
         }

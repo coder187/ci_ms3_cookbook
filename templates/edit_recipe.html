@@ -1,14 +1,5 @@
 {% extends "base.html"%}
 {% block content%}
- 
-{% for allergen in not_selected %}
-        {{ allergen }}  
-{% endfor %}
-<p></p>
-{% for allergen in selected_allergens %}
-        {{ allergen }}  
-{% endfor %}
-
 
 <h3 class="light-blue-text text-darken-4 center-align">Edit Recipe</h3>
 
@@ -62,7 +53,7 @@
                 <i class="fas fa-cookie-bite prefix light-blue-text text-darken-4"></i>
                 <select id="serves" name="serves" class="validate" required>
                     <option value="" disabled selected>Serves</option>
-                    {%- for index in range(0, 10) -%}
+                    {%- for index in range(1, 11) -%}
                         {% if recipe.serves|int == index %}
                             <option value="{{ index }}" selected> {{ index }} </option>
                         {% else %}
@@ -79,7 +70,6 @@
                 <select id="difficulty" name="difficulty" class="validate" required>
                     <option value="" disabled selected>Choose Difficulty</option>
                         {% for diff in difficulty %}
-                            {{ loop.index }}
                             {% if recipe.difficulty == diff %}
                                 <option value="{{recipe.difficulty}}" selected> {{recipe.difficulty}} </option>
                             {% else %}
@@ -114,6 +104,10 @@
                     <legend>Add Ingredients:</legend>
                     <button type = "button" class="btn-floating btn-large waves-effect waves-light blue" onclick="addIngredient(GetLastStepNo('ingredients-container')+1,'ingredients-container');"><i class="far fa-plus-square"></i></button>
                     <div id="ingredients-container">
+                        {% for ing in recipe.ingredients %}
+                        <input id="ing[]" type="text" name="ing[]" minlength="5" maxlength="200" 
+                            value="{{ ing }}">
+                        {% endfor %}
                     </div>
                 </fieldset>
             </div>
@@ -128,6 +122,11 @@
                         onclick="addIngredient(GetLastStepNo('method-container')+1,'method-container');"><i
                             class="far fa-plus-square"></i></button>
                     <div id="method-container">
+                        {% for meth in recipe.method %}
+                            <label for="meth[]">{{ loop.index }}</label>
+                            <input id="meth[]" type="text" name="meth[]" minlength="5" maxlength="200" 
+                                value="{{ meth }}">
+                        {% endfor %}
                     </div>
                 </fieldset>
             </div>
@@ -150,7 +149,7 @@
                 <i class="fas fa-image prefix light-blue-text text-darken-4"></i>
                 <input id="image_url" type="text" name="image_url" minlength="5" maxlength="200" class="validate"
                 placeholder="Please paste the url for your image here."
-                value="{{ recipe.image_url }}">>
+                value="{{ recipe.image_url }}">
                 <label for="image_url">Image URL</label>
             </div>
         </div>
