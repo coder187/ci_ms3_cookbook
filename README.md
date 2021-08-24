@@ -196,6 +196,7 @@ To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the 
 
 ## Known Bugs
 *
+note: after dynamic add of method step to edit page, the label method step nums are not created.
 note: method order
 https://www.w3.org/TR/html401/interact/forms.html#form-data-set
 states that name value pairs will be read as they appear in the docunent
