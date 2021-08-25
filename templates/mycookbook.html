@@ -26,6 +26,23 @@
                     <div class="card-action">
                         <a href="{{ url_for('edit_recipe',recipe_id=recipe._id)}}" class="btn green accent-4">Edit</a>
                         <a href="{{ url_for('delete_recipe',recipe_id=recipe._id)}}" class="btn light-blue lighten-1">Delete</a>
+                          <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal_{{loop.index}}">Modal</a>
+
+                        <!-- Modal Structure -->
+                        <div id="modal_{{loop.index}}" class="modal">
+                            <div class="modal-content">
+                                <h4>Delete Recipe</h4>
+                                <p>
+                                <h4>Are you sure?</h4>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url_for('delete_recipe',recipe_id=recipe._id)}}" 
+                                    class="modal-close waves-effect waves-green btn-flat">Okay</a>
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

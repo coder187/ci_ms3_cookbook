@@ -25,8 +25,13 @@ def delete_recipes(recipe_id, user_name):
     """
     try:
         if user_name:
+            print ("user")
+            print (ObjectId(recipe_id))
             mongo.db.recipes.remove({"added_by": user_name})
         else:
+            print("no user")
+            print (ObjectId(recipe_id))
+            print (recipe_id)
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     except Exception as ex:
         # log ex
