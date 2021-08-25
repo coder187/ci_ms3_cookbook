@@ -17,6 +17,9 @@
         {% for recipe in my_recipes %}
             <div class="col s12 m3">
                 <div class="card light-blue darken-4 text-shadow center-align">
+                    <div class="card-image">
+                        <img src="{{ recipe.image_url }}" alt="recipe image">
+                    </div>
                     <div class="card-content white-text">
                         <span class="card-title">{{ recipe.name }}</span>
                     </div>

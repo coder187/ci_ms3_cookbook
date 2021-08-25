@@ -97,9 +97,11 @@ def mycookbook(username):
 
     if session.get('user'):
         my_recipes = list(mongo.db.recipes.find({"added_by": session["user"]}))
-        # my_pinned = list(mongo.db.recipes.find({"created_by": session["user"]}))
-        return render_template("mycookbook.html",username=session["user"], my_recipes = my_recipes)
-    
+        # my_pinned = list(mongo.db.recipes.find({"created_by": session["user"]
+        #                                       }))
+        return render_template("mycookbook.html", username=session["user"],
+                               my_recipes=my_recipes)
+
     # if not auhtenitcated redirect to login page
     return redirect(url_for("login"))
 
