@@ -1,7 +1,28 @@
 {% extends "base.html"%}
-
-    <h3> Recipes List </h3> 
 {% block content %}
+<style>
+    .container {
+        margin: 0 auto;
+        max-width: 3000px;
+        width: 100%;
+    }
+</style>
+<section>
+    <div class="row">
+        <div class="col s12">
+            <div id="hero-outer">
+                <div id="hero-image"></div>
+                <div id="cover-text">
+                    <h2>MY Cookbook</h2>
+                    <h3>Inspire & Get Inspired<h3>
+                    <h5>Search, Share & Store Your Favourite Recipes<h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+
     
     {% for recipe in recipes %}
         
