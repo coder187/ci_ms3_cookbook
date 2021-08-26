@@ -51,7 +51,7 @@ def get_allergens():
 @app.route("/")
 @app.route("/get_recipes.html")
 def get_recipes():
-    recipes = list(mongo.db.recipes.find())
+    recipes = list(mongo.db.recipes.find().limit(10))
 
     return render_template("get_recipes.html", recipes=recipes)
 
