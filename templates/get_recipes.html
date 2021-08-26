@@ -21,7 +21,30 @@
         </div>
     </div>
 </section>
-    
+
+<section>
+    <div class="row">
+        <div class="col s12">
+            <div class="slider">
+                <ul class="slides">
+                    {% for recipe in recipes %}
+                  <li>
+                    <img src="{{recipe.image_url}}"> <!-- recipe image -->
+                    <div class="caption left-align">
+                      <h3>{{recipe.name}}</h3>
+                      <h5 class="light grey-text text-lighten-3">Added By {{recipe.added_by}}</h5>
+                      <h5 class="light grey-text text-lighten-3">Rating {{recipe.rating}}</h5>
+                    </div>
+                  </li>
+                  {% endfor %}
+                
+                </ul>
+              </div>
+                  
+        </div>
+    </div>
+
+</section>
 
     
     {% for recipe in recipes %}

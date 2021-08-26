@@ -5,6 +5,7 @@ $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
     $('.chips').chips();
     $('.modal').modal();
+    $('.slider').slider();
     });
 
 
