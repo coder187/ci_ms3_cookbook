@@ -1,9 +1,16 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+
+/*
+font-family: 'Dancing Script', cursive;
+font-family: 'Poppins', sans-serif;
+*/
 #hero-image{
     height: 600px;
     width:100%;
     
     background: url("/static/images/cookbook.jpg") no-repeat center center;
-
   }
 
   #hero-outer{
@@ -13,11 +20,64 @@
     position: relative;
 }
 
+
+#search {
+
+  height: 200px;
+  width: 50%;
+
+  padding-top: 40px;
+  padding-left: 10px;
+
+  bottom: 100px; /* 30px aboce bottom of hero image */
+  right: 500px; /* 150px from right of hero image */
+
+  position:absolute; /*fix in place by settinh positin absolute */
+}
+#search button {
+  position: absolute;
+  bottom: 89px; /* 30px aboce bottom of hero image */
+  right: 50px;
+  color: #fff;
+  background: #88687b;
+  font-size: 27px;
+  height: 65px;
+  line-height: 65px;
+  width: 68px;
+  padding: 0;
+  border: 0;
+}
+#search input {
+  width: 75%;
+  height: 76px;
+  line-height: 76px;
+  border: 1px solid #111;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 27px;
+  
+  position: relative;
+  border-radius: 50px;
+  color:#ffff;
+  
+}
+
+
+
+.dancing{
+  font-family: 'Dancing Script', cursive;
+}
+.caption{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  
+}
 #cover-text {
-   
-    font-family: Oswald;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
      
     height: 500px;
     width: 300px;
@@ -25,7 +85,7 @@
     padding-top: 40px;
     padding-left: 10px;
   
-    background-color:rgba(27, 94, 32, 0.3); /*opacity .7 */
+    background-color:rgba(27, 94, 32, 0.5); /*opacity .7 */
   
     /* placve in fixed position: relatuve to partebt container */
     bottom: 100px; /* 30px aboce bottom of hero image */

@@ -7,13 +7,24 @@
         width: 100%;
     }
 </style>
+
+
 <section>
     <div class="row">
         <div class="col s12">
             <div id="hero-outer">
-                <div id="hero-image"></div>
+                
+                <div id="hero-image">
+                    
+                </div>
+                <div id="search">
+                    <form>
+                      <input class="input" type="text" name="s" placeholder="What Are You Hungry for ?">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                  </div>
                 <div id="cover-text">
-                    <h2>MY Cookbook</h2>
+                    <h2 class="dancing">MY Cookbook</h2>
                     <h3>Inspire & Get Inspired<h3>
                     <h5>Search, Share & Store Your Favourite Recipes<h5>
                 </div>
@@ -31,10 +42,14 @@
                   <li>
                     <img src="{{recipe.image_url}}"> <!-- recipe image -->
                     <div class="caption left-align">
-                      <h3>{{recipe.name}}</h3>
-                      <h5 class="light grey-text text-lighten-3">Added By {{recipe.added_by}}</h5>
+                      <h3 class="dancing">{{recipe.name}}</h3>
+                      <h5 class="light grey-text text-lighten-3">Added By <span class="dancing">{{recipe.added_by}}</span></h5>
+
                       <h5 class="light grey-text text-lighten-3">Rating {{recipe.rating}}</h5>
+                      <a href="#" class="btn-small blue">View</a>
+                      
                     </div>
+                   
                   </li>
                   {% endfor %}
                 
@@ -46,7 +61,9 @@
 
 </section>
 
-    
+<section>
+
+</section>
     {% for recipe in recipes %}
         
         <p>{{ recipe.name }}</p>

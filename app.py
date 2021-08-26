@@ -89,8 +89,10 @@ def add_recipe():
             "ratings": ratings
             }
 
+        #try catch
         mongo.db.recipes.insert_one(recipe)
-
+        flash("Recipe Saved Successfully")
+        
     # get allergens list from db
     allergens = get_allergens()
     
