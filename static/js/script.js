@@ -6,6 +6,7 @@ $(document).ready(function(){
     $('.chips').chips();
     $('.modal').modal();
     $('.slider').slider();
+    $('.collapsible').collapsible();
     });
 
 

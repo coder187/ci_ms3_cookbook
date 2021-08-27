@@ -19,6 +19,13 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def get_top_recipes(count):
+    """
+    return top(count) recipe from database
+    """
+    return list(mongo.db.recipes.find().limit(count))
+
+
 def delete_recipes(recipe_id, user_name):
     """
     delete recipe from database
@@ -51,9 +58,15 @@ def get_allergens():
 @app.route("/")
 @app.route("/get_recipes.html")
 def get_recipes():
-    recipes = list(mongo.db.recipes.find().limit(10))
+    
+    return render_template("get_recipes.html", top_recipes= get_top_recipes(10))
 
-    return render_template("get_recipes.html", recipes=recipes)
+
+@app.route("/search", methods=['POST', 'GET'])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    return render_template("get_recipes.html", top_recipes= get_top_recipes(10),recipes=recipes)
 
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])

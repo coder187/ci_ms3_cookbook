@@ -21,47 +21,6 @@ font-family: 'Poppins', sans-serif;
 }
 
 
-#search {
-
-  height: 200px;
-  width: 50%;
-
-  padding-top: 40px;
-  padding-left: 10px;
-
-  bottom: 100px; /* 30px aboce bottom of hero image */
-  right: 500px; /* 150px from right of hero image */
-
-  position:absolute; /*fix in place by settinh positin absolute */
-}
-#search button {
-  position: absolute;
-  bottom: 89px; /* 30px aboce bottom of hero image */
-  right: 50px;
-  color: #fff;
-  background: #88687b;
-  font-size: 27px;
-  height: 65px;
-  line-height: 65px;
-  width: 68px;
-  padding: 0;
-  border: 0;
-}
-#search input {
-  width: 75%;
-  height: 76px;
-  line-height: 76px;
-  border: 1px solid #111;
-  background: rgba(0, 0, 0, 0.8);
-  font-size: 27px;
-  
-  position: relative;
-  border-radius: 50px;
-  color:#ffff;
-  
-}
-
-
 
 .dancing{
   font-family: 'Dancing Script', cursive;
@@ -98,3 +57,53 @@ font-family: 'Poppins', sans-serif;
 
   .card-image{
   }
+
+  
+.search_result{
+  align-content: center;
+}
+.collapsible-header .col strong{
+  margin:5px;
+  line-height:42px;
+}
+/*
+#search {
+
+  height: 200px;
+  width: 50%;
+
+  padding-top: 40px;
+  padding-left: 200px;
+
+  bottom: 100px; 
+  right: 500px; 
+
+  position:absolute; 
+}
+#search button {
+  position: absolute;
+  bottom: 89px; 
+  right: 50px;
+  color: #fff;
+  background: #88687b;
+  font-size: 27px;
+  height: 65px;
+  line-height: 65px;
+  width: 68px;
+  padding: 0;
+  border: 0;
+}
+#search input {
+  width: 75%;
+  height: 76px;
+  line-height: 76px;
+  border: 1px solid #111;
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 27px;
+  
+  position: relative;
+  border-radius: 50px;
+  color:#ffff;
+  
+}
+*/
