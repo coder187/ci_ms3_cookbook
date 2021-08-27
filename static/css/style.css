@@ -66,6 +66,11 @@ font-family: 'Poppins', sans-serif;
   margin:5px;
   line-height:42px;
 }
+
+.ratings{
+  background-color:rgba(27, 94, 32, 0.5);
+}
+
 /*
 #search {
 

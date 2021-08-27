@@ -41,10 +41,26 @@
                   <li>
                     <img src="{{recipe.image_url}}"> <!-- recipe image -->
                     <div class="caption left-align">
-                      <h3 class="dancing">{{recipe.name}}</h3>
-                      <h5 class="light grey-text text-lighten-3">Added By <span class="dancing">{{recipe.added_by}}</span></h5>
+                        <h3 class="dancing">{{recipe.name}}</h3>
+                        <h5 class="light grey-text text-lighten-3">
+                        <span class="ratings">
+                            {% for avg in avgs %}
+                                {% if avg.id == recipe._id  %}
+                                    {% if avg.noofavg > 0 %}
 
-                      <h5 class="light grey-text text-lighten-3">Rating {{recipe.rating}}</h5>
+                                        Average Rating
+                                        {{ avg.avg }} out of 5
+                                        from
+                                        {{ avg.noofavg }}
+                                        ratings
+                                    {% else %} 
+                                        Be The First To Rate This Recipe
+                                    {% endif %}      
+                                {% endif %}      
+                              {% endfor %}
+                        </span>
+                        </h5>
+
                       <a href="#" class="btn-small blue">View</a>
                       
                     </div>

@@ -19,9 +19,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-def get_one_recipe(recipe_id):
-    return mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-   
+
+
 def calc_avg_rating(recipe):
     """
     calculate
@@ -33,22 +32,27 @@ def calc_avg_rating(recipe):
     try:
         ratings = recipe["ratings"]
     except Exception as ex:
-        return [0,0]
+        return [0, 0]
     else:
         arr_len = len(ratings)
         if arr_len == 0:
-            return [0,0]
+            return [0, 0]
 
         total = 0
         for rat in ratings:
             total = total + int(rat)
-    
+        
         if total != 0:
             avg = total/arr_len
         else:
             avg = 0
 
-        return [int(avg),arr_len]
+        return [int(avg), arr_len]
+
+
+
+def get_one_recipe(recipe_id):
+    return mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
 
 def get_top_recipes(count):
@@ -89,12 +93,18 @@ def get_allergens():
 
 @app.route("/")
 @app.route("/get_recipes.html")
-def get_recipes():    
-    rs = get_top_recipes(10)
-    for r in rs:
-        print(calc_avg_rating(r))
-
-    return render_template("get_recipes.html", top_recipes= get_top_recipes(10))
+def get_recipes():
+    top_recipes = get_top_recipes(10)
+    avgs = []
+    for rec in top_recipes:
+        print(rec["_id"])
+        avgs.append(
+            {
+                "id": rec["_id"],
+                "noofavg": calc_avg_rating(rec)[1],
+                "avg": calc_avg_rating(rec)[0]
+            })
+    return render_template("get_recipes.html", top_recipes= get_top_recipes(10),avgs=avgs)
 
 
 @app.route("/search", methods=['POST', 'GET'])
