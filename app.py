@@ -20,11 +20,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
 def calc_avg_rating(recipe):
     """
     calculate
     the avergae rating for a given recipe
+    and return the avg and the numnber of ratings
+    currently in the recipe collection
     """
     # cant figure out to check if field exists
     # using  {"$exists": True}
@@ -48,7 +49,6 @@ def calc_avg_rating(recipe):
             avg = 0
 
         return [int(avg), arr_len]
-
 
 
 def get_one_recipe(recipe_id):
