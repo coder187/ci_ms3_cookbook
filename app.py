@@ -19,14 +19,38 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def get_one_recipe(recipe_id):
+    return mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+   
 def calc_avg_rating(recipe):
     """
     calculate
     the avergae rating for a given recipe
     """
-    return 5
+    # cant figure out to check if field exists
+    # using  {"$exists": True}
+    # instead trap the error and return
+    try:
+        ratings = recipe["ratings"]
+    except Exception as ex:
+        return [0,0]
+    else:
+        arr_len = len(ratings)
+        if arr_len == 0:
+            return [0,0]
 
-    return list(mongo.db.recipes.find().limit(count))
+        total = 0
+        for rat in ratings:
+            total = total + int(rat)
+    
+        if total != 0:
+            avg = total/arr_len
+        else:
+            avg = 0
+
+        return [int(avg),arr_len]
+
+
 def get_top_recipes(count):
     """
     return top(count) recipe from database
@@ -65,8 +89,11 @@ def get_allergens():
 
 @app.route("/")
 @app.route("/get_recipes.html")
-def get_recipes():
-    
+def get_recipes():    
+    rs = get_top_recipes(10)
+    for r in rs:
+        print(calc_avg_rating(r))
+
     return render_template("get_recipes.html", top_recipes= get_top_recipes(10))
 
 
