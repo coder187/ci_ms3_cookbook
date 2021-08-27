@@ -19,6 +19,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+def calc_avg_rating(recipe):
+    """
+    calculate
+    the avergae rating for a given recipe
+    """
+    return 5
+
+    return list(mongo.db.recipes.find().limit(count))
 def get_top_recipes(count):
     """
     return top(count) recipe from database

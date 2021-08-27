@@ -1,0 +1,293 @@
+[33mcommit 6550ce60312e4c992e607ec4c0e2a2c339606ef4[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Fri Aug 27 12:55:44 2021 +0000
+
+    add search to home page
+
+[33mcommit 532041242209c8e53b2bee08f5d6f158f300e89c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Thu Aug 26 23:41:07 2021 +0000
+
+    limit the number of recipes returned for home page
+
+[33mcommit 96fede2b6e51ef817f0550bee167a06132bf4415[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Thu Aug 26 23:25:27 2021 +0000
+
+    add search barr to home page
+
+[33mcommit 938ad5ace97bfcbb2225ac079c4358645766fba1[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Thu Aug 26 21:34:12 2021 +0000
+
+    add materialize slier to home page
+
+[33mcommit 04e3427aed306f7267761388f3a3602b43d1b6f3[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Wed Aug 25 19:36:12 2021 +0000
+
+    add hero image to home page. update site colors
+
+[33mcommit 23d88246afa43164886063e6dac312f03b3870b9[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Wed Aug 25 17:54:55 2021 +0000
+
+    add modal confirm delete diallog to cookbook page
+
+[33mcommit c7a4e533aeb663fcff85a88bf16661b5d7f75f00[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Wed Aug 25 15:36:58 2021 +0000
+
+    add image to card mycookbook page
+
+[33mcommit 15922a73402a7028a88a187befb65325221a6696[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 24 00:56:39 2021 +0000
+
+    small edit to readme
+
+[33mcommit adbfee259ccab2ad25e95849e7650693566e773e[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 24 00:53:06 2021 +0000
+
+    edit dynamic receipe ingredients and method steps on edit recipe.html
+
+[33mcommit e0b3f458a930744e9eb583a928c946c9ecfc784d[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 24 00:18:41 2021 +0000
+
+    edit recipe page - save to db
+
+[33mcommit 0823bdccdb3a637d5893f78ad7d2004ffa94ca21[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 23:43:41 2021 +0000
+
+    populate multi select from flask
+
+[33mcommit f8c7a995eefdb29b7f598ce93fe392ccc4a1eb2d[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 22:28:52 2021 +0000
+
+    edit recipe page redirect to mycookbok on success
+
+[33mcommit 76b630ef4e339240163479c4c6f6281c621fa139[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 21:59:30 2021 +0000
+
+    add cancel button and edit button icon to edit recipe page
+
+[33mcommit 1561a4fed5c0965093e0ffe08f511e1c3f678a2d[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 21:53:17 2021 +0000
+
+    add edit recipe page
+
+[33mcommit 514e60bc32a4295709169b29eba29cbe379103c9[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 15:59:57 2021 +0000
+
+    add user filter to recipe list on cookbook page
+
+[33mcommit 16315654c14098f3f58de35e04a290def6300ebd[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 14:55:19 2021 +0000
+
+    bugfix: users recipes not displayed after logging in.
+
+[33mcommit e0d5ca6f274f00aa8aaf0a63503a4ad6f4736892[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 14:32:49 2021 +0000
+
+    update mycookbook to only list the users recipes#
+
+[33mcommit 9a8b0559dd26119dde78aaef12ad7c0caf459ba7[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 13:46:43 2021 +0000
+
+    add Delete Recipe function
+
+[33mcommit a308d00994810ec75a16d5a2186620f5c3942d9c[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Mon Aug 23 12:36:33 2021 +0000
+
+    updare requirements.txt
+
+[33mcommit 81cf3fd6f5503a6d402e5382930d684463db8552[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Sat Aug 21 01:47:40 2021 +0000
+
+    add cook, prep time. add image url with default
+
+[33mcommit 721e2c7f7e521b989d4718dfe700835449834ae0[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Sat Aug 21 01:12:31 2021 +0000
+
+    add serves & difficulty option select and write to db
+
+[33mcommit 98f3d8c6e170615a248c568a1c25e65d79ac41c2[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Sat Aug 21 00:48:19 2021 +0000
+
+    add dynamic recipe method form fields
+
+[33mcommit 3241a9ffe8e8d03d2dda3b4b87b60d34e67fae14[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Fri Aug 20 23:36:42 2021 +0000
+
+    remove bugs from javascript dynamic add/remove form field functions
+
+[33mcommit 648e28ee0c984ab285aca2dbfd60073b1b355525[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Fri Aug 20 23:09:23 2021 +0000
+
+    add dynamic ingredient input field to add recipe form
+
+[33mcommit 6a600bb6aeb7e79f15a4afa43efc58d4a7b7cdc6[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Fri Aug 20 21:27:47 2021 +0000
+
+    show menu options based ob current user
+
+[33mcommit 3803be545650554bf779336516aa35c81ac72a33[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Fri Aug 20 00:41:43 2021 +0000
+
+    replace method object with method array in db recipe collection
+
+[33mcommit ddc76073d8e4944f608fee5e6fe3b9dbead15e35[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Fri Aug 20 00:26:30 2021 +0000
+
+    update add recipe page
+
+[33mcommit 4acf7884d27b599aee22367e2db1751a778f7dab[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Thu Aug 19 23:03:43 2021 +0000
+
+    add basic recipe details to db
+
+[33mcommit 17a377e500d4a421e524d2d417c839b2b270feba[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Thu Aug 19 22:30:01 2021 +0000
+
+    add Add Recipe Page
+
+[33mcommit 1a03566edc5e18087df98fed30b7cc686d24d3c4[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 22:18:55 2021 +0000
+
+    add query for pinned recipes
+
+[33mcommit 8c246cff25893b44ec8f8945b71324e2d0ea7a6b[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 22:15:40 2021 +0000
+
+    query database for recipes on successful login
+
+[33mcommit 6b38923e98d0ade64f5aa312a08cefb880ef710e[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 21:19:15 2021 +0000
+
+    add logout function
+
+[33mcommit 2bc6a0d02b2c1732e82db582727cfe7edbd87a56[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 21:03:48 2021 +0000
+
+    add registration page
+
+[33mcommit 45fa5402256fea59e32c5c26494a19d4ea021222[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 15:42:42 2021 +0000
+
+    add author and date added
+
+[33mcommit 5746b7c68779a2c0d9cef6b7ca42142f63ebdb0d[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 15:37:21 2021 +0000
+
+    add image to page
+
+[33mcommit ac3cc4d1290555f8f8febb3f22eb416306f40593[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 15:28:49 2021 +0000
+
+    query database for recipes and display on page
+
+[33mcommit 29447b4ae1919a4bd5b1a4cda3ab0e0023c8ffc4[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 15:02:21 2021 +0000
+
+    add nav bar
+
+[33mcommit 03ffa36da7e827107e7e5cb2e2eac5d396048711[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 14:49:43 2021 +0000
+
+    add materialize,fontawesome and jquery libs
+
+[33mcommit 5c80860b1efad0ed0340fa2f554189aec66daf18[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 14:45:20 2021 +0000
+
+    add style sheet and test
+
+[33mcommit 5a1e66ef6a786c599dea9802fc36349cea5e4bfe[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 14:26:39 2021 +0000
+
+    add base and recipes page. Test connection to mongodb
+
+[33mcommit 9d16c40e19613fca84b1c4a8e434f9a193ccc557[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:58:13 2021 +0000
+
+    add Procfile
+
+[33mcommit f80d57e9c61eadae37a8ec0c64c4e4d0a2e0bde6[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:56:59 2021 +0000
+
+    add requirements.txt
+
+[33mcommit d647d9a7a0b3a0a589ea0c022d73d421814123de[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:56:17 2021 +0000
+
+    fix wireframe link
+
+[33mcommit d14d689db4564f1d3c59b4301abb25d50f08219b[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:52:28 2021 +0000
+
+    fix wireframe links
+
+[33mcommit a00b75f32ffe2ac59b6d31a31ef38cd30a30627d[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:47:46 2021 +0000
+
+    update readme with wireframe lins
+
+[33mcommit c8867e3d3f2cd9d067ca604fab029a3683e7d507[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:36:19 2021 +0000
+
+    move wireframes to supp dir
+
+[33mcommit 078bed82efa0a3b60be515c455ce04b25b91c465[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 13:33:39 2021 +0000
+
+    add wireframes
+
+[33mcommit 5ae2eeea408cccdcda84b5bf962f5651212cfdc3[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 10:56:02 2021 +0000
+
+    initial commit
+
+[33mcommit f4798e64b1f38d85d7b8ad996a8749fd5eef2832[m
+Author: coder187 <coder187@hotmail.com>
+Date:   Tue Aug 17 11:04:17 2021 +0100
+
+    Initial commit

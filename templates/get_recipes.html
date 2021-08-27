@@ -31,25 +31,7 @@
         </div>
     </div>
 </section>
-<section>
-    <div id="search" class="row card-panel grey lighten-5">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search Recipes</label>
-                </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
+
 <section>
     <div class="row">
         <div class="col s12">
@@ -77,15 +59,54 @@
     </div>
 </section>
 <section>
+    <div id="search" class="row card-panel grey lighten-5">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Recipes</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section>
     {% if recipes|length > 0 %}
     <div row class="search_result">
-        <div class="col s12">
+        <div class="col s12 ">
             <ul class="collapsible">
             {% for recipe in recipes %}
-                <li>
-                    <div class="collapsible-header"><i class="material-icons"></i>{{ recipe.name }}</div>
-                    <div class="collapsible-body"><span>{{ recipe.descr }}</span></div>
-                </li>
+            <li>
+                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                    <div class="col s3">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <div class="col s9">
+                        <strong>{{ recipe.name }}</strong>&nbsp;:&nbsp;{{ recipe.difficulty }}
+                    </div>
+                </div>
+
+                <div class="collapsible-body">
+                    <strong>
+                        {{ recipe.descr }}
+                    </strong>
+                    <p>
+                        Prep:{{ recipe.preptime }}&nbsp;:&nbsp;Cook:{{ recipe.cooktime }}
+                    </p>
+                    <p>
+                        <em>
+                            {{ recipe.added_by }}
+                        </em>
+                    </p>
+                </div>
+            </li>
             {% endfor %}
             </ul>
         </div>
@@ -94,30 +115,5 @@
     <a href="#search">Search</a>
     {% endif %}
     
-</section>
-<section>
-
-</section>
-    {% for recipe in recipes %}
-        
-        <p>{{ recipe.name }}</p>
-        <p>{{ recipe.descr }} </p>
-        <ul>
-            
-            {% for ingredient in recipe.ingredients %}
-            <li> {{ ingredient }} </li>
-            {% endfor%}
-            
-        </ul>
-        <ul>
-        
-            {% for method in recipe.method %}
-            <li> Step {{ loop.index }} : {{ method }}</li>
-            {% endfor%}
-        </ul>
-        <img src="{{ recipe.image_url }}" alt="recipe image" width="200" height="200">
-        <h6>Added By: {{ recipe.added_by }}, {{ recipe.added }} </h6>   
-    {% endfor %}
-    </ul>
-    
+</section>    
 {% endblock %}
