@@ -107,15 +107,12 @@ font-family: 'Poppins', sans-serif;
 
   
 
-.slider{
-  height: 800px;
-}
 .dancing{
   font-family: 'Dancing Script', cursive;
+  font-weight: 600;
 }
-
-.ratings{
-  background-color:rgba(27, 94, 32, 0.5);
+.caption{
+  background-color:rgba(27, 94, 32, 0.25);
 }
 
 .search_result{
