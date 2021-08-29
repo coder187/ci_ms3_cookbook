@@ -5,7 +5,12 @@ $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
     $('.chips').chips();
     $('.modal').modal();
-    $('.slider').slider();
+    $('.slider').slider({
+        full_width: true,
+        height : 600, // default - height : 400
+        interval: 8000 // default - interval: 6000
+    });
+
     $('.collapsible').collapsible();
     });
 
