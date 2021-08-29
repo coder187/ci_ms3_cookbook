@@ -12,9 +12,7 @@ font-family: 'Poppins', sans-serif;
   padding-right: 10px;
   
 }
-.dancing{
-  font-family: 'Dancing Script', cursive;
-}
+
 .caption{
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -86,8 +84,16 @@ font-family: 'Poppins', sans-serif;
   
     
   }
+  #hero-search .input {
+    background:transparent;
+    color:#ffff;
+    width:100%;
+    font-size: 27px;
+    margin: 0;
+}
 
-  #hero-search button {
+
+#hero-search button {
     position:absolute; 
     bottom: 0px; 
     
@@ -103,11 +109,17 @@ font-family: 'Poppins', sans-serif;
     border-radius: 50px;
   }
 
-  .card-image{
-  }
-.slider-header{
+  
+
+
+.dancing{
   font-family: 'Dancing Script', cursive;
 }
+
+.ratings{
+  background-color:rgba(27, 94, 32, 0.5);
+}
+
 .search_result{
   align-content: center;
 }
@@ -116,12 +128,15 @@ font-family: 'Poppins', sans-serif;
   line-height:42px;
 }
 
-.ratings{
-  background-color:rgba(27, 94, 32, 0.5);
+
+
+
+
+hr{
+  border:1px solid #777777;
+  width:100%;
+  margin: 5px 0;
 }
-
-
-
 
 /*
 #search input {

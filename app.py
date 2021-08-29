@@ -111,7 +111,7 @@ def get_recipes():
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("get_recipes.html", top_recipes= get_top_recipes(10),recipes=recipes)
+    return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
 
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
