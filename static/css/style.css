@@ -57,8 +57,9 @@ font-family: 'Poppins', sans-serif;
 
   .card-image{
   }
-
-  
+.slider-header{
+  font-family: 'Dancing Script', cursive;
+}
 .search_result{
   align-content: center;
 }
