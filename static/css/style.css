@@ -138,9 +138,15 @@ hr{
 
 /*footer */
 /*social */
-
+#footer {
+  color:black;
+}
+#footer .page-footer .container .white-text{
+  color:black;
+}
 .copywtext{
   text-align:center;
+
 }
 .social-networks{
   text-align:center;
