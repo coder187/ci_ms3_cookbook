@@ -41,15 +41,11 @@ font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-align: center;
-
-  
      
     height: 500px;
     width: 300px;
   
-    padding-top: 40px;
-    padding-left: 10px;
-  
+    padding: 40px 10px 0px 10px;
     background-color:rgba(27, 94, 32, 0.7); 
   
     /* placve in fixed position: relatuve to parent container */

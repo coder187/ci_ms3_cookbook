@@ -97,7 +97,6 @@ def get_recipes():
     top_recipes = get_top_recipes(10)
     avgs = []
     for rec in top_recipes:
-        print(rec["_id"])
         avgs.append(
             {
                 "id": rec["_id"],

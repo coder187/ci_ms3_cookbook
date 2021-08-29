@@ -35,8 +35,50 @@
         </div>
     </div>
 </section>
+<section>
+    {% if recipes|length > 0 %}
+    <div row class="search_result">
+        <div class="col s12 ">
+            <ul class="collapsible">
+            {% for recipe in recipes %}
+            <li>
+                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                    <div class="col s3">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <div class="col s9">
+                        <strong>{{ recipe.name }}</strong>&nbsp;:&nbsp;{{ recipe.difficulty }}
+                    </div>
+                </div>
 
+                <div class="collapsible-body">
+                    <strong>
+                        {{ recipe.descr }}
+                    </strong>
+                    <p>
+                        Prep:{{ recipe.preptime }}&nbsp;:&nbsp;Cook:{{ recipe.cooktime }}
+                    </p>
+                    <p>
+                        <em>
+                            {{ recipe.added_by }}
+                        </em>
+                    </p>
+                </div>
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% else %}
+        {% if recipes is defined %}
+            <h3>Sorry No Recipes Match Your Search</h3>
+            <p>Be the tirst to add it <a href="{{ url_for('add_recipe') }}">here</a></p>
+        {% endif %}
+    {% endif %}
+    
+</section> 
 <hr>
+
 <section><!-- top 10 recipe slider -->
     <div class="row">
         <div class="col s12 center-align dancing">
@@ -80,63 +122,5 @@
                   
         </div>
     </div>
-</section>
-<section>
-    <div id="search" class="row card-panel grey lighten-5">
-        <form action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-                    <input type="text" name="query2" id="query2" minlength="3" class="validate" required>
-                    <label for="query">Search Recipes</label>
-                </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
-<section>
-    {% if recipes|length > 0 %}
-    <div row class="search_result">
-        <div class="col s12 ">
-            <ul class="collapsible">
-            {% for recipe in recipes %}
-            <li>
-                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
-                    <div class="col s3">
-                        <i class="fas fa-caret-down"></i>
-                    </div>
-                    <div class="col s9">
-                        <strong>{{ recipe.name }}</strong>&nbsp;:&nbsp;{{ recipe.difficulty }}
-                    </div>
-                </div>
-
-                <div class="collapsible-body">
-                    <strong>
-                        {{ recipe.descr }}
-                    </strong>
-                    <p>
-                        Prep:{{ recipe.preptime }}&nbsp;:&nbsp;Cook:{{ recipe.cooktime }}
-                    </p>
-                    <p>
-                        <em>
-                            {{ recipe.added_by }}
-                        </em>
-                    </p>
-                </div>
-            </li>
-            {% endfor %}
-            </ul>
-        </div>
-    </div>
-    {% else %}
-    <a href="#search">Search</a>
-    {% endif %}
-    
-</section>    
+</section>   
 {% endblock %}
