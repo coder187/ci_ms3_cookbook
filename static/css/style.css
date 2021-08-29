@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
 
 
 /*
@@ -14,11 +14,19 @@ font-family: 'Poppins', sans-serif;
 }
 
 .caption{
+  background-color:rgba(27, 94, 32, 0.35);
+  color: #FFFFFF;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
-  color: #FFFFFF;
   letter-spacing: 2px;
-  
+}
+
+.caption .dancing{
+  font-weight: 700;
+}
+
+.dancing{
+  font-family: 'Dancing Script', cursive;
 }
 
 #hero-image{
@@ -107,13 +115,8 @@ font-family: 'Poppins', sans-serif;
 
   
 
-.dancing{
-  font-family: 'Dancing Script', cursive;
-  font-weight: 600;
-}
-.caption{
-  background-color:rgba(27, 94, 32, 0.25);
-}
+
+
 
 .search_result{
   align-content: center;
