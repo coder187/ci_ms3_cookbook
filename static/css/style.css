@@ -136,6 +136,39 @@ hr{
   margin: 5px 0;
 }
 
+/*footer */
+/*social */
+
+.copywtext{
+  text-align:center;
+}
+.social-networks{
+  text-align:center;
+}
+.social-networks ul{
+  display: inline;
+}
+.social-networks li{
+  display: inline;
+
+  font-size: 160%;
+  margin: 1px;
+  padding: 5%;
+  color:#777777;
+}
+
+
+
+/*
+.social-networks i{
+  font-size: 110%;
+  margin: 1px;
+  padding: 5%;
+  color:#777777;
+}
+*/
+
+
 /*
 #search input {
   width: 75%;
