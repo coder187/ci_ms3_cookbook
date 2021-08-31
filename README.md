@@ -1,10 +1,10 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+![Cookbook Image](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/cookbook.png)
 
 
 # unfinished
 
 # MyCookbook Flask MongoDB CI MS3 App
-[Link to live site on github pages](https:#)
+[Link to live site](https://ci-cookbook.herokuapp.com/)
 
 Project - Python and Data Centric Development - Code Institute
 
