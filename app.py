@@ -113,10 +113,14 @@ def search():
     return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
 
 
+@app.route("/view_recipe.html")
+def view_recipe():
+    return render_template("view_recipe.html")
+
+
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
     # check that the user is logged in
-
     if not session.get("user"):
         return redirect(url_for("login"))
 
