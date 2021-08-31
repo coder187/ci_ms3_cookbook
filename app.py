@@ -113,9 +113,10 @@ def search():
     return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
 
 
-@app.route("/view_recipe.html")
-def view_recipe():
-    return render_template("view_recipe.html")
+@app.route("/view_recipe/<recipe_id>")
+def view_recipe(recipe_id):
+    get_one_recipe
+    return render_template("view_recipe.html",recipe=get_one_recipe(recipe_id))
 
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
