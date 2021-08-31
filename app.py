@@ -65,10 +65,25 @@ def get_top_recipes(count):
 def delete_recipes(recipe_id, user_name):
     """
     delete recipe from database
+    if the user_name is supplied
+    delete all recipes for that user
     """
+
+    # you must either be an admin
+    # or the recipe owner to delete a recipe
+
+    recipe = get_one_recipe(recipe_id)
+    recipe_owner = recipe["added_by"]
+
+    if session.get("user") is None:
+        return -1
+
+    if session["user"].lower() != recipe_owner.lower() and session["user"] != "admin":
+        return -2
+
     try:
         if user_name:
-            print ("user")
+            print("user")
             print (ObjectId(recipe_id))
             mongo.db.recipes.remove({"added_by": user_name})
         else:
@@ -76,7 +91,7 @@ def delete_recipes(recipe_id, user_name):
             print (ObjectId(recipe_id))
             print (recipe_id)
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    except Exception as ex:
+    except:
         # log ex
         return 0
     else:
@@ -226,12 +241,21 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     res = delete_recipes(recipe_id, "")
-    if res == 1:
+    if res > 0:
         flash("Recipe Deleted Successfully")
     else:
         flash("Recipe Delete Failed")
 
-    return redirect(url_for("mycookbook",username=session["user"]))
+    if res >= 0:
+        return redirect(url_for("mycookbook",username=session["user"]))
+    elif res == -1:
+        flash("You Need To Login To Perform This Action")
+        return redirect(url_for("login"))
+    else:
+        flash("You Need To Be An Admin Or The Recipe Owner To Perform This Action")
+        return redirect(url_for("login"))
+
+
 
 @app.route("/login.html", methods=['POST', 'GET'])
 def login():

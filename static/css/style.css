@@ -126,10 +126,6 @@ font-family: 'Poppins', sans-serif;
   line-height:42px;
 }
 
-
-
-
-
 hr{
   border:1px solid #777777;
   width:100%;
@@ -137,10 +133,33 @@ hr{
 }
 
 /*view recipe*/
-.view_recipe, img{
-  width:300px;
-  max-height: 300px;
+
+.recipe_img img{
+  max-height: 200px;
 }
+.recipe_img{
+  padding:0;
+  border:0;
+  border: 5px solid red;
+  overflow-x: hidden;
+  
+}
+.recipe_info{
+  border: 5px solid blue;
+
+}
+
+
+/*
+.card{
+  height: 400px;
+}
+.card-image, img{
+  max-height: 150px;
+  min-height: 150px;
+}
+*/
+
 /*footer */
 /*social */
 #footer {
@@ -217,4 +236,8 @@ hr{
     width :75%;
     
   }
+  
+body{
+  overflow-x: hidden;
+}
 }

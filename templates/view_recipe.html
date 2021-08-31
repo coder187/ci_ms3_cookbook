@@ -1,15 +1,24 @@
 {% extends "base.html"%}
 {% block content %}
-<div class="recipe_view">#
+<div class="recipe_view">
     <h3>View Recipe</h3>
     <div class="row">
-        <div class="col s3">
+        <div class="col s3 recipe_img">
             <img src="{{ recipe.image_url }}" alt="recipe image">
         </div>
-        <div class="col s9">
+        <div class="col s9 recipe_info">
             <h2>{{ recipe.name }}</h2>
             <p>By {{ recipe.added_by }}</p>
             <p>Rated {{ avg[0] }} out 5 from {{ avg[1] }} ratings</p>
+            <div class="col infocol">
+
+            </div>
+            <div class="col infocol">
+
+            </div>
+            <div class="col infocol">
+
+            </div>
             <p><i class="fas fa-clock"></i>
                 Prep: {{ recipe.preptime }}
                 <br>
