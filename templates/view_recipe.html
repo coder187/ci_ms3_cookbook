@@ -1,18 +1,49 @@
 {% extends "base.html"%}
 {% block content %}
-<h3>View Recipe</h3>
-
-
-{{ recipe.name }}
-<br>
-{{ recipe.descr }}
-<br>
-{{ recipe.added }}
-<br>
-{{ recipe.added_by }}
-
-
-
-
-
+<div class="recipe_view">#
+    <h3>View Recipe</h3>
+    <div class="row">
+        <div class="col s3">
+            <img src="{{ recipe.image_url }}" alt="recipe image">
+        </div>
+        <div class="col s9">
+            <h2>{{ recipe.name }}</h2>
+            <p>By {{ recipe.added_by }}</p>
+            <p>Ratings -- Rate</p>
+            <p>Ratings -- Rate</p>
+            <p><i class="fas fa-clock"></i>
+                Prep: {{ recipe.preptime }}
+                <br>
+                Cook: {{ recipe.preptime }}
+                <br>
+                <i class="fas fa-brain"></i>
+                Diff: {{ recipe.difficulty }}
+                <br>
+                <i class="fas fa-utensils"></i>
+                Serves: {{ recipe.serves }}
+                <br>
+            </p>
+            <p>
+                {{ recipe.descr }}
+            </p>
+            <p>
+                <span>Social Icons</span>
+            </p>
+            <p> Pin Recipe</p>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                Ingredients
+            </div>
+            <div class="col s6">
+                Method
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                Next / Prev
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

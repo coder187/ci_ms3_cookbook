@@ -136,6 +136,11 @@ hr{
   margin: 5px 0;
 }
 
+/*view recipe*/
+.view_recipe, img{
+  width:300px;
+  max-height: 300px;
+}
 /*footer */
 /*social */
 #footer {
