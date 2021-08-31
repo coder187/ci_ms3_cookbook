@@ -25,11 +25,19 @@
                     </div>
                     <div class="card-action">
                         <!-- Edit Recipe -->
-                        <a href="{{ url_for('edit_recipe',recipe_id=recipe._id)}}" class="btn green accent-4">Edit</a>
-                        
+                        <a href="{{ url_for('edit_recipe',recipe_id=recipe._id)}}" 
+                            class="btn green accent-4 tooltipped" 
+                            data-position="bottom" data-tooltip="Edit Recipe">
+                            <i class="far fa-edit"></i>
+                        </a>
+
                         <!-- Delete Recipe -->
                             <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger" href="#modal_{{loop.index}}">Delete</a>
+                        <a href="#modal_{{loop.index}}" 
+                            class="waves-effect waves-light btn modal-trigger tooltipped" 
+                            data-position="bottom" data-tooltip="Delete Recipe">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
 
                             <!-- Modal Structure -->
                         <div id="modal_{{loop.index}}" class="modal">
@@ -47,7 +55,11 @@
                         </div>
 
                         <!-- View Recipe -->
-                        <a href="{{ url_for('view_recipe',recipe_id=recipe._id) }}" class="btn green accent-4">View</a>
+                        <a href="{{ url_for('view_recipe',recipe_id=recipe._id) }}" 
+                            class="btn green accent-4 tooltipped"
+                            data-position="bottom" data-tooltip="View Recipe">
+                            <i class="fas fa-binoculars"></i>
+                        </a>
                         
                     </div>
                 </div>

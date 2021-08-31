@@ -115,8 +115,9 @@ def search():
 
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
-    get_one_recipe
-    return render_template("view_recipe.html",recipe=get_one_recipe(recipe_id))
+    recipe = get_one_recipe(recipe_id)
+    avg = calc_avg_rating(recipe)
+    return render_template("view_recipe.html", recipe=recipe, avg=avg)
 
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
