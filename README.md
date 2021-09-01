@@ -224,6 +224,13 @@ testing -- check that a user is logged in before showing the add recipe page.
     404 Error Page:
    https://lottiefiles.com/marketplace/the-ultimate-404-error-page
     
+
+    REM SET DEBUG = FALSE FOR LIVE.
+    test error handlers
+    404 nav to dummy page
+    400 set debug = False. import abort from flask. add line abort(400).
+    500 set debug = False. remove 400 error handler.
+    
     
 ### Content
 The website 

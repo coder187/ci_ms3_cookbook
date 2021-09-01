@@ -105,13 +105,19 @@ def get_allergens():
     """
     return list(mongo.db.allergens.find().sort("allergen", 1))
 
+
+@app.errorhandler(400)
+def bad_request(e):
+    return render_template('400.html'), 400
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
 
 
 @app.errorhandler(500)
-def internal_error(e):
+def internal_server_error(e):
     return render_template('500.html'), 500
 
 
@@ -199,12 +205,11 @@ def mycookbook(username):
     # if not auhtenitcated redirect to login page
     return redirect(url_for("login"))
 
-
 @app.route("/edit_recipe/<recipe_id>", methods=['POST', 'GET'])
 def edit_recipe(recipe_id):
     
     if request.method == "POST":
-
+        print("edit recipe###########################")
         now = datetime.now()
         method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
@@ -231,7 +236,7 @@ def edit_recipe(recipe_id):
             # log(ex)
         else:
             flash("Recipe Udated Successfully.")
-            return redirect(url_for('mycookbook', username=session["user"]))
+            return redirect(url_for('mycookbook2', username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     
