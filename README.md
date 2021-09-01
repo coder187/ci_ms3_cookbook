@@ -220,6 +220,9 @@ testing -- check that a user is logged in before showing the add recipe page.
 
     password validation:
     http://jsfiddle.net/SirusDoma/ayf832td/
+
+    404 Error Page:
+   https://lottiefiles.com/marketplace/the-ultimate-404-error-page
     
     
 ### Content
