@@ -1,0 +1,9 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="row center-align">
+    <h3 >Sorry! We couldn’t find that page</h3>
+    <a href="{{ url_for('get_recipes') }}" class="light-blue-text text-darken-4"> 
+        Click To Return To The Home Page
+    </a>
+</div>
+{% endblock %}
