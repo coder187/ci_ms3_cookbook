@@ -214,19 +214,22 @@ def edit_recipe(recipe_id):
         ingredients = request.form.getlist("ing[]")
 
         submit = {
-            "name": request.form.get("recipe_name"),
-            "descr": request.form.get("recipe_descr"),
-            "added_by": session["user"],
-            "added": now.strftime("%d %B, %Y %H:%M:%S"),
-            "allergens": request.form.getlist("allergens"),
-            "difficulty": request.form.get("difficulty"),
-            "serves": request.form.get("serves"),
-            "image_url": request.form.get("image_url"),
-            "ingredients": ingredients,
-            "method": method_steps,
-            "preptime": request.form.get("prep_time"),
-            "cooktime": request.form.get("cook_time")
-        }
+                "$set":
+                    {
+                        "name": request.form.get("recipe_name"),
+                        "descr": request.form.get("recipe_descr"),
+                        "added_by": session["user"],
+                        "added": now.strftime("%d %B, %Y %H:%M:%S"),
+                        "allergens": request.form.getlist("allergens"),
+                        "difficulty": request.form.get("difficulty"),
+                        "serves": request.form.get("serves"),
+                        "image_url": request.form.get("image_url"),
+                        "ingredients": ingredients,
+                        "method": method_steps,
+                        "preptime": request.form.get("prep_time"),
+                        "cooktime": request.form.get("cook_time")
+                    }
+                }
 
         try:
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
@@ -235,7 +238,7 @@ def edit_recipe(recipe_id):
             # log(ex)
         else:
             flash("Recipe Udated Successfully.")
-            return redirect(url_for('mycookbook2', username=session["user"]))
+            return redirect(url_for('mycookbook', username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     
