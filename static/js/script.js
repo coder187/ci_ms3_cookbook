@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('.sidenav').sidenav({edge: 'right'});
     $('.tooltipped').tooltip();
     $('select').formSelect();   
-    $('.fixed-action-btn').floatingActionButton({direction: 'right',hoverEnabled:'True'});
+    $('.fixed-action-btn').floatingActionButton({direction: 'left',hoverEnabled:'True'});
     $('.chips').chips();
     $('.modal').modal();
     $('.slider').slider({

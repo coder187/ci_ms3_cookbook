@@ -1,8 +1,8 @@
 {% extends "base.html"%}
 {% block content %}
-<div class="recipe_view">
+
     <h3 class="light-blue-text text-darken-4 center-align">View Recipe</h3>
-    <div class="row">
+    <div class="row recipe_view">
         <div class="col s12 recipe_info">
             <div class="row"> <!-- row 1 -->
                 <div class="col"><!--left col-->
@@ -41,33 +41,35 @@
                 </div>
             </div>
 
-            <div class="row"> <!-- row 3 -->
-                <div class="col s12" style="position: relative; height: 70px;">
-                    <div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block; left:10px">
-                        <a class="btn-floating btn-large green">
-                            <i class="fas fa-share-alt"></i>
-                        </a>
-                        <ul>
-                            <li>
-                                <a class="btn-floating blue darken-4" href="https://www.facebook.com/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="btn-floating blue" href="https://www.twitter.com/" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="btn-floating pink" href="https://www.instagram.com/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div><!-- end actio button-->
-                </div><!-- end col -->
-            </div><!-- end row 3-->
-
+                <div class="row"> <!-- row 3 -->
+                    <div class="col s12" style="position: relative; height: 70px;">
+                        <div class="fixed-action-btn" style="position: absolute; display: inline-block; right:10px;">
+                            <a class="btn-floating btn-large green">
+                                <i class="fas fa-share-alt"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a class="btn-floating blue darken-4" href="https://www.facebook.com/" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-floating blue" href="https://www.twitter.com/" target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn-floating pink" href="https://www.instagram.com/" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div><!-- end actio button-->
+                    </div><!-- end col -->
+                </div><!-- end row 3-->
+    
+            
+            
             
 
 
@@ -124,5 +126,4 @@
             </div>
         </div><!-- end class recipe_info -->
     </div> <!-- end outer row -->
-</div> <!-- end class recipe_view -->
 {% endblock %}
