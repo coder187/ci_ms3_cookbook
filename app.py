@@ -20,6 +20,29 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+@app.context_processor
+def utility_processor():
+    def format_method_step(str):
+        '''
+        strip the word step and number from
+        the method string
+        '''
+        o = str
+        if len(str) > 6:           
+            
+            if str.lower().find("step", 0, 4) != -1:
+                o = str[4:]
+
+            if str.lower().find("step ", 0, 5) != -1:
+                o = str[6:]
+            
+            while o[0:1].isnumeric():
+                o = (o[1:])
+
+        return o
+    return dict(format_method_step=format_method_step)
+
+
 def calc_avg_rating(recipe):
     """
     calculate

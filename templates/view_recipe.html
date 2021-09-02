@@ -40,42 +40,35 @@
                     {{ recipe.descr }}
                 </div>
             </div>
-
-                <div class="row"> <!-- row 3 -->
-                    <div class="col s12" style="position: relative; height: 70px;">
-                        <div class="fixed-action-btn" style="position: absolute; display: inline-block; right:10px;">
-                            <a class="btn-floating btn-large green">
-                                <i class="fas fa-share-alt"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a class="btn-floating blue darken-4" href="https://www.facebook.com/" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="btn-floating blue" href="https://www.twitter.com/" target="_blank">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="btn-floating pink" href="https://www.instagram.com/" target="_blank">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div><!-- end actio button-->
-                    </div><!-- end col -->
-                </div><!-- end row 3-->
-    
-            
-            
-            
-
-
+            <div class="row"><!-- row 3 Social Button -->
+                <div class="col s12" style="position: relative; height: 70px;">
+                    <div class="fixed-action-btn" style="position: absolute; display: inline-block; right:10px;">
+                        <a class="btn-floating btn-large green">
+                            <i class="fas fa-share-alt"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="btn-floating blue darken-4" href="https://www.facebook.com/" target="_blank">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating blue" href="https://www.twitter.com/" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="btn-floating pink" href="https://www.instagram.com/" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- end actio button-->
+                </div><!-- end col -->
+            </div><!-- end row 3-->
 
             <hr>
-            <div class="row"> <!-- row 4-->
+            <div class="row"> <!-- row 4 Ing & Method-->
                 <div class="col m6">
                     <div class="dancing_big">Ingredients</div>
                     <div class="recipe_ing">
@@ -93,7 +86,8 @@
                         <ul>
                             {% for meth in recipe.method %}
                                 <li> <p><span class="head">Step {{ loop.index }}</span>
-                                    {{ meth }} </p>
+                                    
+                                {{ format_method_step(meth)  }}</p>
                                 </li>
                             {% endfor %}
                             </ul>
@@ -102,13 +96,13 @@
                 </div>
             </div> <!-- end row 4-->
             <hr>
-            <div class="row"> <!-- row 5-->
+            <div class="row"> <!-- row 5 Pin To Favs -->
                 <div class="col s12 center-align">
                     <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped" data-position = "bottom" data-tooltip = "Pin To Favourite Recipes">
                         <i class="fas fa-heart"></i></a>
                 </div>
             </div> <!-- end row 5-->
-            <div class="row"> <!-- row 6-->
+            <div class="row"> <!-- row 6 Nav-->
                 <div class="col s12 center-align">
                     Please Rate This Recipe
                 </div> 
