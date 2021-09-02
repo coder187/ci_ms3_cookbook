@@ -1,12 +1,12 @@
 {% extends "base.html"%}
 {% block content %}
 <div class="recipe_view">
-    <h3>View Recipe</h3>
+    <h3 class="light-blue-text text-darken-4 center-align">View Recipe</h3>
     <div class="row">
         <div class="col s12 recipe_info">
             <div class="row"> <!-- row 1 -->
                 <div class="col"><!--left col-->
-                    <h3>{{ recipe.name }}</h3>
+                    <h3 class="dancing">{{ recipe.name }}</h3>
                     <p><i class="fas fa-pen-fancy"></i> By {{ recipe.added_by }}</p>
                     <p><i class="fas fa-star-half-alt"></i> Rated {{ avg[0] }} out 5 from {{ avg[1] }} ratings</p>
                     <div class="row">
@@ -34,6 +34,7 @@
                     <img src="{{ recipe.image_url }}" alt="recipe image">
                 </div>            <!--end right col-->
             </div>
+            <hr>
             <div class="row"> <!-- row 2 -->
                 <div class="col">
                     {{ recipe.descr }}
@@ -65,6 +66,7 @@
                     </div><!-- end actio button-->
                 </div><!-- end col -->
             </div><!-- end row 3-->
+            <hr>
             <div class="row"> <!-- row 4-->
                 <div class="col m6">
                     <div class="dancing_big">Ingredients</div>
@@ -91,14 +93,20 @@
                     
                 </div>
             </div> <!-- end row 4-->
-            <div class="row">
+            <hr>
+            <div class="row"> <!-- row 5-->
                 <div class="col s12 center-align">
                     <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped
                     data-position="bottom" data-tooltip="Pin To Favourite Recipes">
                         <i class="fas fa-heart"></i></a>
                 </div>
-            </div>
+            </div> <!-- end row 5-->
             <div class="row"> <!-- row 6-->
+                <div class="col s12 center-align">
+                    Please Rate This Recipe
+                </div> 
+            </div> <!-- end row 6-->
+            <div class="row"> <!-- row 7-->
                 <div class="col s4 center-align">
                     Prev
                 </div> 
@@ -108,7 +116,7 @@
                 <div class="col s4 center-align">
                     Next
                 </div> 
-            </div> <!-- end row 6-->
+            </div>
         </div><!-- end class recipe_info -->
     </div> <!-- end outer row -->
 </div> <!-- end class recipe_view -->
