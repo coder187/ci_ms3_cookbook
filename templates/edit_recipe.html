@@ -73,7 +73,7 @@
                             {% if recipe.difficulty == diff %}
                                 <option value="{{recipe.difficulty}}" selected> {{recipe.difficulty}} </option>
                             {% else %}
-                                <option value="{{recipe.difficulty}}">{{recipe.difficulty}} </option>
+                                <option value="{{ diff }}">{{ diff }} </option>
                             {% endif %}
                         {% endfor %}
                 </select>

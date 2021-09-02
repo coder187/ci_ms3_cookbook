@@ -205,15 +205,14 @@ def mycookbook(username):
     # if not auhtenitcated redirect to login page
     return redirect(url_for("login"))
 
+
 @app.route("/edit_recipe/<recipe_id>", methods=['POST', 'GET'])
 def edit_recipe(recipe_id):
-    
     if request.method == "POST":
-        print("edit recipe###########################")
         now = datetime.now()
         method_steps = request.form.getlist("meth[]")
         ingredients = request.form.getlist("ing[]")
-        # ratings = request.form.get("ing[]")
+
         submit = {
             "name": request.form.get("recipe_name"),
             "descr": request.form.get("recipe_descr"),
