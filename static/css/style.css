@@ -29,6 +29,9 @@ font-family: 'Poppins', sans-serif;
   font-family: 'Dancing Script', cursive;
 }
 
+
+
+
 #hero-image{
   height: 600px;
   width:100%;
@@ -132,20 +135,32 @@ hr{
   margin: 5px 0;
 }
 
-/*view recipe*/
+/*###############view recipe#################*/
 
-.recipe_info{
+.recipe_view{
   border: 2px solid blue;
-
 }
 
-.recipe_info img{
+.recipe_view ul li{
+  list-style-type: circle;
+  list-style-image: url('../images/chefs_hat_ico.png');
+  list-style-position: inside;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.recipe_view img{
   border: 2px solid red ;
   border-style: groove ;
   max-height: 300px;
   width:95%;
 }
 
+.dancing_big{
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  font-size: 30px;
+}
 /*
 .card{
   height: 400px;

@@ -65,6 +65,19 @@
                     </div><!-- end actio button-->
                 </div><!-- end col -->
             </div><!-- end row 3-->
+            <div class="row"> <!-- row 4-->
+                <div class="col s6">
+                    <div class="dancing_big">Ingredients</div>
+                    <ul>
+                    {% for ing in recipe.ingredients %}
+                        <li> {{ ing }} </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                <div class="col s6 dancing">
+                    Method
+                </div>
+            </div> <!-- end row 4-->
         </div><!-- end class recipe_info -->
     </div> <!-- end outer row -->
 </div> <!-- end class recipe_view -->

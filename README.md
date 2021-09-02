@@ -208,6 +208,8 @@ https://docs.mongodb.com/manual/core/document/#document-field-order
 
 testing -- check that a user is logged in before showing the add recipe page.
 
+chefs hat
+http://clipart-library.com/clipart/qTBX5L59c.htm
 
 ## Credits
 ### Code
