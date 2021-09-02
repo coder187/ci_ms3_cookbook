@@ -1,11 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
-
-
-/*
-font-family: 'Dancing Script', cursive;
-font-family: 'Poppins', sans-serif;
-*/
 
 .nav-wrapper{
   padding-left: 10px;
@@ -107,7 +100,6 @@ font-family: 'Poppins', sans-serif;
     color: #fff;
     background:#0000;
     height: 50px;
-    /*line-height: 65px;*/
     
     padding: 2;
     border: 1;
@@ -210,33 +202,6 @@ hr{
 }
 
 
-
-/*
-.social-networks i{
-  font-size: 110%;
-  margin: 1px;
-  padding: 5%;
-  color:#777777;
-}
-*/
-
-
-/*
-#search input {
-  width: 75%;
-  height: 76px;
-  line-height: 76px;
-  border: 1px solid #111;
-  background: rgba(0, 0, 0, 0.8);
-  font-size: 27px;
-  
-  position: relative;
-  border-radius: 50px;
-  color:#ffff;
-  
-}
-*/
-
 @media screen and (max-width: 1475px){
 
  #hero-search input{
@@ -256,10 +221,5 @@ hr{
     left:0px;
     bottom: 25px; 
     width :75%;
-    
   }
-  
-body{
-  overflow-x: hidden;
-}
 }
