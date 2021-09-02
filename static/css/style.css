@@ -69,8 +69,6 @@ font-family: 'Poppins', sans-serif;
   }
 
   #hero-search {
-
-    /*border: 5px solid red;*/
     height: 50px;
     width: 25%;
     
@@ -141,16 +139,21 @@ hr{
   border: 2px solid blue;
 }
 
-.recipe_view ul li{
-  list-style-type: circle;
+.recipe_ing{
   list-style-image: url('../images/chefs_hat_ico.png');
   list-style-position: inside;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
 
+.recipe_method{
+  list-style-type: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
 .recipe_view img{
-  border: 2px solid red ;
+  border: 2px solid green ;
   border-style: groove ;
   max-height: 300px;
   width:95%;
@@ -160,6 +163,13 @@ hr{
   font-family: 'Dancing Script', cursive;
   font-weight: 600;
   font-size: 30px;
+}
+
+
+
+.head{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
 }
 /*
 .card{
@@ -197,13 +207,6 @@ hr{
   padding: 5%;
   color:#777777;
 }
-
-
-/*
-.n{
-  border:2px solid black;
-}
-*/
 
 
 

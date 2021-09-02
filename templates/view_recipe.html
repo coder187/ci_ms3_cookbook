@@ -66,18 +66,49 @@
                 </div><!-- end col -->
             </div><!-- end row 3-->
             <div class="row"> <!-- row 4-->
-                <div class="col s6">
+                <div class="col m6">
                     <div class="dancing_big">Ingredients</div>
-                    <ul>
-                    {% for ing in recipe.ingredients %}
-                        <li> {{ ing }} </li>
-                    {% endfor %}
-                    </ul>
+                    <div class="recipe_ing">
+                        <ul>
+                            {% for ing in recipe.ingredients %}
+                            <li> {{ ing }} </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
                 </div>
-                <div class="col s6 dancing">
-                    Method
+                <div class="col m6 dancing">
+                    <div class="dancing_big">Method</div>
+                    <div class="recipe_method">
+                        <ul>
+                            {% for meth in recipe.method %}
+                                <li> <p><span class="head">Step {{ loop.index }}</span>
+                                    {{ meth }} </p>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                    </div>
+                    
                 </div>
             </div> <!-- end row 4-->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped
+                    data-position="bottom" data-tooltip="Pin To Favourite Recipes">
+                        <i class="fas fa-heart"></i></a>
+                </div>
+            </div>
+            <div class="row"> <!-- row 6-->
+                <div class="col s4 center-align">
+                    Prev
+                </div> 
+                <div class="col s4 center-align">
+                    Random
+                </div> 
+                <div class="col s4 center-align">
+                    Next
+                </div> 
+            </div> <!-- end row 6-->
         </div><!-- end class recipe_info -->
     </div> <!-- end outer row -->
 </div> <!-- end class recipe_view -->
