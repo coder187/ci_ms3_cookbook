@@ -134,21 +134,17 @@ hr{
 
 /*view recipe*/
 
-.recipe_img img{
-  max-height: 200px;
-}
-.recipe_img{
-  padding:0;
-  border:0;
-  border: 5px solid red;
-  overflow-x: hidden;
-  
-}
 .recipe_info{
-  border: 5px solid blue;
+  border: 2px solid blue;
 
 }
 
+.recipe_info img{
+  border: 2px solid red ;
+  border-style: groove ;
+  max-height: 300px;
+  width:95%;
+}
 
 /*
 .card{
@@ -187,14 +183,12 @@ hr{
   color:#777777;
 }
 
-.fixed-action-btn{
- /*right: auto; 
-  margin-left: 5%;  */
-}
 
+/*
 .n{
   border:2px solid black;
 }
+*/
 
 
 
