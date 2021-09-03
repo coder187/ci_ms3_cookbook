@@ -11,6 +11,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   letter-spacing: 2px;
+  padding:10px;
 }
 
 .caption .dancing{
@@ -106,10 +107,6 @@
   }
 
   
-
-
-
-
 .search_result{
   align-content: center;
 }
@@ -118,11 +115,15 @@
   line-height:42px;
 }
 
+.ratings{
+  padding:10px;
+}
 hr{
   border:1px solid #777777;
   width:100%;
   margin: 5px 0;
 }
+
 
 /*###############view recipe#################*/
 
