@@ -96,7 +96,7 @@
                 </div>
             </div> <!-- end row 4-->
             <hr class="hr_flair">
-            {% if recipe.added_by != session["user"] %}
+            {% if recipe.added_by != session["user"] and not session["user"] is None  %}
 
             <div class="row"> <!-- row 5 Pin To Favs -->
                 <div class="col s12 center-align">

@@ -90,7 +90,7 @@ function GetLastStepNo(container){
         no.setAttribute("name", arr +"[]");
         no.setAttribute("placeholder", placeholder_text);
         no.setAttribute("minlength","5");
-        no.setAttribute("maxlength","200");
+        no.setAttribute("maxlength","800");
         no.setAttribute("class","validate required");
         
 
