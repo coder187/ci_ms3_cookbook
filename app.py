@@ -212,7 +212,6 @@ def add_to_pinned(recipe_id):
     else:
         flash("Please Login To Update Your Cookbook")
 
-    # return render_template("view_recipe.html", recipe=recipe, avg=avg)
     return redirect(url_for('view_recipe', recipe_id=recipe_id))
 
 
@@ -255,7 +254,7 @@ def view_recipe(recipe_id):
         
     avg = calc_avg_rating(recipe)
     return render_template("view_recipe.html", recipe=recipe, avg=avg)
-
+    
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
