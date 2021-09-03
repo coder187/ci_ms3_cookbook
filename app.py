@@ -42,6 +42,24 @@ def utility_processor():
     return dict(format_method_step=format_method_step)
 
 
+def reciped_pinned(recipe, user_name):
+    '''
+    look for the user_name
+    in the recipe.pinned array
+    '''
+    try:
+        users = recipe["pinned"]
+    except Exception:
+        users = []
+
+    pinned = False
+    for user in users:
+        if user == user_name:
+            pinned = True
+
+    return pinned
+
+
 def calc_avg_rating(recipe):
     """
     calculate
@@ -172,11 +190,18 @@ def search():
 
 @app.route("/add_to_pinned/<recipe_id>")
 def add_to_pinned(recipe_id):
-    print ("pinned")
     recipe = get_one_recipe(recipe_id)
     avg = calc_avg_rating(recipe)
-    flash("Recipe Pinned to your Favourites")
+    if session.get("user") is not None:
+        if not reciped_pinned(recipe, session["user"]):
+            submit = { "$push": {"pinned": session["user"]} }
+            mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+            flash("Recipe Pinned to your Favourites")
+    else:
+        flash("Please Login To Update Your Cookbook")
+
     return render_template("view_recipe.html", recipe=recipe, avg=avg)
+
 
 @app.route("/view_recipe/<recipe_id>", methods=['POST', 'GET'])
 def view_recipe(recipe_id):

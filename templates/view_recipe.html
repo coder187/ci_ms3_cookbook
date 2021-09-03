@@ -105,7 +105,7 @@
                     <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped" 
                         data-position = "bottom" data-tooltip = "Pin To Favourite Recipes"
                         id="PinMe"
-                        href="{{ url_for('add_to_pinned', recipe_id=recipe._id) }}">
+                        href="{{ url_for('add_to_pinned', recipe_id=recipe._id, avg=avg) }}">
                         <i class="fas fa-heart"></i></a>
                     
                 </div>
