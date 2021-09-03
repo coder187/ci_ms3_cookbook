@@ -103,7 +103,30 @@ def get_top_recipes(count):
     """
     return top(count) recipe from database
     """
-    return list(mongo.db.recipes.find().limit(count))
+    recipes = list(mongo.db.recipes.find())
+    ratings = []
+
+    for recipe in recipes:
+        ratings.append({"id":recipe["_id"],"avg":calc_avg_rating(recipe)[0]})
+    
+    ratings.sort(key=lambda x: x["avg"], reverse=True) #sort on avg ratings
+    counter = 0
+    top_ten = []
+    for rating in ratings:
+        print (rating["avg"])
+        top_ten.append(rating["id"])
+        counter += 1
+        if counter == (count):
+            break
+    
+    #return list(mongo.db.recipes.find().limit(count))
+    submit ={
+        "_id": {
+            "$in": top_ten
+        }
+    }
+    return list(mongo.db.recipes.find(submit))
+    #db.collection.find( { _id : { $in : [1,2,3,4] } } );
 
 
 def delete_recipes(recipe_id, user_name):
@@ -178,7 +201,7 @@ def get_recipes():
                 "avg": calc_avg_rating(rec)[0]
             })
     return render_template("get_recipes.html", 
-                           top_recipes=get_top_recipes(10), avgs=avgs)
+                           top_recipes=top_recipes, avgs=avgs)
 
 
 @app.route("/search", methods=['POST', 'GET'])
