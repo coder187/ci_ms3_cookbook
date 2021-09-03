@@ -201,7 +201,7 @@ def view_recipe(recipe_id):
                 # create the ratings field
                 # and set element 0 = rating
                 submit = { 
-                    "$set": {"ratings.1": rating} 
+                    "$push": {"ratings": rating} 
                         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
@@ -212,7 +212,6 @@ def view_recipe(recipe_id):
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
-    # check that the user is logged in
     if not session.get("user"):
         return redirect(url_for("login"))
 
@@ -242,7 +241,6 @@ def add_recipe():
             "ratings": ratings
             }
 
-        #try catch
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Saved Successfully")
         
@@ -293,9 +291,8 @@ def edit_recipe(recipe_id):
 
         try:
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
-        except Exception as ex:
+        except Exception:
             flash("Could Not Reach The Database-Please Try Again Later.")
-            # log(ex)
         else:
             flash("Recipe Udated Successfully.")
             return redirect(url_for('mycookbook', username=session["user"]))
