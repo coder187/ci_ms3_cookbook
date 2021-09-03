@@ -138,7 +138,14 @@
                 </div>        
             </div> <!-- end row 6-->
                 {% endif %}
+            {% else %}
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <p>Please create an <a href="{{ url_for('register')}}" >account</a> or <a href="{{ url_for('login')}}" >login</a> to save this recipe. Its Free!</p>
+                    </div>
+                </div>
             {% endif %}
+            
             <div class="row"> <!-- row 7 NAV -->
                 <div class="col s4 center-align">
                     Prev
