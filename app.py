@@ -113,7 +113,6 @@ def get_top_recipes(count):
     counter = 0
     top_ten = []
     for rating in ratings:
-        print (rating["avg"])
         top_ten.append(rating["id"])
         counter += 1
         if counter == (count):

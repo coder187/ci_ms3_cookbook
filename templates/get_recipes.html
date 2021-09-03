@@ -101,8 +101,14 @@
                             {% for avg in avgs %}
                                 {% if avg.id == recipe._id  %}
                                     {% if avg.noofavg > 0 %}
-                                        Average Rating
-                                        {{ avg.avg }} out of 5
+                                        
+                                        {% for n in range(avg.avg ) %}
+                                        <i class="fa fa-star"></i>
+                                        {% endfor %}
+                                        {% for n in range((5-avg.avg) ) %}
+                                        <i class="far fa-star"></i>
+                                        {% endfor %}
+                                                                               
                                         from
                                         {{ avg.noofavg }}
                                         ratings
