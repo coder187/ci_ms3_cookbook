@@ -96,6 +96,8 @@
                 </div>
             </div> <!-- end row 4-->
             <hr class="hr_flair">
+            {% if recipe.added_by != session["user"] %}
+
             <div class="row"> <!-- row 5 Pin To Favs -->
                 <div class="col s12 center-align">
                     <p class="dancing_big"> 
@@ -134,6 +136,7 @@
                     </div>
                 </div>        
             </div> <!-- end row 6-->
+            {% endif %}
             <div class="row"> <!-- row 7 NAV -->
                 <div class="col s4 center-align">
                     Prev
