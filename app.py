@@ -57,18 +57,22 @@ def calc_avg_rating(recipe):
     except Exception as ex:
         return [0, 0]
     else:
-        arr_len = len(ratings)
-        if arr_len == 0:
-            return [0, 0]
+        if ratings is not None:
+            arr_len = len(ratings)
+            if arr_len == 0:
+                return [0, 0]
 
-        total = 0
-        for rat in ratings:
-            total = total + int(rat)
+            total = 0
+            for rat in ratings:
+                total = total + int(rat)
         
-        if total != 0:
-            avg = total/arr_len
+            if total != 0:
+                avg = total/arr_len
+            else:
+                avg = 0
         else:
             avg = 0
+            arr_len = 0
 
         return [int(avg), arr_len]
 
@@ -166,9 +170,42 @@ def search():
     return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
 
 
-@app.route("/view_recipe/<recipe_id>")
+@app.route("/view_recipe/<recipe_id>", methods=['POST', 'GET'])
 def view_recipe(recipe_id):
     recipe = get_one_recipe(recipe_id)
+    if request.method == "POST":
+        rating = request.form.get("test5")
+        if rating is not None:
+            try:
+                ratings = recipe["ratings"]
+            except Exception:
+                ratings = []
+
+            if ratings is not None:
+                ratings.append(rating)
+                submit = {
+                    "$set":
+                    {
+                    "ratings": ratings
+                    }
+                }
+            else:
+                submit = { 
+                    "$unset": {"ratings":""}
+                        }
+                # the ratings field is set to null so 
+                # remove the ratings field as I cant figure
+                # out how to update a null value to array.   
+                mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+
+                # create the ratings field
+                # and set element 0 = rating
+                submit = { 
+                    "$set": {"ratings.1": rating} 
+                        }
+
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+
     avg = calc_avg_rating(recipe)
     return render_template("view_recipe.html", recipe=recipe, avg=avg)
 

@@ -115,9 +115,11 @@
                     </div>
                     <div class="row">
                         <div class="col s6 push-s3 center-align">
-                            <form action="#"> 
+                            <form                       
+                            action="{{ url_for('view_recipe', recipe_id=recipe._id) }}" 
+                            method="POST"> 
                                 <p class="range-field">
-                                  <input type="range" id="test5" min="1" max="5"/>
+                                  <input type="range" id="test5" name="test5" min="1" max="5"/>
                                   <button type="submit" class="col s12 btn Blue darken-4 text-shadow">
                                     Rate! <i class="fas fa-star"></i>
                                     </button>
