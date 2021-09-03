@@ -187,6 +187,18 @@ def search():
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
 
+@app.route("/remove_pinned/<recipe_id>")
+def remove_pinned(recipe_id):
+
+    if session.get("user") is not None:
+        submit = { "$pull": {"pinned": session["user"]} }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe Removed from your Favourites")
+        return redirect(url_for('mycookbook', username=session["user"]))
+    else:
+        flash("Please Login To Update Your Cookbook")
+        return redirect(url_for("login"))
+
 
 @app.route("/add_to_pinned/<recipe_id>")
 def add_to_pinned(recipe_id):
@@ -200,7 +212,8 @@ def add_to_pinned(recipe_id):
     else:
         flash("Please Login To Update Your Cookbook")
 
-    return render_template("view_recipe.html", recipe=recipe, avg=avg)
+    # return render_template("view_recipe.html", recipe=recipe, avg=avg)
+    return redirect(url_for('view_recipe', recipe_id=recipe_id))
 
 
 @app.route("/view_recipe/<recipe_id>", methods=['POST', 'GET'])
@@ -238,8 +251,8 @@ def view_recipe(recipe_id):
                         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
-
-    flash("Thank You For Rating This Recipe")
+        flash("Thank You For Rating This Recipe")
+        
     avg = calc_avg_rating(recipe)
     return render_template("view_recipe.html", recipe=recipe, avg=avg)
 
@@ -291,7 +304,7 @@ def mycookbook(username):
         user = session.get('user')
         my_recipes = list(mongo.db.recipes.find({"added_by": user}))
         my_pinned = list(mongo.db.recipes.find({"pinned": {"$all": [user]}}))
-        
+
         return render_template("mycookbook.html", username=session["user"],
                                my_recipes=my_recipes,
                                my_pinned=my_pinned)
