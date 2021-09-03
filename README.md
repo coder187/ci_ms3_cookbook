@@ -232,6 +232,8 @@ http://clipart-library.com/clipart/qTBX5L59c.htm
     404 nav to dummy page
     400 set debug = False. import abort from flask. add line abort(400).
     500 set debug = False. remove 400 error handler.
+
+    recipes should only be rateable once per user.
     
     
 ### Content

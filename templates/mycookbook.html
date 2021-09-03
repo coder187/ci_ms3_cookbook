@@ -88,4 +88,12 @@
         </li>
         {% endfor %}
     </ul>
+    {% if not my_pinned %}
+    <p>
+        It looks like you have not added a recipe to your favourites. Click 
+        <a href="{{ url_for('get_recipes')}}" class="">
+            here
+        </a> to get inspired.
+    </p>
+    {% endif%}
 {% endblock%}
