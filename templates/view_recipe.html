@@ -101,8 +101,13 @@
                     <p class="dancing_big"> 
                             Pin To Favs
                     </p>
-                    <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped" data-position = "bottom" data-tooltip = "Pin To Favourite Recipes">
+                    
+                    <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped" 
+                        data-position = "bottom" data-tooltip = "Pin To Favourite Recipes"
+                        id="PinMe"
+                        href="{{ url_for('add_to_pinned', recipe_id=recipe._id) }}">
                         <i class="fas fa-heart"></i></a>
+                    
                 </div>
             </div> <!-- end row 5-->
             <hr class="hr_flair">

@@ -170,6 +170,14 @@ def search():
     return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
 
 
+@app.route("/add_to_pinned/<recipe_id>")
+def add_to_pinned(recipe_id):
+    print ("pinned")
+    recipe = get_one_recipe(recipe_id)
+    avg = calc_avg_rating(recipe)
+    flash("Recipe Pinned to your Favourites")
+    return render_template("view_recipe.html", recipe=recipe, avg=avg)
+
 @app.route("/view_recipe/<recipe_id>", methods=['POST', 'GET'])
 def view_recipe(recipe_id):
     recipe = get_one_recipe(recipe_id)
@@ -206,6 +214,7 @@ def view_recipe(recipe_id):
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
 
+    flash("Thank You For Rating This Recipe")
     avg = calc_avg_rating(recipe)
     return render_template("view_recipe.html", recipe=recipe, avg=avg)
 
