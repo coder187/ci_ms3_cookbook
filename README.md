@@ -235,6 +235,7 @@ http://clipart-library.com/clipart/qTBX5L59c.htm
 
     recipes should only be rateable once per user.
     
+    test for pinned abd rate for current user/ no user / diff user
     
 ### Content
 The website 
