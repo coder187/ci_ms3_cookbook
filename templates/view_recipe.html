@@ -34,7 +34,7 @@
                     <img src="{{ recipe.image_url }}" alt="recipe image">
                 </div>            <!--end right col-->
             </div>
-            <hr>
+            <hr class="hr_flair">
             <div class="row"> <!-- row 2 -->
                 <div class="col">
                     {{ recipe.descr }}
@@ -67,7 +67,7 @@
                 </div><!-- end col -->
             </div><!-- end row 3-->
 
-            <hr>
+            <hr class="hr_flair">
             <div class="row"> <!-- row 4 Ing & Method-->
                 <div class="col m6">
                     <div class="dancing_big">Ingredients</div>
@@ -95,19 +95,39 @@
                     
                 </div>
             </div> <!-- end row 4-->
-            <hr>
+            <hr class="hr_flair">
             <div class="row"> <!-- row 5 Pin To Favs -->
                 <div class="col s12 center-align">
+                    <p class="dancing_big"> 
+                            Pin To Favs
+                    </p>
                     <a class="btn-floating btn-large waves-effect waves-light red darken-4 tooltipped" data-position = "bottom" data-tooltip = "Pin To Favourite Recipes">
                         <i class="fas fa-heart"></i></a>
                 </div>
             </div> <!-- end row 5-->
-            <div class="row"> <!-- row 6 Nav-->
-                <div class="col s12 center-align">
-                    Please Rate This Recipe
-                </div> 
+            <hr class="hr_flair">
+            <div class="row rate-me"> <!-- row 6 Rate Me-->
+                <div class="col s12">
+                    <div class="row">
+                        <div class="col s12 center-align dancing_big">
+                            Please Rate Me
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s6 push-s3 center-align">
+                            <form action="#"> 
+                                <p class="range-field">
+                                  <input type="range" id="test5" min="1" max="5"/>
+                                  <button type="submit" class="col s12 btn Blue darken-4 text-shadow">
+                                    Rate! <i class="fas fa-star"></i>
+                                    </button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>        
             </div> <!-- end row 6-->
-            <div class="row"> <!-- row 7-->
+            <div class="row"> <!-- row 7 NAV -->
                 <div class="col s4 center-align">
                     Prev
                 </div> 

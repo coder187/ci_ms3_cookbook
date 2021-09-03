@@ -157,12 +157,39 @@ hr{
   font-size: 30px;
 }
 
-
-
 .head{
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
 }
+
+.rate-me{
+  padding: 0px;
+  margin: 0px;
+  border:0px;
+}
+
+/* Flaired edges, by Tomas Theunissen */
+
+
+.hr_flair {
+  overflow: visible; /* For IE */
+  height: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+.hr_flair:before { /* Not really supposed to work, but does */
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
 /*
 .card{
   height: 400px;

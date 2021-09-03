@@ -28,8 +28,7 @@ def utility_processor():
         the method string
         '''
         o = str
-        if len(str) > 6:           
-            
+        if len(str) > 6:
             if str.lower().find("step", 0, 4) != -1:
                 o = str[4:]
 
