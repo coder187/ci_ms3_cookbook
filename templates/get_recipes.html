@@ -143,19 +143,22 @@
            <ul class="collapsible">
             {% for recipe in all_recipes %}
             <li>
-                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                <div class="collapsible-header white-black  text-shadow">
                     <div class="col s9">
                         {{ recipe.name }}
                     </div>
                     <div class="col s3">
                         <i class="fas fa-caret-down"></i>
-                        <a href="{{ url_for('view_recipe',recipe_id=recipe._id) }}" class="btn-small green accent-4">View</a>
+                        <!--view-->
+                        <a href="{{ url_for('view_recipe',recipe_id=recipe._id) }}" class="recipe-action-view"><i class="fas fa-binoculars"></i></a>
                         {% if session.get("user") %}
                             {%if session.get("user").lower() == recipe.added_by %}
-                                <a href="{{ url_for('edit_recipe',recipe_id=recipe._id) }}" class="btn-small green accent-4">Edit</a>
+                                <!--Edit-->
+                                <a href="{{ url_for('edit_recipe',recipe_id=recipe._id) }}" class="recipe-action-edit" style="color:blue"><i class="far fa-edit"></i></a>
                             {% endif %}
                             {%if session.get("user").lower() == "admin" %}
-                                <a href="#" class="btn-small red accent-4">Delete</a>
+                                <!--Delete-->
+                                <a href="#" class="recipe-action-delete" style="color:lightsalmon"><i class="far fa-trash-alt"></i></a>
                             {% endif %}
                         {% endif %}
                         

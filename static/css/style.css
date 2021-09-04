@@ -100,7 +100,19 @@
   margin:5px;
   line-height:42px;
 }
+.recipe-action-view
+{
+  color:#1b5e20;
+}
+.recipe-action-edit
+{
+  color:#0000FF;
+}
 
+.recipe-action-delete
+{
+  color:#FFA07A;
+}
 .ratings{
   padding:2px;
 }
