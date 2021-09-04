@@ -200,6 +200,16 @@ hr{
 .recipe_count img{
   height: 20px;
 }
+
+.pinnedusers ul li{
+    display:inline;
+  
+}
+
+.pinnedusers .ico{
+  color:red;
+}
+
 /*###############footer#################*/
 /*social */
 #footer {
