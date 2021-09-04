@@ -215,7 +215,7 @@ def get_recipes():
                 "noofavg": calc_avg_rating(rec)[1],
                 "avg": calc_avg_rating(rec)[0]
             })
-    return render_template("get_recipes.html", 
+    return render_template("get_recipes.html",
                            top_recipes=top_recipes, avgs=avgs)
 
 
@@ -487,12 +487,19 @@ def dashboard():
     user_recs = []
     for user in users:
         user_recs.append({"user": user["username"], "recs": 
-                        CountRecipesForUser(user["username"])})
-    for user_rec in user_recs:
-        print(user_rec)
+                         CountRecipesForUser(user["username"])})
+    avgs = []
+    for rec in recipes:
+        avgs.append(
+            {
+                "id": rec["_id"],
+                "noofavg": calc_avg_rating(rec)[1],
+                "avg": calc_avg_rating(rec)[0]
+            })
 
-
-    return render_template("dashboard.html",users=users, recipes=recipes, allergens=allergens,user_recs=user_recs)
+    return render_template("dashboard.html",users=users, recipes=recipes,
+                           allergens=allergens, user_recs=user_recs,
+                           avgs=avgs)
 
 
 @app.route("/add_allergen.html", methods=['POST', 'GET'])
