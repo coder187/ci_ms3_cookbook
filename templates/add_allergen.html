@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% block content%}
+<h3 class="light-blue-text text-darken-4 center-align">Add Allergen</h3>
+
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('add_allergen') }}">
+
+        <!-- Allergen -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="allergen" type="text" name="allergen" minlength="2" maxlength="50" class="validate"
+                    required>
+                <label for="allergen">Allergen</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit" class="btn-large light-blue darken-1 text-shadow">Save Allergen</button>
+        </div>
+    </form>
+{% endblock%}

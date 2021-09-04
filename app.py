@@ -466,13 +466,28 @@ def dashboard():
     if session["user"].lower() != "admin":
         return redirect(url_for("login"))
 
-
     users = get_users()
     recipes = list(mongo.db.recipes.find())
     allergens = get_allergens()
 
-    return render_template("dashboard.html",users=users,recipes=recipes,allergens=allergens)
+    return render_template("dashboard.html",users=users, recipes=recipes, allergens=allergens)
 
+
+@app.route("/add_allergen.html", methods=['POST', 'GET'])
+def add_allergen():
+    if session["user"].lower() != "admin":
+        return redirect(url_for("login"))
+
+    if request.method == "POST":
+        allergen = {
+            "allergen": request.form.get("allergen")
+            }
+
+        mongo.db.allergens.insert_one(allergen)
+        flash("Allergen Saved Successfully")
+        
+        return redirect(url_for("dashboard"))
+    return render_template("add_allergen.html")
 
     
 # set host and ip from env.py
