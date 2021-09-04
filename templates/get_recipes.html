@@ -134,4 +134,79 @@
         </div>
     </div>
 </section>   
+<hr>
+<section><!-- List All Recipes-->
+    <h3 class="center-align dancing">All Recipes</h3>
+    <div class="row">
+        <div class="col s12">
+           <!-- recipes -->
+           <ul class="collapsible">
+            {% for recipe in all_recipes %}
+            <li>
+                <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                    <div class="col s9">
+                        {{ recipe.name }}
+                    </div>
+                    <div class="col s3">
+                        <i class="fas fa-caret-down"></i>
+                        <a href="{{ url_for('view_recipe',recipe_id=recipe._id) }}" class="btn-small green accent-4">View</a>
+                        {% if session.get("user") %}
+                            {%if session.get("user").lower() == recipe.added_by %}
+                                <a href="{{ url_for('edit_recipe',recipe_id=recipe._id) }}" class="btn-small green accent-4">Edit</a>
+                            {% endif %}
+                            {%if session.get("user").lower() == "admin" %}
+                                <a href="#" class="btn-small red accent-4">Delete</a>
+                            {% endif %}
+                        {% endif %}
+                        
+                    </div>
+              
+                </div>  
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col">
+                                {{ recipe.descr }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s8">
+                                {% for avg in avgs %}
+                                    {% if avg.id == recipe._id  %}
+                                        {% if avg.noofavg > 0 %}
+                                            {% for n in range(avg.avg ) %}
+                                            <i class="far fa-star"></i>
+                                            {% endfor %}
+                                        from
+                                        {{ avg.noofavg }}
+                                        ratings
+                                    {% else %} 
+                                        Not Rated Yet
+                                    {% endif %}      
+                                {% endif %}      
+                              {% endfor %}
+                            </div>
+                            <div class="col s4 pinnedusers">
+                                <i class="far fa-heart ico"></i> by {{ recipe.pinned|length }} users.
+                                    <ul>
+                                        {% for r in recipe.pinned %}
+                                            {% if loop.index < 11 %}
+                                                <li>
+                                                    {{ r }}
+                                                </li>
+                                            {% else %}
+                                                <p>remaing users hidden...</p>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+
+
+</section>
 {% endblock %}

@@ -207,6 +207,8 @@ def internal_server_error(e):
 @app.route("/get_recipes.html")
 def get_recipes():
     top_recipes = get_top_recipes(10)
+    all_recipes = list(mongo.db.recipes.find().sort("name", 1))
+    
     avgs = []
     for rec in top_recipes:
         avgs.append(
@@ -216,7 +218,8 @@ def get_recipes():
                 "avg": calc_avg_rating(rec)[0]
             })
     return render_template("get_recipes.html",
-                           top_recipes=top_recipes, avgs=avgs)
+                           top_recipes=top_recipes, avgs=avgs,
+                           all_recipes=all_recipes)
 
 
 @app.route("/search", methods=['POST', 'GET'])
