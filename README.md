@@ -240,6 +240,8 @@ http://clipart-library.com/clipart/qTBX5L59c.htm
     add tags/chips/ to recipe
 
     add text area to edit method ingredients
+
+    ref integ re allergen delete
     
 ### Content
 The website 
