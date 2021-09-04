@@ -39,7 +39,24 @@
                   
                     </div>  
                         <div class="collapsible-body">
-                            {{ user.email }}
+                            <div class="row">
+                                {{ user.email }}
+                            </div>
+                            <div class="row recipe_count">
+                                    <p>Recipes:</p>
+                                    {% for user_rec in user_recs %}
+                                        {% if user_rec.user == user.username %}
+                                            {% if user_rec.recs >  0 %}
+                                                {% for n in range(user_rec.recs) %}
+                                                    <img src="../static/images/chefs_hat.png" alt="chefs hat = number of recipes">
+                                                {% endfor %}
+                                            {% else %}
+                                                <p>Nothing to see here</p>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                            </div>
+                            
                         </div>
                 </li>
                 {% endfor %}

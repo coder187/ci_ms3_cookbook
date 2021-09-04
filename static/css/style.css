@@ -192,6 +192,10 @@ hr{
 }
 
 
+/*###############dashboard#################*/
+.recipe_count img{
+  height: 20px;
+}
 /*###############footer#################*/
 /*social */
 #footer {

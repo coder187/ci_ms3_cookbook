@@ -118,14 +118,12 @@ def get_top_recipes(count):
         if counter == (count):
             break
     
-    #return list(mongo.db.recipes.find().limit(count))
     submit ={
         "_id": {
             "$in": top_ten
         }
     }
     return list(mongo.db.recipes.find(submit))
-    #db.collection.find( { _id : { $in : [1,2,3,4] } } );
 
 
 def delete_recipes(recipe_id, user_name):
@@ -180,6 +178,14 @@ def get_users():
     from the database
     """
     return list(mongo.db.users.find().sort("user_name", 1))
+
+def CountRecipesForUser(user_name):
+    """
+    return an count of
+    users recipes
+    """
+
+    return mongo.db.recipes.find({"added_by": user_name}).count()
 
 
 @app.errorhandler(400)
@@ -469,8 +475,15 @@ def dashboard():
     users = get_users()
     recipes = list(mongo.db.recipes.find())
     allergens = get_allergens()
+    user_recs = []
+    for user in users:
+        user_recs.append({"user": user["username"], "recs": 
+                        CountRecipesForUser(user["username"])})
+    for user_rec in user_recs:
+        print(user_rec)
 
-    return render_template("dashboard.html",users=users, recipes=recipes, allergens=allergens)
+
+    return render_template("dashboard.html",users=users, recipes=recipes, allergens=allergens,user_recs=user_recs)
 
 
 @app.route("/add_allergen.html", methods=['POST', 'GET'])
