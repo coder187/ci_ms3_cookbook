@@ -43,7 +43,7 @@
         <div class="row">
             <div class="input-field col l3">
                 <i class="fas fa-cookie-bite prefix light-blue-text text-darken-4"></i>
-                <select id="serves" name="serves" class="validate" required>
+                <select id="serves" name="serves" class="validate">
                     <option value="" disabled selected>Serves</option>
                     {%- for index in range(0, 10) -%}
                         <option value="{{loop.index}}">{{loop.index}}</option>
@@ -55,7 +55,7 @@
             <!-- Select Difficulty -->
             <div class="input-field col l3">
                 <i class="fas fa-cookie prefix light-blue-text text-darken-4"></i>
-                <select id="difficulty" name="difficulty" class="validate" required>
+                <select id="difficulty" name="difficulty" class="validate">
                     <option value="" disabled selected>Choose Difficulty</option>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
