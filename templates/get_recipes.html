@@ -194,7 +194,8 @@
                                             {% for r in recipe.pinned %}
                                                 {%if session.get("user") == r %}
                                                  Un-pin From Your Collection?
-                                                    <a href="#" class="recipe-action-delete"><i class="fas fa-heart-broken"></i></a>
+                                                    <a href="{{ url_for('remove_pinned',recipe_id=recipe._id) }}" 
+                                                        class="recipe-action-delete"><i class="fas fa-heart-broken"></i></a>
                                                 {% endif %}
                                             {% endfor %}              
                                         {% endif %}

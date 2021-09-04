@@ -232,7 +232,7 @@ def search():
 def remove_pinned(recipe_id):
 
     if session.get("user") is not None:
-        submit = { "$pull": {"pinned": session["user"]} }
+        submit = {"$pull": {"pinned": session["user"]}}
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Removed from your Favourites")
         return redirect(url_for('mycookbook', username=session["user"]))
