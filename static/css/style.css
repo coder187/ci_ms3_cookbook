@@ -22,9 +22,6 @@
   font-family: 'Dancing Script', cursive;
 }
 
-
-
-
 #hero-image{
   height: 600px;
   width:100%;
@@ -32,12 +29,11 @@
 }
 
 #hero-outer{
-  height:600px; /*same as #hero-image */
-  width: 100%; /*same as #hero-image */
-  overflow: hidden; /*also clear:both; this brings the background imae undet the logo and nav elements.*/
+  height:600px; 
+  width: 100%; 
+  overflow: hidden; 
   position: relative;
 }
-
 
 #cover-text {
     color: #FFFFFF;
@@ -52,36 +48,26 @@
     padding: 40px 10px 0px 10px;
     background-color:rgba(27, 94, 32, 0.7); 
   
-    /* placve in fixed position: relatuve to parent container */
-    bottom: 100px; /* 30px aboce bottom of hero image */
-    right: 100px; /* 150px from right of hero image */
+    bottom: 100px; 
+    right: 100px; 
   
-    position:absolute; /*fix in place by settinh positin absolute */
-    /*note the parent container mus thave
-    position:relative; "hero-outer" */
+    position:absolute;
   }
 
   #hero-search {
     height: 50px;
     width: 25%;
-    
-    
     background: rgba(0, 0, 0, 0.5);
     color:#ffff;
-
     border-radius: 50px;
     text-transform: none;
-
-  
-  /* placve in fixed position: relatuve to parent container */
     bottom: 250px; 
     position:absolute; 
     left: 0;
     right: 0;
     margin: auto;
-  
-    
   }
+
   #hero-search .input {
     background:transparent;
     color:#ffff;
@@ -116,7 +102,7 @@
 }
 
 .ratings{
-  padding:10px;
+  padding:2px;
 }
 hr{
   border:1px solid #777777;
@@ -126,7 +112,6 @@ hr{
 
 
 /*###############view recipe#################*/
-
 .recipe_view{
   border: 2px solid greenyellow;
   font-family: 'Poppins', sans-serif;
@@ -170,8 +155,6 @@ hr{
 }
 
 /* Flaired edges, by Tomas Theunissen */
-
-
 .hr_flair {
   overflow: visible; /* For IE */
   height: 30px;
@@ -191,17 +174,25 @@ hr{
   border-radius: 20px;
 }
 
-/*
-.card{
-  height: 400px;
-}
-.card-image, img{
-  max-height: 150px;
-  min-height: 150px;
-}
-*/
 
-/*footer */
+/*###############cookbook#################*/
+.cookbook-card{
+
+  height:400px;
+
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.card-image{
+  height: 50%;  
+  overflow: hidden;
+}
+
+
+/*###############footer#################*/
 /*social */
 #footer {
   color:black;
@@ -229,6 +220,18 @@ hr{
 }
 
 
+/*###############media queries#################*/
+
+@media screen and (max-width:1445px){
+  .cookbook-card{
+
+  font-weight: 200px;
+  letter-spacing: 0px;
+
+  }
+
+}
+
 @media only screen and (max-width: 1175px) {
 
   #hero-search {
@@ -236,6 +239,8 @@ hr{
   }
 
 }
+
+
 /*screens < desktop */
 @media screen and (max-width: 992px){
 
@@ -262,4 +267,4 @@ hr{
     margin:0;
     border:0;
   }
-}
+}  
