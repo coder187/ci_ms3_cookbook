@@ -243,6 +243,8 @@ http://clipart-library.com/clipart/qTBX5L59c.htm
 
     ref integ re allergen delete
     
+    add recipe bug - cant add if no drop selected - no notifcztion
+    
 ### Content
 The website 
 

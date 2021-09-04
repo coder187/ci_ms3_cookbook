@@ -87,7 +87,7 @@
     <div class="row">
         <div class="col s12">
            <!-- recipes -->
-           <ul class="collapsible">
+            <ul class="collapsible">
             {% for recipe in recipes %}
             <li>
                 <div class="collapsible-header white-text light-blue darken-4 text-shadow">
@@ -96,25 +96,45 @@
                     </div>
                     <div class="col s3">
                         <i class="fas fa-caret-down"></i>
-                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id, redirect_to='dashboard') }}" class="btn-small red accent-4">Delete</a>
+                            
                         <a href="{{ url_for('view_recipe',recipe_id=recipe._id) }}" class="btn-small green accent-4">View</a>
-                    </div>
-              
-                </div>  
-                    <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col">
-                                {{ recipe.descr }}
+
+                            <!-- Delete Recipe -->
+                            <!-- Modal Trigger -->
+                        <a href="#modal_rec_{{loop.index}}" 
+                                class="secondary-content modal-trigger btn-small red accent-4">Delete</a>
+
+                            <!-- Modal Structure -->
+                        <div id="modal_rec_{{loop.index}}" class="modal">
+                            <div class="modal-content" style="color:limegreen;">
+                                <h4>Delete Recipe</h4>
+                                <p>
+                                <h4>Are you sure?</h4>
+                                </p>
+                            </div>
+                        
+                            <div class="modal-footer">
+                                <a href="{{ url_for('delete_recipe',recipe_id=recipe._id,redirect_to='dashboard')}}" 
+                                    class="modal-close waves-effect waves-green btn-flat">Okay</a>
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col s8">
-                                {% for avg in avgs %}
-                                    {% if avg.id == recipe._id  %}
-                                        {% if avg.noofavg > 0 %}
-                                            {% for n in range(avg.avg ) %}
+                    </div>    
+                </div>  
+                <div class="collapsible-body">
+                    <div class="row">
+                        <div class="col">
+                            {{ recipe.descr }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s8">
+                            {% for avg in avgs %}
+                                {% if avg.id == recipe._id  %}
+                                    {% if avg.noofavg > 0 %}
+                                        {% for n in range(avg.avg ) %}
                                             <i class="far fa-star"></i>
-                                            {% endfor %}
+                                        {% endfor %}
                                         from
                                         {{ avg.noofavg }}
                                         ratings
@@ -122,27 +142,28 @@
                                         Not Rated Yet
                                     {% endif %}      
                                 {% endif %}      
-                              {% endfor %}
-                            </div>
-                            <div class="col s4 pinnedusers">
-                                <i class="far fa-heart ico"></i> by {{ recipe.pinned|length }} users.
-                                    <ul>
-                                        {% for r in recipe.pinned %}
-                                            {% if loop.index < 11 %}
-                                                <li>
-                                                    {{ r }}
-                                                </li>
-                                            {% else %}
-                                                <p>remaing users hidden...</p>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col s4 pinnedusers">
+                            <i class="far fa-heart ico"></i> 
+                            by {{ recipe.pinned|length }} users.
+                            <ul>
+                                {% for r in recipe.pinned %}
+                                    {% if loop.index < 11 %}
+                                        <li>
+                                        {{ r }}
+                                        </li>
+                                    {% else %}
+                                        <p>remaing users hidden...</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
+                </div>
             </li>
             {% endfor %}
-        </ul>
+            </ul>
         </div>
     </div>
 {% endblock %}

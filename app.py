@@ -397,7 +397,9 @@ def edit_recipe(recipe_id):
         if not allergen["allergen"] in selected_allergens:
             not_selected.append(allergen["allergen"])
 
-    return render_template("edit_recipe.html", recipe=recipe, selected_allergens=selected_allergens, not_selected=not_selected,difficulty=difficulty)
+    return render_template("edit_recipe.html", recipe=recipe, 
+                           selected_allergens=selected_allergens, 
+                           not_selected=not_selected,difficulty=difficulty)
 
 
 @app.route("/delete_allergen/<allergen_id>")
