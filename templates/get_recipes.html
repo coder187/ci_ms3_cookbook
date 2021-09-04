@@ -154,11 +154,11 @@
                         {% if session.get("user") %}
                             {%if session.get("user").lower() == recipe.added_by %}
                                 <!--Edit-->
-                                <a href="{{ url_for('edit_recipe',recipe_id=recipe._id) }}" class="recipe-action-edit" style="color:blue"><i class="far fa-edit"></i></a>
+                                <a href="{{ url_for('edit_recipe',recipe_id=recipe._id) }}" class="recipe-action-edit"><i class="far fa-edit"></i></a>
                             {% endif %}
                             {%if session.get("user").lower() == "admin" %}
                                 <!--Delete-->
-                                <a href="#" class="recipe-action-delete" style="color:lightsalmon"><i class="far fa-trash-alt"></i></a>
+                                <a href="#" class="recipe-action-delete"><i class="far fa-trash-alt"></i></a>
                             {% endif %}
                         {% endif %}
                         
@@ -190,17 +190,14 @@
                             </div>
                             <div class="col s4 pinnedusers">
                                 <i class="far fa-heart ico"></i> by {{ recipe.pinned|length }} users.
-                                    <ul>
-                                        {% for r in recipe.pinned %}
-                                            {% if loop.index < 11 %}
-                                                <li>
-                                                    {{ r }}
-                                                </li>
-                                            {% else %}
-                                                <p>remaing users hidden...</p>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
+                                        {% if session.get("user") %}
+                                            {% for r in recipe.pinned %}
+                                                {%if session.get("user") == r %}
+                                                 Un-pin From Your Collection?
+                                                    <a href="#" class="recipe-action-delete"><i class="fas fa-heart-broken"></i></a>
+                                                {% endif %}
+                                            {% endfor %}              
+                                        {% endif %}
                             </div>
                         </div>
                     </div>
