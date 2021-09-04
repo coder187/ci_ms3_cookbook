@@ -191,6 +191,10 @@ hr{
   overflow: hidden;
 }
 
+.cookbook-card .modal-content{ 
+  color: black;
+}
+
 
 /*###############dashboard#################*/
 .recipe_count img{

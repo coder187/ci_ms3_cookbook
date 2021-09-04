@@ -397,6 +397,15 @@ def edit_recipe(recipe_id):
     return render_template("edit_recipe.html", recipe=recipe, selected_allergens=selected_allergens, not_selected=not_selected,difficulty=difficulty)
 
 
+@app.route("/delete_allergen/<allergen_id>")
+def delete_allergen(allergen_id):
+
+    mongo.db.allergens.remove({"_id": ObjectId(allergen_id)})
+    flash("Allergen Deleted Successfully")
+    
+    return redirect(url_for("dashboard"))
+
+
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     res = delete_recipes(recipe_id, "")
