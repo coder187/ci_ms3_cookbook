@@ -409,8 +409,8 @@ def delete_allergen(allergen_id):
     return redirect(url_for("dashboard"))
 
 
-@app.route("/delete_recipe/<recipe_id>")
-def delete_recipe(recipe_id):
+@app.route("/delete_recipe/<recipe_id>/<redirect_to>")
+def delete_recipe(recipe_id, redirect_to):
     res = delete_recipes(recipe_id, "")
     if res > 0:
         flash("Recipe Deleted Successfully")
@@ -418,7 +418,7 @@ def delete_recipe(recipe_id):
         flash("Recipe Delete Failed")
 
     if res >= 0:
-        return redirect(url_for("mycookbook",username=session["user"]))
+        return redirect(url_for(redirect_to,username=session["user"]))
     elif res == -1:
         flash("You Need To Login To Perform This Action")
         return redirect(url_for("login"))
@@ -440,7 +440,7 @@ def login():
                     flash("Welcome, {}".format(request.form.get("username")))
                     session["user"] = request.form.get("username").lower()
 
-                    return redirect(url_for("mycookbook",username=session["user"]))
+                    return redirect(url_for("mycookbook", username=session["user"], redirect_to="mycookbook"))
                     
             else:
                 flash("Username and/or Password Incorrect")
