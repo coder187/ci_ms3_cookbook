@@ -238,6 +238,8 @@ http://clipart-library.com/clipart/qTBX5L59c.htm
     test for pinned abd rate for current user/ no user / diff user
 
     add tags/chips/ to recipe
+
+    add text area to edit method ingredients
     
 ### Content
 The website 

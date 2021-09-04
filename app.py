@@ -163,6 +163,7 @@ def delete_recipes(recipe_id, user_name):
     else:
         return 1
 
+
 def get_allergens():
     """
     return an ordered
@@ -170,6 +171,15 @@ def get_allergens():
     from the database
     """
     return list(mongo.db.allergens.find().sort("allergen", 1))
+
+
+def get_users():
+    """
+    return an ordered
+    list of users
+    from the database
+    """
+    return list(mongo.db.users.find().sort("user_name", 1))
 
 
 @app.errorhandler(400)
@@ -451,7 +461,20 @@ def register():
     
     return render_template("register.html")
 
+@app.route("/dashboard.html", methods=['POST', 'GET'])
+def dashboard():
+    if session["user"].lower() != "admin":
+        return redirect(url_for("login"))
 
+
+    users = get_users()
+    recipes = list(mongo.db.recipes.find())
+    allergens = get_allergens()
+
+    return render_template("dashboard.html",users=users,recipes=recipes,allergens=allergens)
+
+
+    
 # set host and ip from env.py
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

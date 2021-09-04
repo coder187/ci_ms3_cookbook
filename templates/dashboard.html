@@ -1,0 +1,31 @@
+{% extends "base.html"%}
+{% block content %}
+<h3 class="light-blue-text text-darken-4 center-align">Manage Allergens</h3>
+<div class="row">
+    <div class="col 12">
+      
+    </div>
+
+    <div class="col s12">
+        {% for allergen in allergens %}
+
+        {% endfor %}
+    </div>
+</div>
+<h3 class="light-blue-text text-darken-4 center-align">Manage Users</h3>
+<div class="row">
+    <div class="col s12">
+        {% for user in users %}
+
+        {% endfor %}
+    </div>
+</div>
+<h3 class="light-blue-text text-darken-4 center-align">Manage Recipes</h3>
+<div class="row">
+    <div class="col s12">
+        {% for recipe in recipes %}
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

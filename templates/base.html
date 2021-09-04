@@ -27,7 +27,7 @@
                     {% endif %}
                       
                     {% if session.user|lower == "admin" %}
-                      <li><a href="#">Dashboard</a></li>
+                      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     {% endif %}
                     {% if session.user %}
                       <li><a href="{{ url_for('logout') }}">Log Out</a></li>
@@ -50,7 +50,7 @@
             {% endif %}
             
             {% if session.user|lower == "admin" %}
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
             {% endif %}
             {% if session.user %}
               <li><a href="{{ url_for('logout') }}">Log Out</a></li>
