@@ -161,9 +161,17 @@ I tested the site layout using physical devices as follows:
 7. As a Frequent Visitor, I want to view and compare nutritional data on each recipe.
     * *Not implemented yet.*
 
-  ![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/userStories_MS2_1.png)
-  ![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/userStories_MS2_2.png)   
-  ![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/userStories_MS2_3.png)   
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_1.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_2.png)   
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_3.png)   
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_4.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_5_profile.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_6_add.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_7_edit.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_8_view1.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_9_view2.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_10_dash1.png)
+  ![](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/us/user_st_11_dash2.png)
 
 
 ### Further Testing
