@@ -34,7 +34,7 @@ def utility_processor():
 
             if str.lower().find("step ", 0, 5) != -1:
                 o = str[6:]
-            
+
             while o[0:1].isnumeric():
                 o = (o[1:])
 
@@ -83,7 +83,7 @@ def calc_avg_rating(recipe):
             total = 0
             for rat in ratings:
                 total = total + int(rat)
-        
+
             if total != 0:
                 avg = total/arr_len
             else:
@@ -107,9 +107,14 @@ def get_top_recipes(count):
     ratings = []
 
     for recipe in recipes:
-        ratings.append({"id": recipe["_id"],"avg": calc_avg_rating(recipe)[0]})
-    
-    ratings.sort(key=lambda x: x["avg"], reverse=True) #sort on avg ratings
+        ratings.append(
+            {
+                "id": recipe["_id"],
+                "avg": calc_avg_rating(recipe)[0]
+                }
+            )
+
+    ratings.sort(key=lambda x: x["avg"], reverse=True)  # sort on avg ratings
     counter = 0
     top_ten = []
     for rating in ratings:
@@ -117,8 +122,8 @@ def get_top_recipes(count):
         counter += 1
         if counter == (count):
             break
-    
-    submit ={
+
+    submit = {
         "_id": {
             "$in": top_ten
         }
@@ -129,7 +134,7 @@ def get_top_recipes(count):
 def delete_userpins(username):
     try:
         submit = {"$pull": {"pinned": username}}
-        ret = mongo.db.recipes.update_many({}, submit)
+        mongo.db.recipes.update_many({}, submit)
     except Exception:
         return 0
     else:
@@ -161,7 +166,7 @@ def delete_recipes(recipe_id, user_name):
             if not recipe:
                 return -3
             recipe_owner = recipe["added_by"]
-            if (session["user"].lower() != recipe_owner.lower() 
+            if (session["user"].lower() != recipe_owner.lower()
                     and session["user"] != "admin"):
                 return -2
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -187,6 +192,7 @@ def get_users():
     from the database
     """
     return list(mongo.db.users.find().sort("user_name", 1))
+
 
 def CountRecipesForUser(user_name):
     """
@@ -217,7 +223,7 @@ def internal_server_error(e):
 def get_recipes():
     top_recipes = get_top_recipes(10)
     all_recipes = list(mongo.db.recipes.find().sort("name", 1))
-    
+
     avgs = []
     for rec in top_recipes:
         avgs.append(
@@ -235,7 +241,10 @@ def get_recipes():
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("get_recipes.html", top_recipes=get_top_recipes(10), recipes=recipes)
+    return render_template("get_recipes.html",
+                           top_recipes=get_top_recipes(10),
+                           recipes=recipes)
+
 
 @app.route("/remove_pinned/<recipe_id>")
 def remove_pinned(recipe_id):
@@ -256,7 +265,7 @@ def add_to_pinned(recipe_id):
     avg = calc_avg_rating(recipe)
     if session.get("user") is not None:
         if not reciped_pinned(recipe, session["user"]):
-            submit = { "$push": {"pinned": session["user"]} }
+            submit = {"$push": {"pinned": session["user"]}}
             mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
             flash("Recipe Pinned to your Favourites")
     else:
@@ -281,30 +290,30 @@ def view_recipe(recipe_id):
                 submit = {
                     "$set":
                     {
-                    "ratings": ratings
+                        "ratings": ratings
                     }
                 }
             else:
-                submit = { 
-                    "$unset": {"ratings":""}
+                submit = {
+                    "$unset": {"ratings": ""}
                         }
-                # the ratings field is set to null so 
+                # the ratings field is set to null so
                 # remove the ratings field as I cant figure
-                # out how to update a null value to array.   
+                # out how to update a null value to array.
                 mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
 
                 # create the ratings field
                 # and set element 0 = rating
-                submit = { 
-                    "$push": {"ratings": rating} 
+                submit = {
+                    "$push": {"ratings": rating}
                         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Thank You For Rating This Recipe")
-        
+
     avg = calc_avg_rating(recipe)
     return render_template("view_recipe.html", recipe=recipe, avg=avg)
-    
+
 
 @app.route("/add_recipe.html", methods=['POST', 'GET'])
 def add_recipe():
@@ -339,10 +348,10 @@ def add_recipe():
 
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Saved Successfully")
-        
+
     # get allergens list from db
     allergens = get_allergens()
-    
+
     return render_template("add_recipe.html", allergens=allergens)
 
 
@@ -396,9 +405,9 @@ def edit_recipe(recipe_id):
             return redirect(url_for('mycookbook', username=session["user"]))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    
+
     difficulty = ["Easy", "Medium", "Hard"]
- 
+
     selected_allergens = recipe["allergens"]    # allergens in this recipe
     not_selected = []                           # allergens not in this recipe
     allergens = get_allergens()                 # all allergens
@@ -406,9 +415,9 @@ def edit_recipe(recipe_id):
         if not allergen["allergen"] in selected_allergens:
             not_selected.append(allergen["allergen"])
 
-    return render_template("edit_recipe.html", recipe=recipe, 
-                           selected_allergens=selected_allergens, 
-                           not_selected=not_selected,difficulty=difficulty)
+    return render_template("edit_recipe.html", recipe=recipe,
+                           selected_allergens=selected_allergens,
+                           not_selected=not_selected, difficulty=difficulty)
 
 
 @app.route("/delete_allergen/<allergen_id>")
@@ -430,7 +439,7 @@ def delete_allergen(allergen_id):
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    
+
     if delete_recipes("", user["username"]) == 1:
         if delete_userpins(user["username"]) == 1:
             try:
@@ -464,9 +473,9 @@ def delete_recipe(recipe_id, redirect_to):
         flash("It looks like this Recipe has already been deleted.")
         return redirect(url_for("login"))
     else:
-        flash("You Need To Be An Admin Or The Recipe Owner To Perform This Action")
+        flash("You Need To Be An Admin Or The \
+                Recipe Owner To Perform This Action")
         return redirect(url_for("login"))
-
 
 
 @app.route("/login.html", methods=['POST', 'GET'])
@@ -474,15 +483,16 @@ def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             if check_password_hash(
-                existing_user["password"],request.form.get("password")):
-                    flash("Welcome, {}".format(request.form.get("username")))
-                    session["user"] = request.form.get("username").lower()
+                    existing_user["password"], request.form.get("password")):
+                flash("Welcome, {}".format(request.form.get("username")))
+                session["user"] = request.form.get("username").lower()
 
-                    return redirect(url_for("mycookbook", username=session["user"], redirect_to="mycookbook"))
-                    
+                return redirect(url_for("mycookbook",
+                                username=session["user"],
+                                redirect_to="mycookbook"))
             else:
                 flash("Username and/or Password Incorrect")
         else:
@@ -497,16 +507,17 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
 @app.route("/register.html", methods=['POST', 'GET'])
 def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             flash("Username already exists!")
             return redirect(url_for("register"))
-        
+
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
@@ -516,9 +527,10 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Reistration Successful")
-        return render_template("mycookbook.html",username=session["user"])
-    
+        return render_template("mycookbook.html", username=session["user"])
+
     return render_template("register.html")
+
 
 @app.route("/dashboard.html", methods=['POST', 'GET'])
 def dashboard():
@@ -533,7 +545,7 @@ def dashboard():
     allergens = get_allergens()
     user_recs = []
     for user in users:
-        user_recs.append({"user": user["username"], "recs": 
+        user_recs.append({"user": user["username"], "recs":
                          CountRecipesForUser(user["username"])})
     avgs = []
     for rec in recipes:
@@ -544,7 +556,7 @@ def dashboard():
                 "avg": calc_avg_rating(rec)[0]
             })
 
-    return render_template("dashboard.html",users=users, recipes=recipes,
+    return render_template("dashboard.html", users=users, recipes=recipes,
                            allergens=allergens, user_recs=user_recs,
                            avgs=avgs)
 
@@ -561,13 +573,13 @@ def add_allergen():
 
         mongo.db.allergens.insert_one(allergen)
         flash("Allergen Saved Successfully")
-        
+
         return redirect(url_for("dashboard"))
     return render_template("add_allergen.html")
 
-    
+
 # set host and ip from env.py
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
