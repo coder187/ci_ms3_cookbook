@@ -5,8 +5,6 @@
 
 Project - Python and Data Centric Development - Code Institute
 
-
-
 ## User Experience (UX)
 ### Scope
 #### User stories
