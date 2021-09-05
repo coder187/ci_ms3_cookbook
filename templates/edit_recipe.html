@@ -32,7 +32,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <select id="allergens" name="allergens" class="validate" multiple required>
+                <select id="allergens" name="allergens" class="validate" multiple>
                     <option value="" disabled selected>Choose allergens</option>
                     {% for allergen in selected_allergens %}
                         <option value="{{allergen}}" selected> {{allergen}} </option>
@@ -51,7 +51,7 @@
         <div class="row">
             <div class="input-field col l3">
                 <i class="fas fa-cookie-bite prefix light-blue-text text-darken-4"></i>
-                <select id="serves" name="serves" class="validate" required>
+                <select id="serves" name="serves" class="validate">
                     <option value="" disabled selected>Serves</option>
                     {%- for index in range(1, 11) -%}
                         {% if recipe.serves|int == index %}
@@ -67,7 +67,7 @@
             <!-- Select Difficulty -->
             <div class="input-field col l3">
                 <i class="fas fa-cookie prefix light-blue-text text-darken-4"></i>
-                <select id="difficulty" name="difficulty" class="validate" required>
+                <select id="difficulty" name="difficulty" class="validate">
                     <option value="" disabled selected>Choose Difficulty</option>
                         {% for diff in difficulty %}
                             {% if recipe.difficulty == diff %}

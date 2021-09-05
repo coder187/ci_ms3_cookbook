@@ -136,27 +136,25 @@ def delete_recipes(recipe_id, user_name):
     # you must either be an admin
     # or the recipe owner to delete a recipe
 
-    recipe = get_one_recipe(recipe_id)
-    recipe_owner = recipe["added_by"]
-
     if session.get("user") is None:
+        flash("You Must Login To Perform This Action")
         return -1
-
-    if session["user"].lower() != recipe_owner.lower() and session["user"] != "admin":
-        return -2
 
     try:
         if user_name:
-            print("user")
-            print (ObjectId(recipe_id))
+            if session["user"] != "admin":
+                flash("You Must Login As Admin Perform This Action")
+                return -2   
             mongo.db.recipes.remove({"added_by": user_name})
         else:
-            print("no user")
-            print (ObjectId(recipe_id))
-            print (recipe_id)
+            recipe = get_one_recipe(recipe_id)
+            if not recipe:
+                return -3
+            recipe_owner = recipe["added_by"]
+            if session["user"].lower() != recipe_owner.lower() and session["user"] != "admin":
+                return -2
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    except:
-        # log ex
+    except Exception:
         return 0
     else:
         return 1
@@ -404,10 +402,31 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_allergen/<allergen_id>")
 def delete_allergen(allergen_id):
+    if session.get("user") is None:
+        flash("You must login as Admin to perform this action")
+        return redirect(url_for("login"))
+
+    if session["user"].lower() != "admin":
+        flash("You must login as Admin to perform this action")
+        return redirect(url_for("login"))
 
     mongo.db.allergens.remove({"_id": ObjectId(allergen_id)})
     flash("Allergen Deleted Successfully")
+
+    return redirect(url_for("dashboard"))
+
+
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     
+    if delete_recipes("", user["username"]) == 1:
+        try:
+            mongo.db.users.remove({"_id": ObjectId(user_id)})
+        except Exception:
+            flash("Failed To Delete User")
+        else:
+            flash("User Deleted")
     return redirect(url_for("dashboard"))
 
 
@@ -420,9 +439,12 @@ def delete_recipe(recipe_id, redirect_to):
         flash("Recipe Delete Failed")
 
     if res >= 0:
-        return redirect(url_for(redirect_to,username=session["user"]))
+        return redirect(url_for(redirect_to, username=session["user"]))
     elif res == -1:
         flash("You Need To Login To Perform This Action")
+        return redirect(url_for("login"))
+    elif res == -3:
+        flash("It looks like this Recipe has already been deleted.")
         return redirect(url_for("login"))
     else:
         flash("You Need To Be An Admin Or The Recipe Owner To Perform This Action")
@@ -483,6 +505,9 @@ def register():
 
 @app.route("/dashboard.html", methods=['POST', 'GET'])
 def dashboard():
+    if session.get("user") is None:
+        return redirect(url_for("login"))
+
     if session["user"].lower() != "admin":
         return redirect(url_for("login"))
 

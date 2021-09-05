@@ -54,7 +54,28 @@
                         </div>
                         <div class="col s3">
                             <i class="fas fa-caret-down"></i>
-                            <a href="" class="btn-small red accent-4">Delete</a>
+                                <!-- Delete User -->
+                                <!-- Modal Trigger -->
+                                <a href="#modal_user_{{loop.index}}"
+                                    class="secondary-content modal-trigger btn-small red accent-4">Delete</a>
+
+                                <!-- Modal Structure -->
+                                <div id="modal_user_{{loop.index}}" class="modal">
+                                    <div class="modal-content user-delete">
+                                        <h4>Delete User</h4>
+                                        <p>
+                                            This action will delete the users profile <br>
+                                            and all recipes created by that user. 
+                                            <h4>Are you sure?</h4>
+                                        </p>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <a href="{{ url_for('delete_user',user_id=user._id,redirect_to='dashboard')}}"
+                                            class="modal-close waves-effect waves-green btn-flat">Okay</a>
+                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                                    </div>
+                            </div>
                         </div>
                   
                     </div>  
