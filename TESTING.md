@@ -10,7 +10,7 @@ Project - Backend Development - Code Institute
 ## Testing
 
 ### W3C Validators
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. Please note, that the edit_recipe page has a small number of errors which I believe are due to 1. materialize css and 2. the dynamic creation of controls are runtime. I will come back to fix these.
 
 *   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/) 
     * [Home Page](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/home.png)
@@ -19,6 +19,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     * [My CookBook](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/profile.png)
     * [View Recipe ](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/view_recipe.png)
     * [Add Recipe ](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/add_recipe.png)
+    * [Edit Recipe ](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/edit.png)
     * [Dashboard](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/dashboard.png)   
     *  [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/css_validate.png)
 
