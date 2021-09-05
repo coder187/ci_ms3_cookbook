@@ -91,9 +91,9 @@ Pinned Recipes are stored as an array of usernames in the Pinned field.
   
   * Mobile Home [View]( https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Mobile%20Home.png)
 
-  * Profile Tablet [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/tablet_profile.jpg)
+  * Profile Tablet [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/tablet_profile.jpg)
 
-  * Profile Desktop [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/c8867e3d3f2cd9d067ca604fab029a3683e7d507/supp/wireframes/desktop_profile.jpg)
+  * Profile Desktop [View](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/desktop_profile.jpg)
 
     Home Page: Main Page with search function & List od all recipes in the system.
     Register. 
