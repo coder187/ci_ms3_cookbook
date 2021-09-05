@@ -169,6 +169,7 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss frame
 1. The input text box for the recipe Method on the add recipe page are numbered but they need to be styled so that they more visible.
 1. Users can rate the same recipes more than once.
 1. Referential Integrity is not enforced for Allergen Delete.
+1. Style element embedded to allow narrow margins on home page.
 
 ## Credits
 ### Code
