@@ -38,10 +38,43 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss frame
   * Ability to import recipe details from another website.
   * Api integration with a service such as Edamam to allow automatic nitrional information to be displayed per recipe.
   * Add Tags or Chips to allow easy recipe tagging and searching.
+  * I will refactor the code to use ObjectIds as foreign key fields.
   
   https://developer.edamam.com/
   
 ### Data Model
+
+**users**  
+List of registered users.  
+Passwords are hashed.  
+The username field is stored in the added_by field of the recipe collection.
+
+| id      | username | email | password |
+| ----------- | ---------------- | -------| -----|
+| objectid | string | string |string|
+
+**allergens**
+List of allergens.  
+The allergen text is stored in the recipe collection.
+| id      | allergen | 
+| ----------- | ---------------- | 
+| objectid | string | 
+
+**recipes**
+| id     | name |descr | added_by | added | allergens | difficulty | serves | image_url | ingredients| method|prep time|cook time|ratings|pinned|
+| ---- | ---- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |-------- |-------- | -------- |-------- | ------|------|
+| objectid | string | string | string | string | array(String) |array(String)| string  |array(string) |array(string)|array(string)|string |string| array(String)| array(String)
+
+Note:  
+Python arrays persist their order and   
+MongoDB Persists the order of [Array type fields](https://docs.mongodb.com/manual/core/document/#document-field-order)
+
+This allows for Method Steps to be stored as an array without needing to store the Step Number.
+The steps will always be read back in the same order they were entered.
+
+Each Rating is inserted as an integer to an array in the Ratings field.
+
+Pinned Recipes are stored as an array of usernames in the Pinned field.
 
 ## Skeleton
 
@@ -140,7 +173,7 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss frame
 ## Testing
 [Link to Testing.md file]()
 Testing
-H
+http://pep8online.com/
                           
 ## Deployment
 ### Heroku
