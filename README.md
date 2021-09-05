@@ -190,6 +190,20 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss frame
 ## Data Licensing\Terms of Use
 -   Recipes and recipe images were copied from the [BBC Good Food website](https://www.bbcgoodfood.com/).
 
+## Test User Accounts
+* Admin User 
+    * user:admin
+    * password:12345
+
+* Normal User 
+    * user:jonathan
+    * password:12345
+
+* Normal User 
+    * user:sadie
+    * password:12345
+
+
 ## Acknowledgements	
 -   My Mentor for continuous helpful feedback.
 
