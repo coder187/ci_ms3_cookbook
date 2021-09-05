@@ -243,6 +243,6 @@ Pinned Recipes are stored as an array of usernames in the Pinned field.
 
 -   Tutor support at Code Institute for their support.
 
-**Please note : this project is for educational use only and was created for the Code Institute Module of Backend Development Milestone Project**
+**Please note : this project is for educational use only and was created for the Code Institute Module of Data Centric Development  Milestone Project**
 
 **Created by Jonathan Kelly**
