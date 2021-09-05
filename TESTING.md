@@ -5,12 +5,12 @@
                               
 
 
-Project - Backend Development - Code Institute
+Project - Data Centric Development - Code Institute
 
 ## Testing
 
 ### W3C Validators
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. Please note, that the edit_recipe page has a small number of errors which I believe are due to 1. materialize css and 2. the dynamic creation of controls are runtime. I will come back to fix these.
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. Please note, that the edit_recipe page has a small number of errors which I believe are due to 1. materialize css and 2. the dynamic creation of controls are runtime. I will come back to fix these.Data Centric Development
 
 *   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/) 
     * [Home Page](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/home.png)
@@ -59,6 +59,13 @@ The TDD method consists of a cycle of :
 | Add Allergen Add/Delete function. | Only the admin user may add or delete an Allergen entry in the Allergen collection.| Pass ||
 | Add Recipe Delete function. | Only the admin user may delete a recipe.| Pass ||
 | Add User Delete function. | Only the admin user may delete a user. All recipes created by that user are delete. All pinned items for that user are removed.| Pass ||
+| Navigate to nonexistent page. | You are redirected to friendly custom 404 error page. |Pass ||
+| Call abort(400) | You are redirected to friendly custom 400 error page.  |Pass ||
+| Remove 400 Err Handler and Call abort(400)| You are redirected to friendly custom 500 error page. |Pass ||
+| Capture url for valid request requiring user authtentication, logout and send url | User is redirected to login page. |Pass ||
+
+
+
 
 ### Responsive Design
 I tested the site layout using the built in  Chrome Dev Tools with following device emulation:
