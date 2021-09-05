@@ -1,4 +1,4 @@
-﻿# Covid-19 Tracker
+﻿# MyCookBook
 [Link to live site on Heroku](https://ci-cookbook.herokuapp.com/)
 
 [Link to main README.md file](https://github.com/coder187/ci_ms3_cookbook/blob/main/README.md)
