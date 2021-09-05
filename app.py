@@ -72,7 +72,7 @@ def calc_avg_rating(recipe):
     # instead trap the error and return
     try:
         ratings = recipe["ratings"]
-    except Exception as ex:
+    except Exception:
         return [0, 0]
     else:
         if ratings is not None:
@@ -107,7 +107,7 @@ def get_top_recipes(count):
     ratings = []
 
     for recipe in recipes:
-        ratings.append({"id":recipe["_id"],"avg":calc_avg_rating(recipe)[0]})
+        ratings.append({"id": recipe["_id"],"avg": calc_avg_rating(recipe)[0]})
     
     ratings.sort(key=lambda x: x["avg"], reverse=True) #sort on avg ratings
     counter = 0
@@ -124,6 +124,16 @@ def get_top_recipes(count):
         }
     }
     return list(mongo.db.recipes.find(submit))
+
+
+def delete_userpins(username):
+    try:
+        submit = {"$pull": {"pinned": username}}
+        ret = mongo.db.recipes.update_many({}, submit)
+    except Exception:
+        return 0
+    else:
+        return 1
 
 
 def delete_recipes(recipe_id, user_name):
@@ -144,14 +154,15 @@ def delete_recipes(recipe_id, user_name):
         if user_name:
             if session["user"] != "admin":
                 flash("You Must Login As Admin Perform This Action")
-                return -2   
+                return -2
             mongo.db.recipes.remove({"added_by": user_name})
         else:
             recipe = get_one_recipe(recipe_id)
             if not recipe:
                 return -3
             recipe_owner = recipe["added_by"]
-            if session["user"].lower() != recipe_owner.lower() and session["user"] != "admin":
+            if (session["user"].lower() != recipe_owner.lower() 
+                    and session["user"] != "admin"):
                 return -2
             mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     except Exception:
@@ -421,12 +432,18 @@ def delete_user(user_id):
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     
     if delete_recipes("", user["username"]) == 1:
-        try:
-            mongo.db.users.remove({"_id": ObjectId(user_id)})
-        except Exception:
-            flash("Failed To Delete User")
+        if delete_userpins(user["username"]) == 1:
+            try:
+                mongo.db.users.remove({"_id": ObjectId(user_id)})
+            except Exception:
+                flash("Failed To Delete User")
+            else:
+                flash("User Deleted")
         else:
-            flash("User Deleted")
+            flash("Failed To Delete User")
+    else:
+        flash("Failed To Delete User")
+
     return redirect(url_for("dashboard"))
 
 
