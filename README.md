@@ -171,9 +171,7 @@ Pinned Recipes are stored as an array of usernames in the Pinned field.
     - Screen Grab of site on various devices.
 
 ## Testing
-[Link to Testing.md file]()
-Testing
-http://pep8online.com/
+[Link to Testing.md file](https://github.com/coder187/ci_ms3_cookbook/blob/main/TESTING.md)
                           
 ## Deployment
 ### Heroku
@@ -199,7 +197,6 @@ http://pep8online.com/
 ![](https://docs.github.com/assets/images/help/repository/code-button.png)
 3. Click **Download Zip**
 4. Extract the downloaded file to the location where you want the cloned directory.
-5. Note: A CORS Plugin may be needed to run the system locally.
 
 ## Known Bugs
 1. The input text box for the recipe Method on the add recipe page should be larger to accomdate more text.
@@ -214,7 +211,7 @@ http://pep8online.com/
   * Code Institute Courseware
   * [Stackoverflow](https://stackoverflow.com/) for help with debugging css and javascript.
   * [Jinja Docs](https://jinja.palletsprojects.com/) to learn jinja templating and routing.
-  * This project takes inspiration from the TaskMan walkthtough project.
+  * This project takes inspiration from the TaskMan walkthrough project.
 
 ### Media
   * I used code from [http://jsfiddle.net/SirusDoma/ayf832td/](http://jsfiddle.net/SirusDoma/ayf832td/) to help with password validation
@@ -246,7 +243,6 @@ http://pep8online.com/
 
 -   Tutor support at Code Institute for their support.
 
--   
 **Please note : this project is for educational use only and was created for the Code Institute Module of Backend Development Milestone Project**
 
 **Created by Jonathan Kelly**
