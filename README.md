@@ -1,8 +1,5 @@
 ![Cookbook Image](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/cookbook.png)
 
-
-# unfinished
-
 # MyCookbook Flask MongoDB CI MS3 App
 [Link to live site](https://ci-cookbook.herokuapp.com/)
 
@@ -23,22 +20,29 @@ Project - Python and Data Centric Development - Code Institute
 
 ## Structure
 ### Technical Capabilities
-HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my core strengths in regards to this project.
+HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss framework and are my core strengths in regards to this project.
 
 ### Features
   * Responsive on all devices.
   * Individual User Profiles
-  * Admin User can add/edit/delete categories.
-  * Users can add/edit/delete recipes
-  * Users cab rate their own and other users recipes.
-  * Search function, search by recipe name, description, difficulty, allergens
-  *	Users can pin recipes to their profile page to easly find later.
-  *
+  * Admin User can add/delete Allergen Data.
+  * Admin User can delete Recipes.
+  * Admin User can delete User Profiles.
+  * Users can add/edit/delete recipes.
+  * Users can rate other users recipes.
+  * Users can pin other users recipes to the favourites section of their own profile..
+  * Search function, search by recipe name and description.
+  * Rating system allows users to rate each recipe.
+
+  
    
 ### Features Left To Implement In Future
-  * 
-  * 
-
+  * Ability to import recipe details from another website.
+  * Api integration with a service such as Edamam to allow automatic nitrional information to be displayed per recipe.
+  * Add Tags or Chips to allow easy recipe tagging and searching.
+  
+  https://developer.edamam.com/
+  
 ## Skeleton
 
 ### Wireframes
@@ -55,23 +59,24 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
   * Mobile Home [View]( https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/wireframes/Mobile%20Home.png)
 
 
-    Home Page: Main Page with search function.
+    Home Page: Main Page with search function & List od all recipes in the system.
     Register. 
     Login Page.
     Profile Page (MyCookBook): List of the users recipes. List of Users pinned recipes.
-    Recipe Page: Show Recipe
-    Add/Edit Recipe:    
-    Admin Page: Add Edit Allergens List / Add Edit Tags List. Delete Recipe. Delete User.
+    Add/Edit/Delete Recipe: Users can add new, edit existing and delete their own recipes.
+    Admin Page: Add Edit Allergens List. Delete Recipe. Delete User.
         
 
 ## Surface
 
 ### Design
   * Colour Scheme	
-    
+    I chose green/blue as the main site color palette as I though it matched well with the domain material and hero image.
   * Typography
+    Poppins as the main font and Dancing for a little flair. Both from Google Fonts 
    * Imagery
-    
+    Hero image of kitchen table with empty notebook helps convey the sites main goal.
+    Food and cookery themed icons and images throughout the website help bring the application to life.
   
 ## Technologies
 #### Languages Used
@@ -89,17 +94,13 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 1. [HTML5](https://www.w3.org/)
 1. [CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
 1. [Javascript](https://www.javascript.com/) 
-1. [Bootstrap 4.4.1:](https://getbootstrap.com/docs/4.4/getting-started/introduction/)
-    - Bootstrap was used to assist with the responsiveness and styling of the website.
-1. [Hover.css:](https://ianlunn.github.io/Hover/)
-    - Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
+1. [Materializecss:](https://materializecss.com/)
+    - Materializecss was used to assist with the responsiveness and styling of the website.
 1. [Google Fonts:](https://fonts.google.com/)
     - Google fonts were used to import the 'Prompt' font into the style.css file which is used on all pages throughout the project.
 1. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was to add icons for aesthetic and UX purposes.
 1. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive.
-    - Email JS was used to add email send capability to the website.
 1. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
@@ -140,11 +141,11 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 [Link to Testing.md file]()
                           
 ## Deployment
-###
+### Heroku
 1. Add requrirements.txt file to project with "pip3 freeze > requiremnets.txt"
 1. Add Procfile to project.
 1. Push changes to github
-1. On HEROKU.com, navigate to the site's repository @ [https://github.com/coder187/covidtracker](https://
+1. On HEROKU.com, navigate to the site's repository @ [https://github.com/coder187/ci_ms3_cookbook](https://github.com/coder187/ci_ms3_cookbook)
 1. New App
 1. Name must be unique.
 1. Select Region
@@ -155,39 +156,10 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with framework and are my
 1. Settings / Reveal Config Vars
 1. Add Env.py config variables
 1. Select Open App button from Heroku dashboard.
-  
-### GitHub Pages
-1. On GitHub, navigate to the site's repository @ [https://github.com/coder187/covidtracker](https://github.com/coder187/covidtracker)
-1. Under your repository name, click **Settings**.
-![](https://docs.github.com/assets/images/help/repository/repo-actions-settings.png)
-1. Under "GitHub Pages", click **Check it out here!**
-1. Under "GitHub Pages", use the **None** or **Branch** drop-down menu and select a publishing source of **Main Branch**.
-![](https://docs.github.com/assets/images/help/pages/publishing-source-drop-down.png)
-1. Optionally, use the drop-down menu to select a folder for your publishing source.
-![](https://docs.github.com/assets/images/help/pages/publishing-source-folder-drop-down.png)
-1. Click **Save**.
 
-### Deploy Locally via GIT
-1. On GitHub, navigate to the main page of the repository [https://github.com/coder187/covidtracker](https://github.com/coder187/covidtracker)
-2. Above the list of files, click Code.
-![](https://docs.github.com/assets/images/help/repository/code-button.png)
-3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link text or click the icon to right. 
-To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, 
-click **Use SSH**, then copy the link or click the icon.
-To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the link text.
-![](https://docs.github.com/assets/images/help/repository/https-url-clone.png)
-![](https://docs.github.com/assets/images/help/repository/https-url-clone-cli.png)
-4. Open Git Bash (or command prompt on Windows. Note you will need [GIT](https://git-scm.com/download/win) for Windows
-5. Change the current working directory to the location where you want the cloned directory.
-6. Type ```git clone``` and then paste the URL you copied earlier.\
-```$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY```
-7. Press **Enter** to create your local clone.
-8. Note: A CORS Plugin may be needed to run the system locally.
-
-### Heroku
 
 ### Deploy Locally via zip file download
-1. On GitHub, navigate to the main page of the repository @ [https://github.com/coder187/covidtracker](https://github.com/coder187/covidtracker)
+1. On GitHub, navigate to the main page of the repository @ [https://github.com/coder187/ci_ms3_cookbook](https://github.com/coder187/ci_ms3_cookbook)
 2. Above the list of files, click Code.
 ![](https://docs.github.com/assets/images/help/repository/code-button.png)
 3. Click **Download Zip**
@@ -195,66 +167,29 @@ To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the 
 5. Note: A CORS Plugin may be needed to run the system locally.
 
 ## Known Bugs
-*
-note: after dynamic add of method step to edit page, the label method step nums are not created.
-note: method order
-https://www.w3.org/TR/html401/interact/forms.html#form-data-set
-states that name value pairs will be read as they appear in the docunent
-
-Python arrays persist their order
-
-MongoDB Persists the order of Array type fields
-https://docs.mongodb.com/manual/core/document/#document-field-order
-
-testing -- check that a user is logged in before showing the add recipe page.
-
-chefs hat
-http://clipart-library.com/clipart/qTBX5L59c.htm
+1. The input text box for the recipe Method on the add recipe page should be larger to accomdate more text.
+1. The input text box for the recipe Method on the add recipe page are numbered but they need to be styled so that they more visible.
+1. Users can rate the same recipes more than once.
+1. Referential Integrity is not enforced for Allergen Delete.
 
 ## Credits
 ### Code
-  * Jonathan Kelly for Code Institute Milestone Project Two.
+  * Jonathan Kelly for Code Institute Milestone Project Three.
   * Code Institute Courseware
-  
   * [Stackoverflow](https://stackoverflow.com/) for help with debugging css and javascript.
-  * 404 redirect functionality from [Slack post](https://app.slack.com/client/T0L30B202/C7J2ZAVHB/thread/C7J2ZAVHB-1598280091.096500)
-  * no inmage place holder from iStockPhoto.com
-
-    password validation:
-    http://jsfiddle.net/SirusDoma/ayf832td/
-
-    404 Error Page:
-   https://lottiefiles.com/marketplace/the-ultimate-404-error-page
-    
-
-    REM SET DEBUG = FALSE FOR LIVE.
-    test error handlers
-    404 nav to dummy page
-    400 set debug = False. import abort from flask. add line abort(400).
-    500 set debug = False. remove 400 error handler.
-
-    recipes should only be rateable once per user.
-    
-    test for pinned abd rate for current user/ no user / diff user
-
-    add tags/chips/ to recipe
-
-    add text area to edit method ingredients
-
-    ref integ re allergen delete
-    
-    add recipe bug - cant add if no drop selected - no notifcztion
-    
-### Content
-The website 
+  * [Jinja Docs](https://jinja.palletsprojects.com/) to learn jinja templating and routing.
+  * This project takes inspiration from the TaskMan walkthtough project.
 
 ### Media
-  - The hero image is from [ECDC](https://www.ecdc.europa.eu/en) website
-  - The background audio is from the PC game Defcon produced by [Introversion Software](https://www.introversion.co.uk/introversion/)
-  - The website icon is taken from the [United Nations website](https://www.un.org/en/file/45419).
+  * I used code from [http://jsfiddle.net/SirusDoma/ayf832td/](http://jsfiddle.net/SirusDoma/ayf832td/) to help with password validation
+  * I used images from [Lottiefiles](https://lottiefiles.com/marketplace/the-ultimate-404-error-page) for error pages.
+  * Hero image is from [Pexels](https://www.pexels.com/search/cooking/) for error pages.
+  * Chefs hat from [Clipart-Library](http://clipart-library.com/free-online-clipart.html).
+  * No-Image image from [iStockPhoto.com](https://www.istockphoto.com/).
 
+  
 ## Data Licensing\Terms of Use
-
+-   Recipes and recipe images were copied from the [BBC Good Food website](https://www.bbcgoodfood.com/).
 
 ## Acknowledgements	
 -   My Mentor for continuous helpful feedback.
@@ -262,6 +197,6 @@ The website
 -   Tutor support at Code Institute for their support.
 
 -   
-**Please note : this project is for educational use only and was created for the Code Institute Module of Python and Data Centric Development**
+**Please note : this project is for educational use only and was created for the Code Institute Module of Backend Development Milestone Project**
 
 **Created by Jonathan Kelly**
