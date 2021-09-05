@@ -13,21 +13,16 @@ Project - Backend Development - Code Institute
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
 *   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/) 
-    * [Home Page](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/screenie/html_index_validation.png)
-    * [Sign Up](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/html_signup_validation.png)
-    * [Sources](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/html_sources_validation.png)
-    * [Conf ](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/html_conf_validation.png)
-    * [Fail ](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/html_fail_validation.png)
-*   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/CSS_VALIDATION.png)
+    * [Home Page](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/home.png)
+    * [Sign Up](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/register.png)
+    * [Login](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/login.png)
+    * [My CookBook](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/profile.png)
+    * [View Recipe ](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/view_recipe.png)
+    * [Add Recipe ](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/add_recipe.png)
+    * [Dashboard](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/dashboard.png)   
+    *  [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) - [Results](https://raw.githubusercontent.com/coder187/ci_ms3_cookbook/main/supp/images/screenie/css_validate.png)
 
 
-
-### Check ALT Tags
-I used [SEO CHECKUP](https://seositecheckup.com/) to verify all image alt tags were present.
-![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/seositecheckup.png)
-
-### Spelling
-I used [https://typosaur.us/](https://typosaur.us/) & MS Word to check pages for spelling errors.
 
 ### Testing planning.
 With this project I have use Test [Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) model (TDD).
@@ -149,29 +144,28 @@ I tested the site layout using physical devices as follows:
 #### First Time Visitor Goals
 1. As a First Time Visitor, I want to easily understand the main purpose of the site.
     * The website title is clearly displayed in top left of the window, and maintains its position on scroll.
-    * The index page clearly displays top level stats together with a map of the Republic of Ireland.
 2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-    * The website navigation bar is displayed at the top of all pages and maintains its position on scroll.
+    * The website navigation bar is displayed at the top of all pages.
 
 #### Returning Visitor Goals
-3. As a Returning Visitor, I want to see the latest COVID-19 data for Ireland.
-    * Data is updated automatically on page refresh.
-4. As a Returning Visitor, I want to signup for the daily update summary.
-    * Signup.html allows the user subscribe.
+3. As a Returning Visitor, I want to see the latest Recipes added.
+    * Recipes are searchable by name and description.
+4. As a Returning Visitor, I want to view my favourite recipes.
+    * Users can pin recipes to their profile for easy retrival later.
 
 #### Frequent User Goals
-5. As a Frequent Visitor, I want to verify where the data is sourced from.
-    * Information on data provides can be found in Sources.html  
-6. As a Frequent Visitor, I want to see historic data trends.
-    * Historical ICU data is displayed on panel to the left of (or above on mobile) the map.
-7. As a Frequent Visitor, I want to compare ROI data with other countries of interest.
+5. As a Frequent Visitor, I want to view the best rated recipes.
+    * Ratings are disaplayed on the recipe card & the top ten recipes are displayed on a slider.
+6. As a Frequent Visitor, I want to edit and remove old recipes.
+    * Users can edit and delete recipes from their MyCookBook profile page.
+7. As a Frequent Visitor, I want to view and compare nutritional data on each recipe.
     * *Not implemented yet.*
 
   ![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/userStories_MS2_1.png)
   ![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/userStories_MS2_2.png)   
   ![](https://raw.githubusercontent.com/coder187/covidtracker/main/supp/screenie/userStories_MS2_3.png)   
 
+
 ### Further Testing
-  * I want to further enhance the error trapping while processing the rest services response.
-  * Further testing over slow connections.
-  * Lighthouse testing shows very poor score for Performance.
+  * I want to further enhance the error trapping and implement a logging system such that admin users may view a log of activity.
+  
