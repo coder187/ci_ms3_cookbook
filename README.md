@@ -9,9 +9,9 @@ Project - Python and Data Centric Development - Code Institute
 ### Scope
 #### User stories
 1. As a user I want to easily understand the main purpose of the site.
-1. As a user I want to be able to easily navigate throughout the site.#
+1. As a user I want to be able to easily navigate throughout the site.
 1. As a user I want to create a user profile.
-1. As a user I want to add my own recipes.
+1. As a user I want to create and share recipes.
 1. As a user I want to search the database of recipes.
 1. As a user I want to see the nutrional content of each recipe.
 1. As the site owner I want to provide links to an external cooking equipment purchasing application.
@@ -174,6 +174,28 @@ Pinned Recipes are stored as an array of usernames in the Pinned field.
 [Link to Testing.md file](https://github.com/coder187/ci_ms3_cookbook/blob/main/TESTING.md)
                           
 ## Deployment
+### Deploy Locally via GIT
+1. On GitHub, navigate to the main page of the repository [https://github.com/coder187/ci_ms3_cookbook](https://github.com/coder187/ci_ms3_cookbook)
+2. Above the list of files, click Code.
+![](https://docs.github.com/assets/images/help/repository/code-button.png)
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link text or click the icon to right. 
+To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, 
+click **Use SSH**, then copy the link or click the icon.
+To clone a repository using GitHub CLI, click **Use GitHub CLI**, then copy the link text.
+![](https://docs.github.com/assets/images/help/repository/https-url-clone.png)
+![](https://docs.github.com/assets/images/help/repository/https-url-clone-cli.png)
+4. Open Git Bash (or command prompt on Windows. Note you will need [GIT](https://git-scm.com/download/win) for Windows
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type ```git clone``` and then paste the URL you copied earlier.\
+```$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY```
+7. Press **Enter** to create your local clone.
+8. Note: You must create an env.py file to store environment variables:
+    * IP (0.0.0.0, but not recommended for production apps).
+    * PORT 5000
+    * Security Key (for Session Cookie)
+    * MONGODB URI - The URI for your MongoDB Database
+    * MONGODB PASSWORD - The password for your MongoDB Database.
+
 ### Heroku
 1. Add requrirements.txt file to project with "pip3 freeze > requiremnets.txt"
 1. Add Procfile to project.
