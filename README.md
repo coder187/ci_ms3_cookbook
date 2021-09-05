@@ -41,6 +41,8 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss frame
   
   https://developer.edamam.com/
   
+### Data Model
+
 ## Skeleton
 
 ### Wireframes
@@ -137,6 +139,8 @@ HTML5, CCS3, Javascript, Python, Flask & MongoDB along with Materializecss frame
 
 ## Testing
 [Link to Testing.md file]()
+Testing
+H
                           
 ## Deployment
 ### Heroku
